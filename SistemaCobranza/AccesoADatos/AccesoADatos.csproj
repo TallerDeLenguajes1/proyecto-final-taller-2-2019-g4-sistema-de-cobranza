@@ -52,8 +52,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="DeudorABM.cs" />
+    <Compile Include="EmpresaABM.cs" />
     <Compile Include="LogIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistroABM.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="NLog.config">
