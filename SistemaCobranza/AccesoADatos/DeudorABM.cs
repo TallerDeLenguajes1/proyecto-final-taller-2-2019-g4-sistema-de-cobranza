@@ -6,36 +6,34 @@ using System.Threading.Tasks;
 
 namespace AccesoADatos
 {
-    public static class EmpresaABM
+    public static class DeudorABM
     {
-
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
-        public static List<Empresa> listaEmpresas()
+        public static List<Deudor> ListaDeudores()
         {
-            // TODO  verificar conexion y clase empresa 
-
+            // TODO  verificar conexion y clase Deudor 
 
             try
             {
-                List<Empresa> empresas = new List<Empresa>();
-                Empresa empresaX;
+                List<Deudor> Deudors = new List<Deudor>();
+                Deudor deudorX;
                 Conexion con = new Conexion();
                 con.Conectar();
 
-                string sql = "select * from Empresa";
+                string sql = "select * from Deudor";
                 var cmd = new MySqlCommand(sql, con.cn);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
-                    empresaX = new Empresa();
-                    empresaX.Cuit = dr.GetString("cuit");
-                    empresaX.Nombre = dr.GetString("nombre");
-                    empresas.Add(empresaX);
+                    deudorX = new Deudor();
+                    deudorX.Cuit = dr.GetString("cuit");
+                    deudorX.Nombre = dr.GetString("nombre");
+                    Deudors.Add(deudorX);
                 }
                 dr.Close();
                 con.Desconectar();
-                return empresas;
+                return Deudors;
             }
             catch (Exception ex)
             {
@@ -43,18 +41,19 @@ namespace AccesoADatos
             }
         }
 
-        public static void InsertarEmpresa(Empresa empresaX)
+        public static void InsertarDeudor(Deudor deudorX)
         {
 
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(cuit,nombre) values(@Cuit, @Nombre)";
+                string sql = @"Inset into alumno(dni,apellidoNombre,telefono) values(@Dni, @ApellidoNombre, @Telefono)";
                 con.Conectar();
 
                 var cmd = new MySqlCommand(sql, con.cn);
-                cmd.Parameters.AddWithValue("@cuit", empresaX.Cuit);
-                cmd.Parameters.AddWithValue("@Nombre", empresaX.Nombre);
+                cmd.Parameters.AddWithValue("@cuit", deudorX.Dni);
+                cmd.Parameters.AddWithValue("@Nombre", deudorX.Nombre);
+                cmd.Parameters.AddWithValue("@Telefono", deudorX.Telefono);
                 cmd.ExecuteNonQuery();
 
                 con.Desconectar();
@@ -65,27 +64,27 @@ namespace AccesoADatos
             }
         }
 
-        public static Empresa EmpresaPorCuit(string cuit)
+        public static Deudor DeudorPorDni(string dni)
         {
             try
             {
-                Empresa empresaX;
+                Deudor deudorX;
                 Conexion con = new Conexion();
                 con.Conectar();
 
-                string sql = "select * from Empresa where cuit='" + cuit + "'";
+                string sql = "select * from Deudor where cuit='" + dni + "'";
                 var cmd = new MySqlCommand(sql, con.cn);
                 var dr = cmd.ExecuteReader();
 
                 dr.Read();
 
-                empresaX = new Empresa();
-                empresaX.Cuit = dr.GetString("cuit");
-                empresaX.Nombre = dr.GetString("nombre");
+                deudorX = new Deudor();
+                deudorX.Dni = dr.GetString("dni");
+                deudorX.ApellidoNombre = dr.GetString("ApellidoNombre");
 
                 dr.Close();
                 con.Desconectar();
-                return empresaX;
+                return deudorX;
             }
             catch (Exception ex)
             {
@@ -94,6 +93,5 @@ namespace AccesoADatos
 
 
         }
-
     }
 }
