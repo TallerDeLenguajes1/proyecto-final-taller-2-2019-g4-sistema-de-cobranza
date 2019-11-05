@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+using AccesoADatos;
 
 namespace WpfApp
 {
@@ -21,9 +22,11 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        Conexion c = new Conexion();
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

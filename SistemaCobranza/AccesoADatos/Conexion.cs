@@ -15,12 +15,13 @@ namespace AccesoADatos
         public Conexion()
         {
             string str;
-            str = "server=localhost;userid=root;database=";
+            str = "server=localhost;userid=root;database=cobranza";
 
             try
             {
                 connection = new MySqlConnection(str);
                 connection.Open();
+                MessageBox.Show("exito");
             }
             catch (Exception ex)
             {
