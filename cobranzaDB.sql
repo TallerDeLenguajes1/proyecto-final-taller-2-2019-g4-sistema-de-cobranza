@@ -133,7 +133,7 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) DEFAULT NULL,
-  `contraseña` varchar(45) DEFAULT NULL,
+  `contraseña` varchar(50) DEFAULT NULL,
   `nivel` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `user_UNIQUE` (`user`)
@@ -158,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-04 21:15:42
+-- Dump completed on 2019-11-04 21:23:41
