@@ -1,4 +1,0 @@
-C:\Users\santi\Documents\Facultad\Taller de Lenguajes II\Proyecto Final\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\netstandard2.0\AccesoADatos.deps.json
-C:\Users\santi\Documents\Facultad\Taller de Lenguajes II\Proyecto Final\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\netstandard2.0\AccesoADatos.dll
-C:\Users\santi\Documents\Facultad\Taller de Lenguajes II\Proyecto Final\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\netstandard2.0\AccesoADatos.AssemblyInfoInputs.cache
-C:\Users\santi\Documents\Facultad\Taller de Lenguajes II\Proyecto Final\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\netstandard2.0\AccesoADatos.AssemblyInfo.cs
