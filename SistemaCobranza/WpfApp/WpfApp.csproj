@@ -116,5 +116,11 @@
   <ItemGroup>
     <Folder Include="Vistas\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{04D65D24-CEEE-405B-AE96-48E259B7B2CE}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

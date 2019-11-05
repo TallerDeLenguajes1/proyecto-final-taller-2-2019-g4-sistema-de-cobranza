@@ -5,32 +5,37 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using Entidades;
-using System.Windows.Forms;
 using System.Security.Cryptography;
+using System.Windows.Forms;
+using NLog;
 
 namespace AccesoADatos
 {
-    class LogIn
+    class CrearUsuario
     {
+        Conexion c = new Conexion();
         MySqlCommand cmd;
-        MySqlDataReader dr;
         Logger logger = LogManager.GetCurrentClassLogger();
-        public int login(MySqlConnection c, Usuario u)
+        public CrearUsuario(Usuario u)
         {
-            try
+            if(c.Flag == 1)
             {
-                cmd = new MySqlCommand("Select from Usuarios where Usuario=" + u.Nombre, c);
-                dr = cmd.ExecuteReader();
-                string passEnBasedeD = dr["contraseña"].ToString();
-                if (passEnBasedeD != getmd5(u.Contrasena)) MessageBox.Show("Contraseña Incorrecta"); //
-                return Convert.ToInt32(dr["nivel"]);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Usuario incorrecto.", ex.ToString());
-                return 0;
+                try
+                {
+                    string str = getmd5(u.Contrasena);
+                    cmd = new MySqlCommand("Insert into usuario(user,contraseña,nivel) values('" + u.Nombre + "','" + str + "'," + 1 + ")", c.Connection);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("exito 2");
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No sé", ex.ToString());
+                    logger.Error(ex, "Error al Crear Usuario");
+                }
             }
         }
+        
         private string getmd5(string contra)
         {
             MD5 md5Convert = MD5.Create();//Crea el objeto md5

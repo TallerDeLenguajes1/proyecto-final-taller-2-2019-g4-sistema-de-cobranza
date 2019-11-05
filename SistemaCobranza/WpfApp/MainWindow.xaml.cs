@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
 using AccesoADatos;
+using Entidades;
 
 namespace WpfApp
 {
@@ -26,6 +27,14 @@ namespace WpfApp
         public MainWindow()
         {
             InitializeComponent();
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Usuario nuevo = new Usuario();
+            nuevo.Nombre = txbuser.Text;
+            nuevo.Contrasena = txbcontra.Text;
 
         }
     }

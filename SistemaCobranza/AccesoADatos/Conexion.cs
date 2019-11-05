@@ -12,6 +12,16 @@ namespace AccesoADatos
     public class Conexion
     {
         MySqlConnection connection;
+        int flag = 0;
+        public int Flag
+        {
+            get { return flag; }
+        }
+        public MySqlConnection Connection
+        {
+            get { return this.connection; }
+        }
+        Logger logger = LogManager.GetCurrentClassLogger();
         public Conexion()
         {
             string str;
@@ -19,15 +29,16 @@ namespace AccesoADatos
 
             try
             {
-                connection = new MySqlConnection(str);
-                connection.Open();
+                this.connection = new MySqlConnection(str);
+                this.connection.Open();
                 MessageBox.Show("exito");
+                flag = 1;
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se conecto con la base de datos.");
-                Logger logger = LogManager.GetCurrentClassLogger();
                 logger.Error(ex, "No se pudo conectar con la base de datos.");
+                flag = 0;
             }
         }
         public void Close()
@@ -39,7 +50,6 @@ namespace AccesoADatos
             catch (Exception ex)
             {
                 MessageBox.Show("No se conecto con la base de datos.");
-                Logger logger = LogManager.GetCurrentClassLogger();
                 logger.Error(ex, "No se pudo desconectar con la base de datos (tal vez no estaba conectada en primer lugar?).");
             }
             
