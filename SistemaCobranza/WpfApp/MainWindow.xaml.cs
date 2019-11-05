@@ -23,11 +23,9 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        Conexion c = new Conexion();
         public MainWindow()
         {
             InitializeComponent();
-
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -35,7 +33,8 @@ namespace WpfApp
             Usuario nuevo = new Usuario();
             nuevo.Nombre = txbuser.Text;
             nuevo.Contrasena = txbcontra.Text;
-
+            CrearUsuario user = new CrearUsuario();
+            user.Crearuser(nuevo);
         }
     }
 }

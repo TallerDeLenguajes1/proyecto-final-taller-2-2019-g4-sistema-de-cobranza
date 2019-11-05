@@ -11,12 +11,12 @@ using NLog;
 
 namespace AccesoADatos
 {
-    class CrearUsuario
+    public class CrearUsuario
     {
         Conexion c = new Conexion();
         MySqlCommand cmd;
         Logger logger = LogManager.GetCurrentClassLogger();
-        public CrearUsuario(Usuario u)
+        public void Crearuser(Usuario u)
         {
             if(c.Flag == 1)
             {
@@ -50,7 +50,7 @@ namespace AccesoADatos
             {
                 sBuilder.Append(data[i].ToString("x2"));
             }
-
+            md5Convert.Dispose();
             // Y devuelvo la cadena en cadena hexadecimal
             return sBuilder.ToString();
         }

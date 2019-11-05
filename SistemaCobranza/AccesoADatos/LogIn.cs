@@ -7,6 +7,7 @@ using MySql.Data.MySqlClient;
 using Entidades;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using NLog;
 
 namespace AccesoADatos
 {
@@ -45,7 +46,7 @@ namespace AccesoADatos
             {
                 sBuilder.Append(data[i].ToString("x2"));
             }
-
+            md5Convert.Dispose();
             // Y devuelvo la cadena en cadena hexadecimal
             return sBuilder.ToString();
         }
