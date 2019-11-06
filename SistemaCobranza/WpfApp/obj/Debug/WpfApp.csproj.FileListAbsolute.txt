@@ -45,3 +45,6 @@ C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobra
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.pdb
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\bin\Debug\Entidades.dll
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\bin\Debug\Entidades.pdb
+C:\Users\Alumno\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\bin\Debug\WpfApp.exe.config
+C:\Users\Alumno\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.exe
+C:\Users\Alumno\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.pdb
