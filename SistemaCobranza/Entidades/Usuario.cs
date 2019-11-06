@@ -9,10 +9,8 @@ namespace Entidades
 {
     public class Usuario
     {
-        private string nombre { get; set; }
-        private string contrasena { get; set; }
 
-        public string Contrasena { get => contrasena; set => contrasena = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
+        public string Contrasena { get; set; }
+        public string Nombre { get; set; }
     }
 }

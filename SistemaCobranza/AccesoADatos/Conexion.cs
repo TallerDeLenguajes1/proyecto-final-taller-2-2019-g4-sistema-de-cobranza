@@ -31,7 +31,6 @@ namespace AccesoADatos
             {
                 this.connection = new MySqlConnection(str);
                 this.connection.Open();
-                MessageBox.Show("exito");
                 flag = 1;
             }
             catch (Exception ex)
@@ -52,7 +51,7 @@ namespace AccesoADatos
                 MessageBox.Show("No se conecto con la base de datos.");
                 logger.Error(ex, "No se pudo desconectar con la base de datos (tal vez no estaba conectada en primer lugar?).");
             }
-            
+
         }
 
     }
