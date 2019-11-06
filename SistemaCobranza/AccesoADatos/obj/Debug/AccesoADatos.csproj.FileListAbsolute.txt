@@ -42,3 +42,5 @@ C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-201
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.csprojResolveAssemblyReference.cache
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.dll
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.pdb
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Helpers.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Helpers.pdb

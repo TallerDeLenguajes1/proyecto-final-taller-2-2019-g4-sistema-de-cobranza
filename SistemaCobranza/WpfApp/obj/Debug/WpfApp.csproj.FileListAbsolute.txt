@@ -74,3 +74,5 @@ C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-201
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.g.resources
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.Properties.Resources.resources
 C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\obj\Debug\WpfApp.csproj.GenerateResource.Cache
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\bin\Debug\Helpers.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\WpfApp\bin\Debug\Helpers.pdb

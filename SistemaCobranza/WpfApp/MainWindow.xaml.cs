@@ -23,7 +23,6 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        LogIn nuevologin;
         Usuario nuevo;
         //CrearUsuario nuevouser = new CrearUsuario();
         int nivel;
@@ -36,10 +35,8 @@ namespace WpfApp
             nuevo = new Usuario();
             nuevo.Nombre = txbuser.Text;
             nuevo.Contrasena = txbcontra.Text;
-            nuevologin = new LogIn();
-            //nuevouser.Crearuser(nuevo);
-            nivel = nuevologin.Loguear(nuevo);
-            if (nivel == 0) MessageBox.Show("Error al iniciar sesión.");
+            UsuarioABM.Loguear(nuevo);
+            if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else MessageBox.Show("Sesión iniciada con éxito.");
         }
     }

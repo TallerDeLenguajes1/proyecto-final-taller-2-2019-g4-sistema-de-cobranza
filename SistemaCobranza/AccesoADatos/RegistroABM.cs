@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Entidades;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +24,17 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(fechaHora,observacion,resultado,dni,cuit,id_usuario) values(@FechaHora,@Observacion,@Resultado,@Dni,@Cuit,@Id_usuario)";
-                con.Conectar();
+                string sql = @"Inset into alumno(fechaHora,observacion,resultado,dni,cuit) values(@FechaHora,@Observacion,@Resultado,@Dni,@Cuit)";
 
-                var cmd = new MySqlCommand(sql, con.cn);
+                var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@FechaHora", registroX.FechaHora);
                 cmd.Parameters.AddWithValue("@Observacion", registroX.Observacion);
                 cmd.Parameters.AddWithValue("@Resultado", registroX.Resultado);
                 cmd.Parameters.AddWithValue("@Dni", registroX.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Cuit", registroX.Empresa.Cuit);
-                cmd.Parameters.AddWithValue("@Id_usuario", registroX.Usuario.Id_usuario);
                 cmd.ExecuteNonQuery();
 
-                con.Desconectar();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -56,36 +55,35 @@ namespace AccesoADatos
                 List<Registro> Registros = new List<Registro>();
                 Registro registroX;
                 Conexion con = new Conexion();
-                con.Conectar();
+
 
                 string sql = "select * from Registro where " + atributo + "='" + valor + "'" ; // falta probar si funciona con int
-                var cmd = new MySqlCommand(sql, con.cn);
+                var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     registroX = new Registro();
                     registroX.Id_Registro = dr.GetInt32("cuit");
-                    registroX.FechaHota = dr.GetDateTime("fechaHora");
+                    registroX.FechaHora = dr.GetDateTime("fechaHora");
                     registroX.Observacion = dr.GetString("observacion");
-                    registroX.Resultado = dr.GetBoolean("valor");
+                    registroX.Resultado = dr.GetString("resultado");
                     registroX.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
                     registroX.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
-                    registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                    //registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }
                 dr.Close();
-                con.Desconectar();
+                con.Close();
                 
                 return Registros;
             }
             catch (Exception ex)
             {
                 logger.Error(ex);
+                return null;
             }
         }
-
-
-    }
+    
     }
 }

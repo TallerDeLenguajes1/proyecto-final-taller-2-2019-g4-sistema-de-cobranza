@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,10 +22,9 @@ namespace AccesoADatos
                 List<Empresa> empresas = new List<Empresa>();
                 Empresa empresaX;
                 Conexion con = new Conexion();
-                con.Conectar();
 
                 string sql = "select * from Empresa";
-                var cmd = new MySqlCommand(sql, con.cn);
+                var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -34,12 +35,13 @@ namespace AccesoADatos
                     empresas.Add(empresaX);
                 }
                 dr.Close();
-                con.Desconectar();
+                con.Close();
                 return empresas;
             }
             catch (Exception ex)
             {
                 logger.Error(ex);
+                return null;
             }
         }
 
@@ -50,14 +52,13 @@ namespace AccesoADatos
             {
                 Conexion con = new Conexion();
                 string sql = @"Inset into alumno(cuit,nombre) values(@Cuit, @Nombre)";
-                con.Conectar();
 
-                var cmd = new MySqlCommand(sql, con.cn);
+                var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@cuit", empresaX.Cuit);
                 cmd.Parameters.AddWithValue("@Nombre", empresaX.Nombre);
                 cmd.ExecuteNonQuery();
 
-                con.Desconectar();
+                con.Close();
             }
             catch (Exception ex)
             {
@@ -71,10 +72,9 @@ namespace AccesoADatos
             {
                 Empresa empresaX;
                 Conexion con = new Conexion();
-                con.Conectar();
 
                 string sql = "select * from Empresa where cuit='" + cuit + "'";
-                var cmd = new MySqlCommand(sql, con.cn);
+                var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
                 dr.Read();
@@ -84,12 +84,13 @@ namespace AccesoADatos
                 empresaX.Nombre = dr.GetString("nombre");
 
                 dr.Close();
-                con.Desconectar();
+                con.Close();
                 return empresaX;
             }
             catch (Exception ex)
             {
                 logger.Error(ex);
+                return null;
             }
 
 
