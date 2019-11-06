@@ -28,3 +28,17 @@ C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobra
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\NLog.xml
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.csproj.CopyComplete
 C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\NLog.config
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\AccesoADatos.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\AccesoADatos.pdb
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Entidades.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\NLog.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Google.Protobuf.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Renci.SshNet.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\Entidades.pdb
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\MySql.Data.xml
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\bin\Debug\NLog.xml
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.csprojResolveAssemblyReference.cache
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.dll
+C:\Users\Alumno\Desktop\Proyecto Final\ProyectoFinal\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\AccesoADatos\obj\Debug\AccesoADatos.pdb
