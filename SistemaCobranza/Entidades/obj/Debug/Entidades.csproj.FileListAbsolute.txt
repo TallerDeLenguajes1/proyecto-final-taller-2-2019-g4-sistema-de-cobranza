@@ -1,0 +1,16 @@
+C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\Entidades\bin\Debug\Entidades.dll
+C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\Entidades\obj\Debug\Entidades.dll
+C:\Users\Ridex\Documents\GitHub\proyecto-final-taller-2-2019-g4-sistema-de-cobranza\SistemaCobranza\Entidades\obj\Debug\Entidades.pdb
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\Entidades.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\Entidades.pdb
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\MySql.Data.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\Google.Protobuf.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\Renci.SshNet.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\bin\Debug\MySql.Data.xml
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\obj\Debug\Entidades.csproj.CopyComplete
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\obj\Debug\Entidades.dll
+C:\Users\Ridex\Desktop\SistemaCobranza\Entidades\obj\Debug\Entidades.pdb

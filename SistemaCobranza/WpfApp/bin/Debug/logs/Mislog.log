@@ -1,0 +1,232 @@
+2019-11-05 02:47:39.3770|ERROR|AccesoADatos.Conexion|Error al conectarse con la base de datos
+2019-11-05 02:50:00.3740|ERROR|AccesoADatos.Conexion|Error al conectarse con la base de datos
+2019-11-06 02:16:27.7030|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from Usuarios where Usuario=admin' at line 1
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 27
+2019-11-06 02:20:34.9370|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from Usuarios where Usuario=admin1' at line 1
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 02:21:54.2160|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from Usuarios where Usuario='admin1'' at line 1
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 02:22:00.1590|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'from Usuarios where Usuario='admin'' at line 1
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 02:24:18.6540|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 02:24:47.1580|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:02:23.5820|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 03:04:28.3270|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'admin' in 'where clause'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:05:48.9360|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'admin' in 'where clause'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:06:35.8870|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Unknown column 'admin' in 'where clause'
+   en MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   en MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   en MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   en MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 03:08:10.9280|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 03:09:05.4700|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 03:43:23.7110|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 35
+2019-11-06 03:43:31.3730|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 35
+2019-11-06 03:44:35.4100|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 35
+2019-11-06 03:50:00.1250|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 32
+2019-11-06 03:50:06.6470|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:50:10.0930|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:50:14.8070|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:51:30.0460|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 32
+2019-11-06 03:51:44.2710|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:51:57.8330|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 29
+2019-11-06 03:53:52.6300|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): Invalid attempt to access a field before calling Read()
+   en MySql.Data.MySqlClient.ResultSet.get_Item(Int32 index)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetFieldValue(Int32 index, Boolean checkNull)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetValue(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(Int32 i)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 30
+2019-11-06 03:53:58.7730|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 28
+2019-11-06 03:54:02.4540|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 28
+2019-11-06 03:54:08.2260|ERROR|AccesoADatos.UsuarioConect|MySql.Data.MySqlClient.MySqlException (0x80004005): There is already an open DataReader associated with this Connection which must be closed first.
+   en MySql.Data.MySqlClient.Interceptors.ExceptionInterceptor.Throw(Exception exception)
+   en MySql.Data.MySqlClient.MySqlConnection.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.Throw(Exception ex)
+   en MySql.Data.MySqlClient.MySqlCommand.CheckState()
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   en MySql.Data.MySqlClient.MySqlCommand.ExecuteReader()
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 28
+2019-11-06 03:54:26.1260|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 31
+2019-11-06 03:55:09.1220|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 31
+2019-11-06 04:13:48.3670|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 37
+2019-11-06 04:18:33.7820|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 37
+2019-11-06 04:21:47.2730|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 37
+2019-11-06 04:23:17.7580|ERROR|AccesoADatos.UsuarioConect|System.IndexOutOfRangeException: Could not find specified column in results: contraseña
+   en MySql.Data.MySqlClient.ResultSet.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.GetOrdinal(String name)
+   en MySql.Data.MySqlClient.MySqlDataReader.get_Item(String name)
+   en AccesoADatos.UsuarioConect.Loguear(Usuario u) en C:\Users\Ridex\Desktop\SistemaCobranza\AccesoADatos\UsuarioConect.cs:línea 37
+2019-11-06 04:26:23.7750|ERROR|AccesoADatos.CrearUsuario|Error al Crear Usuario
