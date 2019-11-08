@@ -12,6 +12,11 @@ namespace AccesoADatos
     {
 
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
+
+        /// <summary>
+        /// Devuelve una lista con todas las empresas en la base de datos
+        /// </summary>
+        /// <returns>Lista de empresas</returns>
         public static List<Empresa> listaEmpresas()
         {
             // TODO  verificar conexion y clase empresa 
@@ -44,7 +49,10 @@ namespace AccesoADatos
                 return null;
             }
         }
-
+        /// <summary>
+        /// Inserta un objeto empresa en base de datos 
+        /// </summary>
+        /// <param name="empresaX">Objeto empresa</param>
         public static void InsertarEmpresa(Empresa empresaX)
         {
 

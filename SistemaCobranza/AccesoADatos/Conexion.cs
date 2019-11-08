@@ -22,7 +22,7 @@ namespace AccesoADatos
         public Conexion()
         {
             string str;
-            str = "server=localhost;userid=root;pwd=1234;database=cobranza";
+            str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo 
 
             try
             {
