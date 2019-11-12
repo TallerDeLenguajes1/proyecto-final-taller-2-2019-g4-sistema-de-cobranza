@@ -38,5 +38,6 @@ namespace WpfApp
             if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else MessageBox.Show("Sesión iniciada con éxito.");
         }
+
     }
 }
