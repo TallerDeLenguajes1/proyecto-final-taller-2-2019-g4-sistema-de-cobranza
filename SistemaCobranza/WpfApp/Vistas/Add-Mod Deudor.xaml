@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfApp.Vistas.Add_Mod_Deudor"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Vistas"
+        mc:Ignorable="d"
+        Title="Add_Mod_Deudor" Height="301.5" Width="309.5">
+    <Grid>
+
+        <TextBox x:Name="tbxNomYApell" HorizontalAlignment="Left" Height="23" Margin="141,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label" Content="Nombre y Apellido" HorizontalAlignment="Left" Margin="26,43,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxDNI" HorizontalAlignment="Left" Height="23" Margin="141,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy" Content="DNI" HorizontalAlignment="Left" Margin="94,123,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="tbxTelefono" HorizontalAlignment="Left" Height="23" Margin="141,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label_Copy1" Content="Telefono" HorizontalAlignment="Left" Margin="69,82,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="89"/>
+        <Button x:Name="bModificar" Content="Modificar" HorizontalAlignment="Left" Margin="172,193,0,0" VerticalAlignment="Top" Width="96"/>
+
+    </Grid>
+</Window>
