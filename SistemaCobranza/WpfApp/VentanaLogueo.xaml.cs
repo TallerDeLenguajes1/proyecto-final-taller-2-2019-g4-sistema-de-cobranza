@@ -33,7 +33,7 @@ namespace WpfApp
         {
             nuevo = new Usuario();
             nuevo.Nombre = txbuser.Text;
-            nuevo.Contrasena = txbcontra.Text;
+            nuevo.Contrasena = pwbContra.Password;
             UsuarioABM.Loguear(nuevo);
             if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else MessageBox.Show("Sesión iniciada con éxito.");

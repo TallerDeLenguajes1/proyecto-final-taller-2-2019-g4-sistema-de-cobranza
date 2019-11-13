@@ -8,14 +8,14 @@
         Title="Add_Mod_Deudor" Height="301.5" Width="309.5">
     <Grid>
 
-        <TextBox x:Name="tbxNomYApell" HorizontalAlignment="Left" Height="23" Margin="141,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txbNomYApe" HorizontalAlignment="Left" Height="23" Margin="141,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label" Content="Nombre y Apellido" HorizontalAlignment="Left" Margin="26,43,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxDNI" HorizontalAlignment="Left" Height="23" Margin="141,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txbDNI" HorizontalAlignment="Left" Height="23" Margin="141,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
         <Label x:Name="label_Copy" Content="DNI" HorizontalAlignment="Left" Margin="94,123,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxTelefono" HorizontalAlignment="Left" Height="23" Margin="141,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txbTelefono" HorizontalAlignment="Left" Height="23" Margin="141,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy1" Content="Telefono" HorizontalAlignment="Left" Margin="69,82,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="bAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="47,193,0,0" VerticalAlignment="Top" Width="89"/>
-        <Button x:Name="bModificar" Content="Modificar" HorizontalAlignment="Left" Margin="172,193,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="104,180,0,0" VerticalAlignment="Top" Width="96" Click="btnAgregar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="104,180,0,0" VerticalAlignment="Top" Width="96" Click="bModificar_Click"/>
 
     </Grid>
 </Window>

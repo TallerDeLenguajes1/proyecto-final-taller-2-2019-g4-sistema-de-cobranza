@@ -8,13 +8,13 @@
         Title="Empresa" Height="344.5" Width="464">
     <Grid>
 
-        <ListBox x:Name="lbxEmpresas" HorizontalAlignment="Left" Height="246" Margin="10,36,0,0" VerticalAlignment="Top" Width="179" BorderBrush="Black" BorderThickness="2"/>
+        <ListBox x:Name="lbxEmpresas" HorizontalAlignment="Left" Height="202" Margin="10,80,0,0" VerticalAlignment="Top" Width="179" BorderBrush="Black" BorderThickness="2"/>
         <Button x:Name="bAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="248,95,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name="bModificar" Content="Modificar" HorizontalAlignment="Left" Margin="248,146,0,0" VerticalAlignment="Top" Width="98"/>
         <Button x:Name="bEliminar" Content="Eliminar" HorizontalAlignment="Left" Margin="248,195,0,0" VerticalAlignment="Top" Width="98"/>
         <Label x:Name="label2" Content="Empresas" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label1" Content="Buscar:" HorizontalAlignment="Left" Margin="228,36,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxBuscar" HorizontalAlignment="Left" Height="23" Margin="280,36,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        
+
     </Grid>
 </Window>

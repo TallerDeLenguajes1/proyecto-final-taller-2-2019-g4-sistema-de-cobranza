@@ -70,7 +70,7 @@ namespace AccesoADatos
                     registroX.Resultado = dr.GetString("resultado");
                     registroX.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
                     registroX.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
-                    //registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                   // registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }
                 dr.Close();

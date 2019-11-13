@@ -16,8 +16,15 @@
         >
     <Grid>
         <Button Content="Button" HorizontalAlignment="Left" Margin="507,113,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="23" Margin="304,101,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-        <TextBox Name="txbcontra" HorizontalAlignment="Left" Height="23" Margin="305,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
 
+        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="54" Margin="304,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <!--   <TextBox Name="txbcontra" HorizontalAlignment="Left" Height="23" Margin="305,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/> -->
+        <PasswordBox
+            x:Name="pwbContra"
+            materialDesign:HintAssist.Hint="Contraseña"
+            materialDesign:HintAssist.Foreground="Green"
+            materialDesign:TextFieldAssist.UnderlineBrush="Green"
+            Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+            HorizontalAlignment="Left" Margin="304,129,0,0" Width="171" Height="55" VerticalAlignment="Top" />
     </Grid>
 </Window>

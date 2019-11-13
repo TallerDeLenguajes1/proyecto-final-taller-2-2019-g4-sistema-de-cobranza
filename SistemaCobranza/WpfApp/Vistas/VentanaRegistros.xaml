@@ -1,0 +1,70 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Vistas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.Registros"
+        mc:Ignorable="d"
+        Title="Registros" Height="711" Width="784"
+
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignBackground}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
+    <Grid>
+        <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="776" >
+            <MenuItem x:Name="btnDeudores" Header="DEUDORES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="40" Click="btnDeudores_Click"/>
+            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40"/>
+            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40"/>
+        </Menu>
+
+        <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="10,223,0,0" Height="26" HorizontalAlignment="Left"/>
+
+        <Grid HorizontalAlignment="Left" Height="141" Margin="10,69,0,0" VerticalAlignment="Top" Width="533" Background="#EEEEEE">
+            <StackPanel
+				Orientation="Horizontal"
+				Margin="10,10,0,0" HorizontalAlignment="Left" Width="383" Height="47" VerticalAlignment="Top">
+                <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
+                <RadioButton
+					Style="{StaticResource MaterialDesignTabRadioButton}"
+					Margin="4,8,4,7.127"
+					IsChecked="True"
+					Content="DNI" Width="72" FontSize="13" Checked="RadioButton_Checked" />
+                <RadioButton
+					Style="{StaticResource MaterialDesignTabRadioButton}"
+					Margin="4"
+					IsChecked="False"
+					Content="CUIT" Checked="RadioButton_Checked_1" />
+                <RadioButton
+                	Style="{StaticResource MaterialDesignTabRadioButton}"
+                	Margin="4,7.5"
+                	IsChecked="False"
+                	Content="USUARIO" Checked="RadioButton_Checked" />
+            </StackPanel>
+            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Click="Button_Click" Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <materialDesign:PackIcon
+					Kind="Search"
+					Height="24"
+					Width="24" />
+            </Button>
+            <TextBox
+				Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+				TextWrapping="Wrap"
+				MaxWidth="400"
+				MinWidth="320"
+				Height="60"
+				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320" />
+        </Grid>
+
+        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
+            <TextBlock><Run Text="Old"/></TextBlock>
+            <TextBlock><Run Text="ListBox"/></TextBlock>
+        </ListBox>
+        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="600,310,0,0"/>
+        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="600,410,0,0"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Height="40" RenderTransformOrigin="0.48,0.65" Margin="601,495,0,0"/>
+
+    </Grid>
+</Window>

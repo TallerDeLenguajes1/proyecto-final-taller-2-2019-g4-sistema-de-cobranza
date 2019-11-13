@@ -12,6 +12,10 @@ namespace AccesoADatos
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
+        /// <summary>
+        /// Retorna una lsita con todos los deudores
+        /// </summary>
+        /// <returns>Lista Deudores</returns>
         public static List<Deudor> ListaDeudores()
         {
             // TODO  verificar conexion y clase Deudor 

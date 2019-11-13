@@ -70,10 +70,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vistas\VentanaDeudorAM.xaml.cs">
+      <DependentUpon>VentanaDeudorAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaEmpresaAM.xaml.cs">
+      <DependentUpon>VentanaEmpresaAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaDeudores.xaml.cs">
+      <DependentUpon>VentanaDeudores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaEmpresa.xaml.cs">
+      <DependentUpon>VentanaEmpresa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaRegistros.xaml.cs">
+      <DependentUpon>VentanaRegistros.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VentanaRegistroAM.xaml.cs">
       <DependentUpon>VentanaRegistroAM.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="VentanaLogueo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -81,10 +96,30 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="VentanaLogueo.xaml.cs">
+      <DependentUpon>VentanaLogueo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\VentanaDeudorAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaEmpresaAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaDeudores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaEmpresa.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaRegistros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Vistas\VentanaRegistroAM.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
