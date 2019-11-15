@@ -14,9 +14,9 @@ namespace Helpers
         /// Recibe una lista de registros para exportar a un archivo excel
         /// </summary>
         /// <param name="registros"></param>
-        public void ExportarRegistro( List<Registro> registros )
+        public void ExportarRegistro(List<Registro> registros)
         {
-            string ruta="Registros "+ DateTime.Now.ToString("d/M/yyy--H:mm:ss"+".csv");
+            string ruta = "Registros " + DateTime.Now.ToString("d/M/yyy--H:mm:ss" + ".csv");
             //crea y escrive un archivo .csv 
             //en el cual cada archivo se identifica con la fecha y hora que fue creado
             using (StreamWriter sw = new StreamWriter(ruta))
