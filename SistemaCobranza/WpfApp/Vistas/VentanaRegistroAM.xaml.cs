@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AccesoADatos;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,25 +21,46 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class VentanaRegistroAM : Window
     {
-        public VentanaRegistroAM()
+        List<Deuda> listaDeudas;
+        Registro registroX;
+        Usuario usuarioActual;
+
+        public VentanaRegistroAM(Usuario usuarioRecibido)
         {
+            usuarioActual = usuarioRecibido;
             InitializeComponent();
         }
         //private void btnBuscar_Click(object sender, RoutedEventArgs e)
         private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
         {
-            if (!Helpers.VerificarCampos.Verificarnum(txbBuscar.Text))//Verificar si son numeros
+            registroX = new Registro();
+            registroX.Usuario = usuarioActual;
+            registroX.Observacion = txbObservacion.Text;
+
+            if (rdbContesto.IsChecked.Value) registroX.Resultado = "Contesto";
+            else if (rdbNoContesto.IsChecked.Value) registroX.Resultado = "No contesto";
+            else registroX.Resultado = "Corto";
+
+            if (lbDeudas.SelectedItem != null)
             {
-                var lista;
-                if (rdbCuit.IsChecked.Value) AccesoADatos.DeudaABM.DeudaPorCuit(txbBuscar.Text);
-                else AccesoADatos.DeudaABM.DeudaPorDni(txbBuscar.Text);
+                registroX.Deuda = (Deuda)lbDeudas.SelectedItem;
+                RegistroABM.InsertarRegistro(registroX);
+            }
+            else
+            {
+                MessageBox.Show("No se selecciono una deuda");
+            }          
+        }
+
+        private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
+        {
+            if (!Helpers.VerificarCampos.Verificarnum(txbBuscarDeudas.Text))//Verificar si son numeros
+            {
+              //  if (rdbCuit.IsChecked.Value) listaDeudas = DeudaABM.DeudaPorCuit(txbBuscarDeudas.Text);
+              //  else listaDeudas = DeudaABM.DeudaPorDni(txbBuscarDeudas.Text);
             }
             else MessageBox.Show("Debe ser solo numeros");
         }
 
-        private void btnBuscarDeuda_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

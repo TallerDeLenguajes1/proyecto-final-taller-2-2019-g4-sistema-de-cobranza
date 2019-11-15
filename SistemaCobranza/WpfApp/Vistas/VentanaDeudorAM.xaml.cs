@@ -21,22 +21,22 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Add_Mod_Deudor.xaml
     /// </summary>
-    public partial class Add_Mod_Deudor : Window
+    public partial class VentanaDeudorAM : Window
     {
 
         Deudor deudorX;
 
-        public Add_Mod_Deudor()
+        public VentanaDeudorAM()
         {
             InitializeComponent();
             btnModificar.Visibility = Visibility.Collapsed;
         }
-        public Add_Mod_Deudor(Deudor deudorRecibido)
+        public VentanaDeudorAM(Deudor deudorRecibido)
         {
             InitializeComponent();
             deudorX = deudorRecibido;
             btnAgregar.Visibility = Visibility.Collapsed;
-            txbDNI.Text = deudorRecibido.Dni;
+            txbDni.Text = deudorRecibido.Dni;
             txbNomYApe.Text = deudorRecibido.ApellidoNombre;
             txbTelefono.Text = deudorRecibido.Telefono;
         }
@@ -45,12 +45,12 @@ namespace WpfApp.Vistas
         {
             deudorX = new Deudor();
             //bool valido = true;
-            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDNI.Text, txbNomYApe.Text, txbTelefono.Text);
+            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDni.Text, txbNomYApe.Text, txbTelefono.Text);
             if (resultado == "true")
             {
                 deudorX.ApellidoNombre = txbNomYApe.Text;
                 deudorX.Telefono = txbTelefono.Text;
-                deudorX.Dni = txbDNI.Text;
+                deudorX.Dni = txbDni.Text;
                 DeudorABM.InsertarDeudor(deudorX);
                 this.Close();
             }
@@ -59,12 +59,12 @@ namespace WpfApp.Vistas
 
         private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
-            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDNI.Text, txbNomYApe.Text, txbTelefono.Text);
+            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDni.Text, txbNomYApe.Text, txbTelefono.Text);
             if (resultado == "true")
             {
                 deudorX.ApellidoNombre = txbNomYApe.Text;
                 deudorX.Telefono = txbTelefono.Text;
-                deudorX.Dni = txbDNI.Text;
+                deudorX.Dni = txbDni.Text;
                 //DeudorABM.ModificarDeudor(deudorX);
                 this.Close();
             }

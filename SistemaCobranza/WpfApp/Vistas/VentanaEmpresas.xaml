@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.Vistas"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.Empresa"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.VentanaEmpresas"
         mc:Ignorable="d"
         Title="Empresa" Height="655.634" Width="781.437">
     <Grid>
@@ -23,7 +23,7 @@
                     IsChecked="True"
                     Content="CUIT" />
             </StackPanel>
-            <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
+            <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarEmpresas_Click" >
                 <materialDesign:PackIcon
                     Kind="Search"
                     Height="24"

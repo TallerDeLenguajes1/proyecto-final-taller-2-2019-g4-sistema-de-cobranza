@@ -70,6 +70,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Vistas\VentanaDeudaAM.xaml.cs">
+      <DependentUpon>VentanaDeudaAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaDeudas.xaml.cs">
+      <DependentUpon>VentanaDeudas.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Vistas\VentanaDeudorAM.xaml.cs">
       <DependentUpon>VentanaDeudorAM.xaml</DependentUpon>
     </Compile>
@@ -79,8 +85,8 @@
     <Compile Include="Vistas\VentanaDeudores.xaml.cs">
       <DependentUpon>VentanaDeudores.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Vistas\VentanaEmpresa.xaml.cs">
-      <DependentUpon>VentanaEmpresa.xaml</DependentUpon>
+    <Compile Include="Vistas\VentanaEmpresas.xaml.cs">
+      <DependentUpon>VentanaEmpresas.xaml</DependentUpon>
     </Compile>
     <Compile Include="Vistas\VentanaRegistros.xaml.cs">
       <DependentUpon>VentanaRegistros.xaml</DependentUpon>
@@ -100,6 +106,14 @@
       <DependentUpon>VentanaLogueo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\VentanaDeudaAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaDeudas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Vistas\VentanaDeudorAM.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -112,7 +126,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Vistas\VentanaEmpresa.xaml">
+    <Page Include="Vistas\VentanaEmpresas.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

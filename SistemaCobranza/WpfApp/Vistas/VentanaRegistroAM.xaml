@@ -14,10 +14,6 @@
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto">
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="22*"/>
-            <RowDefinition Height="9*"/>
-        </Grid.RowDefinitions>
         <TextBlock x:Name="txbTitulo" HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="ALTA REGISTRO" VerticalAlignment="Top" Height="25" Width="250" Style="{StaticResource MaterialDesignTitleTextBlock}" />
         <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Deudas" VerticalAlignment="Top" Height="25" Width="78" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" />
 
@@ -39,26 +35,30 @@
                 IsChecked="False"
                 Content="CUIT" />
             </StackPanel>
-            <Button x:Name="btnBuscar"  Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Click="btnBuscar_Click" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button x:Name="btnBuscarDeudas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
                 <materialDesign:PackIcon
                 Kind="Search"
                 Height="24"
                 Width="24" />
             </Button>
             <TextBox
-                x:Name="txbBuscar"
+                x:Name="txbBuscarDeudas"
                 Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
                 TextWrapping="Wrap"
                 MaxWidth="400"
                 MinWidth="320"
                 Height="60"
-                materialDesign:HintAssist.Hint="Buscar deudores" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
+                materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-
-        <ListBox x:Name="lbxDeudas" HorizontalAlignment="Left" Margin="10,222,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" Grid.RowSpan="2" />
+        
+        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,222,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
+            <TextBlock><Run Text="Old"/></TextBlock>
+            <TextBlock><Run Text="ListBox"/></TextBlock>
+        </ListBox>
+        
         <TextBlock  Margin="573,40,0,0" TextWrapping="Wrap" Text="Observaciones" VerticalAlignment="Top" Height="18" Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" Width="107" />
-        <TextBox x:Name="txbObservacion" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="573,70,31,0" VerticalAlignment="Top" Height="158" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
-
+        <TextBox x:Name="txbObservacion" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="573,70,31.127,0" VerticalAlignment="Top" Height="158" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        
         <TextBlock  Margin="573,279,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Height="18" Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" Width="82" />
         <StackPanel
                 Background="#EEEEEE"
@@ -69,13 +69,13 @@
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4,8,4,7.127"
                     IsChecked="True"
-                    Content="Contesto" Width="88" FontSize="13" />
+                    Content="Contestó" Width="88" FontSize="13" />
             <RadioButton
-                    x:Name="rdbNoCont"
+                    x:Name="rdbNoContesto"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4"
                     IsChecked="False"
-                    Content="No contesto"/>
+                    Content="No contestó"/>
             <RadioButton
                     x:Name="rdbCorto"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
@@ -84,11 +84,11 @@
                     Content="Cortó"/>
         </StackPanel>
         <Button
-			x:Name="btnGuardarRegistro"
+            x:Name="btnGuardarRegistro"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             Height="40"
             materialDesign:ButtonAssist.CornerRadius="5"
-            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Grid.RowSpan="2" Click="btnGuardarRegistro_Click">
+            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Click="btnGuardarRegistro_Click">
         </Button>
 
     </Grid>

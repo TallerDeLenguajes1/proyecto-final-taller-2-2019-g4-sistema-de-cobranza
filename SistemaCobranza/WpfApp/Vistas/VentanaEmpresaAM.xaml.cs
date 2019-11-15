@@ -18,33 +18,33 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Add_Mod_Empresa.xaml
     /// </summary>
-    public partial class Add_Mod_Empresa : Window
+    public partial class VentanaEmpresaAM : Window
     {
-        Entidades.Empresa empresaX = new Entidades.Empresa();
-        public Add_Mod_Empresa()
+        Empresa empresaX;
+        public VentanaEmpresaAM()
         {
             InitializeComponent();
         }
-        public Add_Mod_Empresa(Entidades.Empresa EmpresaRecibida)
+        public VentanaEmpresaAM(Empresa EmpresaRecibida)
         {
             InitializeComponent();
             empresaX = EmpresaRecibida;
-            btnAgregar.Visibility = Visibility.Collapsed;
-            tbxCuit.Text = empresaX.Cuit;
-            tbxNombre.Text = empresaX.Nombre;
+            btnAgregarEmpresa.Visibility = Visibility.Collapsed;
+            txbCuit.Text = empresaX.Cuit;
+            txbNombre.Text = empresaX.Nombre;
         }
         private void bAgregar_Click(object sender, RoutedEventArgs e)
         {
-            empresaX = new Entidades.Empresa();
-            empresaX.Cuit = tbxCuit.Text;
-            empresaX.Nombre = tbxNombre.Text;
+            empresaX = new Empresa();
+            empresaX.Cuit = txbCuit.Text;
+            empresaX.Nombre = txbNombre.Text;
             AccesoADatos.EmpresaABM.InsertarEmpresa(empresaX);
         }
         private void bModificar_Click(object sender, RoutedEventArgs e)
         {
-            empresaX.Cuit = tbxCuit.Text;
-            empresaX.Nombre = tbxNombre.Text;
-            AccesoADatos.EmpresaABM.ModificarEmpresa(empresaX);
+            empresaX.Cuit = txbCuit.Text;
+            empresaX.Nombre = txbNombre.Text;
+           // AccesoADatos.EmpresaABM.ModificarEmpresa(empresaX); // Todo
         }
     }
 }

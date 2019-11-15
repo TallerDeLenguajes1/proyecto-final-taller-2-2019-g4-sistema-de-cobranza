@@ -30,8 +30,8 @@ namespace AccesoADatos
                 cmd.Parameters.AddWithValue("@FechaHora", registroX.FechaHora);
                 cmd.Parameters.AddWithValue("@Observacion", registroX.Observacion);
                 cmd.Parameters.AddWithValue("@Resultado", registroX.Resultado);
-                cmd.Parameters.AddWithValue("@Dni", registroX.Deudor.Dni);
-                cmd.Parameters.AddWithValue("@Cuit", registroX.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Dni", registroX.Deuda.Deudor.Dni);
+                cmd.Parameters.AddWithValue("@Cuit", registroX.Deuda.Empresa.Cuit);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -67,8 +67,8 @@ namespace AccesoADatos
                     registroX.FechaHora = dr.GetDateTime("fechaHora");
                     registroX.Observacion = dr.GetString("observacion");
                     registroX.Resultado = dr.GetString("resultado");
-                    registroX.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
-                    registroX.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
+                    registroX.Deuda.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
+                    registroX.Deuda.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
                    // registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }

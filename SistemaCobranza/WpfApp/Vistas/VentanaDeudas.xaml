@@ -18,11 +18,13 @@
                 Margin="10,10,0,0" HorizontalAlignment="Left" Width="268" Height="47" VerticalAlignment="Top">
                 <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
                 <RadioButton
+                    x:Name="rdbDni"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4,8,4,7.127"
                     IsChecked="True"
                     Content="DNI" Width="72" FontSize="13" />
                 <RadioButton
+                     x:Name="rdbCuit"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4"
                     IsChecked="False"

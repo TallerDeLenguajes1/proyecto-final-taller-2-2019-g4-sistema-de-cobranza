@@ -21,7 +21,7 @@
                     IsChecked="True"
                     Content="DNI" Width="72" FontSize="13" />
             </StackPanel>
-            <Button x:Name="btnBuscarDeudores" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button x:Name="btnBuscarDeudores" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BtnBuscarDeudores_Click">
                 <materialDesign:PackIcon
                     Kind="Search"
                     Height="24"
@@ -52,7 +52,7 @@
                     IsChecked="True"
                     Content="CUIT" />
             </StackPanel>
-            <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
+            <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarEmpresas_Click">
                 <materialDesign:PackIcon
                     Kind="Search"
                     Height="24"

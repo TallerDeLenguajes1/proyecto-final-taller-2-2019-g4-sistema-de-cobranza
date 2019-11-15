@@ -19,10 +19,11 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Registros.xaml
     /// </summary>
-    public partial class Registros : Window
+    public partial class VentanaRegistros : Window
     {
+
         List<Registro> registros;
-        public Registros()
+        public VentanaRegistros(Usuario usuarioRecibido)
         {
             InitializeComponent();
         }
@@ -40,12 +41,14 @@ namespace WpfApp.Vistas
         private void btnDeudores_Click(object sender, RoutedEventArgs e)
         {
             Deudores ventanaDeudores = new Deudores();
-            ventanaDeudores.Show();
+            ventanaDeudores.ShowDialog();
         }
 
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
        
         }
+
+
     }
 }

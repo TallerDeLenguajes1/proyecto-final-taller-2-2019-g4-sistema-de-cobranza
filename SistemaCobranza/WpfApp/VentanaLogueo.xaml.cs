@@ -14,30 +14,40 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AccesoADatos;
 using Entidades;
+using WpfApp.Vistas;
 
 namespace WpfApp
 {
     /// <summary>
     /// Lógica de interacción para MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class VentanaLogueo : Window
     {
-        Usuario nuevo;
-        //CrearUsuario nuevouser = new CrearUsuario();
-        int nivel;
-        public MainWindow()
+        Usuario usuario;
+
+        public VentanaLogueo()
         {
             InitializeComponent();
         }
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
-            nuevo = new Usuario();
-            nuevo.Nombre = txbuser.Text;
-            nuevo.Contrasena = pwbContra.Password;
-            UsuarioABM.Loguear(nuevo);
-            if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
-            else MessageBox.Show("Sesión iniciada con éxito.");
+            usuario = new Usuario();
+            usuario.Nombre = txbuser.Text;
+            usuario.Contrasena = pwbContra.Password;
+            
+            UsuarioABM.Loguear(usuario);
+            
+            if (usuario.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
+            else
+            {
+                MessageBox.Show("Sesión iniciada con éxito.");
+                VentanaRegistros ventanaPrincipal = new VentanaRegistros(usuario);
+                ventanaPrincipal.ShowDialog();
+                txbuser.Clear();
+                pwbContra.Clear();
+
+            }
         }
     }
 }

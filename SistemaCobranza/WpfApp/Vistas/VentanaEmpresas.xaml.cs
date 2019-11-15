@@ -17,11 +17,16 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Empresa.xaml
     /// </summary>
-    public partial class Empresa : Window
+    public partial class VentanaEmpresas : Window
     {
-        public Empresa()
+        public VentanaEmpresas()
         {
             InitializeComponent();
+        }
+
+        private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

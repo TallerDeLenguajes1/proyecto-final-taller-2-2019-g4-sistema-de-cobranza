@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.Vistas"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.Registros"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.VentanaRegistros"
         mc:Ignorable="d"
         Title="Registros" Height="711" Width="784"
 
@@ -16,8 +16,8 @@
     <Grid>
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="776" >
             <MenuItem x:Name="btnDeudores" Header="DEUDORES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="40" Click="btnDeudores_Click"/>
-            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40"/>
-            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40"/>
+            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40" />
+            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40" />
         </Menu>
 
         <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="10,223,0,0" Height="26" HorizontalAlignment="Left"/>
@@ -58,10 +58,7 @@
 				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320" />
         </Grid>
 
-        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
+        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
         <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0"/>
         <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0"/>
         <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0"/>

@@ -33,7 +33,8 @@ namespace Helpers
         public static bool Verificarnum(string prueba)
         {
             bool estado = true;
-            if (!int.TryParse(prueba,out _)) estado = false;
+            int result;
+            if (!int.TryParse(prueba,out result)) estado = false;
             return estado;
         }
         public static bool Verificarcaracteres(string prueba)
