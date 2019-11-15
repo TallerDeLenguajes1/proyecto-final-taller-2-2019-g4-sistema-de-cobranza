@@ -8,13 +8,41 @@
         mc:Ignorable="d"
         Title="Add_Mod_Deudor" Height="335.702" Width="319.936">
     <Grid>
-        <TextBlock x:Name="tbTitulo" HorizontalAlignment="Left" Margin="104,10,0,0" TextWrapping="Wrap" Text="Alta Deudor" TextAlignment="Center" VerticalAlignment="Top" Height="25" Width="96" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
+		<TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Deudores" VerticalAlignment="Top" Height="25" Width="101" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
+		<Grid HorizontalAlignment="Left" Height="141" Margin="10,40,0,0" VerticalAlignment="Top" Width="533" Background="#EEEEEE">
+		<StackPanel
+			Orientation="Horizontal"
+			Margin="10,10,0,0" HorizontalAlignment="Left" Width="268" Height="47" VerticalAlignment="Top">
+                <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
+                <RadioButton
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4,8,4,7.127"
+                    IsChecked="True"
+                    Content="DNI" Width="72" FontSize="13" />
+            </StackPanel>
+            <Button x:Name="btnBuscarDeudores" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <materialDesign:PackIcon
+                    Kind="Search"
+                    Height="24"
+                    Width="24" />
+            </Button>
+            <TextBox
+                x:Name="txbBuscarDeudores"
+                Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                TextWrapping="Wrap"
+                MaxWidth="400"
+                MinWidth="320"
+                Height="60"
+                materialDesign:HintAssist.Hint="Buscar deudores" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
+        </Grid>
 
-        <TextBox x:Name="txbNomYApe" HorizontalAlignment="Left" Height="54" Margin="69,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Nombre y Apellido" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-        <TextBox x:Name="txbTelefono" HorizontalAlignment="Left" Height="54" Margin="69,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Telefono" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-        <TextBox x:Name="txbDni" HorizontalAlignment="Left" Height="54" Margin="69,158,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Dni" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="104,244,0,0" VerticalAlignment="Top" Width="96" Click="btnAgregar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="104,244,0,0" VerticalAlignment="Top" Width="96" Click="btnModificar_Click"/>
+        <ListBox x:Name="lbDeudores" HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
+            <TextBlock><Run Text="Old"/></TextBlock>
+            <TextBlock><Run Text="ListBox"/></TextBlock>
+        </ListBox>
+        <Button x:Name="btnAltaDeudores" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0"/>
+        <Button x:Name="btnModDeudores" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,-50.618"/>
+        <Button x:Name="btnBorrarDeudores" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,-115.618"/>
     </Grid>
 </Window>
+

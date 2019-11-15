@@ -84,10 +84,11 @@
                     Content="Cortó"/>
         </StackPanel>
         <Button
+			x:Name="btnGuardarRegistro"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             Height="40"
             materialDesign:ButtonAssist.CornerRadius="5"
-            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Grid.RowSpan="2">
+            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Grid.RowSpan="2" Click="btnGuardarRegistro_Click">
         </Button>
 
     </Grid>

@@ -4,15 +4,14 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp.Vistas"
+		xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.Add_Mod_Empresa"
         mc:Ignorable="d"
-        Title="Add_Mod_Empresa" Height="276" Width="321.5">
+        Title="Add_Mod_Empresa" Height="298.689" Width="263.583">
     <Grid>
-        <TextBox x:Name="tbxNombre" HorizontalAlignment="Left" Height="23" Margin="141,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label" Content="Nombre" HorizontalAlignment="Left" Margin="69,43,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="tbxCuit" HorizontalAlignment="Left" Height="23" Margin="139,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label_Copy1" Content="CUIT" HorizontalAlignment="Left" Margin="88,89,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="113,160,0,0" VerticalAlignment="Top" Width="87" Click="bAgregar_Click"/>
-        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="112,160,0,0" VerticalAlignment="Top" Width="98" Click="bModificar_Click" Height="33"/>
-
+		<Button x:Name="btnAgregarEmpresa" Content="Agregar" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name="btnModEmpresa" Content="Modificar" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="98"/>
+		<TextBlock x:Name="tbTitulo" Width="98" VerticalAlignment="Top" Text="Alta Empresa" TextWrapping="Wrap" TextAlignment="Center" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="77,15,0,0" Height="25" HorizontalAlignment="Left"/>
+		<TextBox x:Name="txbNombre" HorizontalAlignment="Left" Height="54" Margin="43,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Nombre" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox x:Name="txbCuit" HorizontalAlignment="Left" Height="54" Margin="43,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Cuit" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
     </Grid>
 </Window>
