@@ -33,7 +33,6 @@ namespace AccesoADatos
                 cmd.Parameters.AddWithValue("@Dni", registroX.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Cuit", registroX.Empresa.Cuit);
                 cmd.ExecuteNonQuery();
-
                 con.Close();
             }
             catch (Exception ex)

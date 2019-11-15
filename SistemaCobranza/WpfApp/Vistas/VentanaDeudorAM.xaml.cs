@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using AccesoADatos;
+using Helpers;
 
 namespace WpfApp.Vistas
 {
@@ -28,10 +29,7 @@ namespace WpfApp.Vistas
         public Add_Mod_Deudor()
         {
             InitializeComponent();
-
             btnModificar.Visibility = Visibility.Collapsed;
-
-
         }
         public Add_Mod_Deudor(Deudor deudorRecibido)
         {
@@ -41,77 +39,36 @@ namespace WpfApp.Vistas
             txbDNI.Text = deudorRecibido.Dni;
             txbNomYApe.Text = deudorRecibido.ApellidoNombre;
             txbTelefono.Text = deudorRecibido.Telefono;
-
         }
 
         private void btnAgregar_Click(object sender, RoutedEventArgs e)
         {
             deudorX = new Deudor();
-            bool valido = true;
-
-            if ( ! validarNumero(txbDNI.Text))
-            {
-                MessageBox.Show("Dni no valido");
-                valido = false;    
-            }
-
-            if ( ! validarNumero(txbTelefono.Text))
-            {
-                MessageBox.Show("Telefono no valido");
-                valido = false;
-            }
-
-            if (validarNombyApe(txbNomYApe.Text))
-            {
-                MessageBox.Show("Nombre y apellido no valido");
-                valido = false;
-            }
-
-            if (valido)
+            //bool valido = true;
+            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDNI.Text, txbNomYApe.Text, txbTelefono.Text);
+            if (resultado == "true")
             {
                 deudorX.ApellidoNombre = txbNomYApe.Text;
                 deudorX.Telefono = txbTelefono.Text;
                 deudorX.Dni = txbDNI.Text;
-
                 DeudorABM.InsertarDeudor(deudorX);
                 this.Close();
             }
-            
-
+            else MessageBox.Show(resultado);
         }
 
         private void bModificar_Click(object sender, RoutedEventArgs e)
         {
-            bool valido = true;
-
-            if (!validarNumero(txbDNI.Text))
-            {
-                MessageBox.Show("Dni no valido");
-                valido = false;
-            }
-
-            if (!validarNumero(txbTelefono.Text))
-            {
-                MessageBox.Show("Telefono no valido");
-                valido = false;
-            }
-
-            if (validarNombyApe(txbNomYApe.Text))
-            {
-                MessageBox.Show("Nombre y apellido no valido");
-                valido = false;
-            }
-
-            if (valido)
+            string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDNI.Text, txbNomYApe.Text, txbTelefono.Text);
+            if (resultado == "true")
             {
                 deudorX.ApellidoNombre = txbNomYApe.Text;
                 deudorX.Telefono = txbTelefono.Text;
                 deudorX.Dni = txbDNI.Text;
-
-                DeudorABM.ModificarDeudor(deudorX);
+                //DeudorABM.ModificarDeudor(deudorX);
                 this.Close();
             }
-
+            else MessageBox.Show(resultado);
         }
     }
 }

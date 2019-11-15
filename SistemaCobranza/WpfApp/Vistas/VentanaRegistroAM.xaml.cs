@@ -23,10 +23,15 @@ namespace WpfApp.Vistas
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnBuscar_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!Helpers.VerificarCampos.Verificarnum(txbBuscar.Text))//Verificar si son numeros
+            {
+                var lista;
+                if (rdbCuit.IsChecked.Value) AccesoADatos.DeudaABM.DeudaPorCuit(txbBuscar.Text);
+                else AccesoADatos.DeudaABM.DeudaPorDni(txbBuscar.Text);
+            }
+            else MessageBox.Show("Debe ser solo numeros");
         }
 
     }

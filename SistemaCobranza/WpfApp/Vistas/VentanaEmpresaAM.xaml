@@ -11,8 +11,8 @@
         <Label x:Name="label" Content="Nombre" HorizontalAlignment="Left" Margin="69,43,0,0" VerticalAlignment="Top"/>
         <TextBox x:Name="tbxCuit" HorizontalAlignment="Left" Height="23" Margin="139,92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="label_Copy1" Content="CUIT" HorizontalAlignment="Left" Margin="88,89,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="bAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="50,162,0,0" VerticalAlignment="Top" Width="87"/>
-        <Button x:Name="bModificar" Content="Modificar" HorizontalAlignment="Left" Margin="161,162,0,0" VerticalAlignment="Top" Width="98"/>
+        <Button x:Name="btnAgregar" Content="Agregar" HorizontalAlignment="Left" Margin="113,160,0,0" VerticalAlignment="Top" Width="87" Click="bAgregar_Click"/>
+        <Button x:Name="btnModificar" Content="Modificar" HorizontalAlignment="Left" Margin="112,160,0,0" VerticalAlignment="Top" Width="98" Click="bModificar_Click" Height="33"/>
 
     </Grid>
 </Window>

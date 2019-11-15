@@ -168,6 +168,10 @@
       <Project>{04D65D24-CEEE-405B-AE96-48E259B7B2CE}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{166c25b4-2fbd-439a-b93f-63a5cc0e2700}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

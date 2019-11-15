@@ -27,7 +27,7 @@ namespace AccesoADatos
 
                 dr.Read();
                 string passEnBasedeD = dr["contrasena"].ToString();
-                string contracodif = Contrasena.getmd5(u.Contrasena);//codificar contraseña del usuario
+                string contracodif = Contrasena.Getmd5(u.Contrasena);//codificar contraseña del usuario
                 if (Contrasena.VerifyMd5Hash(passEnBasedeD, contracodif)) u.nivel = Convert.ToInt32(dr["nivel"]); //si las contraseñas son iguales devuelve el nivel
                 else MessageBox.Show("Contraseña Incorrecta");
 
@@ -37,7 +37,7 @@ namespace AccesoADatos
                 logger.Trace("Usuario logueado : " + u.Nombre);
 
                 u.Contrasena = "";
-
+                cmd.Dispose();
             }
             catch (Exception ex)
             {
@@ -54,9 +54,10 @@ namespace AccesoADatos
 
             try
             {
-                string str = Contrasena.getmd5(u.Contrasena);//usa la funcion getmd5 para codificar la contraseña y para almacenarla en la base de datos
+                string str = Contrasena.Getmd5(u.Contrasena);//usa la funcion getmd5 para codificar la contraseña y para almacenarla en la base de datos
                 cmd = new MySqlCommand("Insert into usuario(user,contrasena,nivel) values('" + u.Nombre + "','" + str + "'," + 1 + ")", c.Connection);
                 cmd.ExecuteNonQuery();
+                cmd.Dispose();
             }
             catch (Exception ex)
             {
