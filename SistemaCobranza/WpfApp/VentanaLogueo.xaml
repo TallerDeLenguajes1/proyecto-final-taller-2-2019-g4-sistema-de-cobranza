@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="311.533" Width="313.737"
         
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignBackground}"
@@ -15,16 +15,17 @@
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto"
         >
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="507,113,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="108,211,0,0" VerticalAlignment="Top" Width="91" Click="Button_Click"/>
 
-        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="54" Margin="304,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="171" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
-        <!--   <TextBox Name="txbcontra" HorizontalAlignment="Left" Height="23" Margin="305,129,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/> -->
+        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="54" Margin="60,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        
         <PasswordBox
             x:Name="pwbContra"
             materialDesign:HintAssist.Hint="Contraseña"
             materialDesign:HintAssist.Foreground="Green"
             materialDesign:TextFieldAssist.UnderlineBrush="Green"
             Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-            HorizontalAlignment="Left" Margin="304,129,0,0" Width="171" Height="55" VerticalAlignment="Top" />
+            HorizontalAlignment="Left" Margin="60,122,0,0" Width="189" Height="55" VerticalAlignment="Top" />
+        <TextBlock x:Name="tbTitulo" HorizontalAlignment="Left" Margin="108,33,0,0" TextAlignment="Center" TextWrapping="Wrap" Text="Log in" VerticalAlignment="Top" Height="25" Width="91" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
     </Grid>
 </Window>

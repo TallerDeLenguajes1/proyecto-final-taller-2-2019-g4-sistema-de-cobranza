@@ -57,7 +57,7 @@ namespace WpfApp.Vistas
             else MessageBox.Show(resultado);
         }
 
-        private void bModificar_Click(object sender, RoutedEventArgs e)
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             string resultado = Helpers.VerificarCampos.VerificarDeudor(txbDNI.Text, txbNomYApe.Text, txbTelefono.Text);
             if (resultado == "true")

@@ -43,7 +43,7 @@
                 	IsChecked="False"
                 	Content="USUARIO" Checked="RadioButton_Checked" />
             </StackPanel>
-            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Click="Button_Click" Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button x:Name="btnBuscarRegistro" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarRegistro_Click">
                 <materialDesign:PackIcon
 					Kind="Search"
 					Height="24"
@@ -62,9 +62,9 @@
             <TextBlock><Run Text="Old"/></TextBlock>
             <TextBlock><Run Text="ListBox"/></TextBlock>
         </ListBox>
-        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="600,310,0,0"/>
-        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="600,410,0,0"/>
-        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="114" Height="40" RenderTransformOrigin="0.48,0.65" Margin="601,495,0,0"/>
+        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0"/>
+        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0"/>
 
     </Grid>
 </Window>

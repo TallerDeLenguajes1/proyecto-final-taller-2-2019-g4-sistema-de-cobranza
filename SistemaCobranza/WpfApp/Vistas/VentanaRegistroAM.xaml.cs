@@ -23,7 +23,8 @@ namespace WpfApp.Vistas
         {
             InitializeComponent();
         }
-        private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        //private void btnBuscar_Click(object sender, RoutedEventArgs e)
+        private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
         {
             if (!Helpers.VerificarCampos.Verificarnum(txbBuscar.Text))//Verificar si son numeros
             {
@@ -34,5 +35,9 @@ namespace WpfApp.Vistas
             else MessageBox.Show("Debe ser solo numeros");
         }
 
+        private void btnBuscarDeuda_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Deudas.cs" />
+	<Compile Include="Deuda.cs" />
     <Compile Include="Deudor.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Registro.cs" />
