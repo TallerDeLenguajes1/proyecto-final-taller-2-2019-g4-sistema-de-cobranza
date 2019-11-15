@@ -29,7 +29,8 @@ namespace WpfApp
         {
             InitializeComponent();
         }
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
             nuevo = new Usuario();
             nuevo.Nombre = txbuser.Text;
@@ -38,6 +39,5 @@ namespace WpfApp
             if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else MessageBox.Show("Sesión iniciada con éxito.");
         }
-
     }
 }

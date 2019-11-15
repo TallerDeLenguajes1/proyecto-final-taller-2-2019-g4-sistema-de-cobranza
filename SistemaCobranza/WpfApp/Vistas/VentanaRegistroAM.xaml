@@ -33,19 +33,20 @@
                 IsChecked="False"
                 Content="CUIT" />
             </StackPanel>
-            <Button Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Click="Button_Click" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Button x:Name="btnBuscarDeudas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
                 <materialDesign:PackIcon
                 Kind="Search"
                 Height="24"
                 Width="24" />
             </Button>
             <TextBox
+                x:Name="txbBuscarDeudas"
                 Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
                 TextWrapping="Wrap"
                 MaxWidth="400"
                 MinWidth="320"
                 Height="60"
-                materialDesign:HintAssist.Hint="Buscar deudores" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
+                materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
         
         <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,222,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
@@ -54,7 +55,7 @@
         </ListBox>
         
         <TextBlock  Margin="573,40,0,0" TextWrapping="Wrap" Text="Observaciones" VerticalAlignment="Top" Height="18" Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" Width="107" />
-        <TextBox x:Name="txtObservacion" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="573,70,31.127,0" VerticalAlignment="Top" Height="158" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+        <TextBox x:Name="txbObservacion" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="573,70,31.127,0" VerticalAlignment="Top" Height="158" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         
         <TextBlock  Margin="573,279,0,0" TextWrapping="Wrap" Text="Resultado" VerticalAlignment="Top" Height="18" Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" Width="82" />
         <StackPanel
@@ -78,10 +79,11 @@
                     Content="Corto"/>
         </StackPanel>
         <Button
+            x:Name="btnGuardarRegistro"
             Style="{StaticResource MaterialDesignRaisedDarkButton}"
             Height="40"
             materialDesign:ButtonAssist.CornerRadius="5"
-            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149">
+            Margin="662,424,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Click="btnGuardarRegistro_Click">
         </Button>
 
     </Grid>

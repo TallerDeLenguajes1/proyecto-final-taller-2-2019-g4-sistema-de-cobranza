@@ -1,4 +1,6 @@
-﻿using System;
+﻿using AccesoADatos;
+using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,14 +21,10 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class Registros : Window
     {
+        List<Registro> registros;
         public Registros()
         {
             InitializeComponent();
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)
@@ -43,6 +41,11 @@ namespace WpfApp.Vistas
         {
             Deudores ventanaDeudores = new Deudores();
             ventanaDeudores.Show();
+        }
+
+        private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
+        {
+       
         }
     }
 }

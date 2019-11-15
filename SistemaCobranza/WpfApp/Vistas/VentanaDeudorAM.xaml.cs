@@ -80,7 +80,7 @@ namespace WpfApp.Vistas
 
         }
 
-        private void bModificar_Click(object sender, RoutedEventArgs e)
+        private void btnModificar_Click(object sender, RoutedEventArgs e)
         {
             bool valido = true;
 

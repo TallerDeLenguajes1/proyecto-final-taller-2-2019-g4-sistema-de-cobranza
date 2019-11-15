@@ -15,25 +15,13 @@ using System.Windows.Shapes;
 namespace WpfApp.Vistas
 {
     /// <summary>
-    /// Lógica de interacción para VentanaResitroAM.xaml
+    /// Lógica de interacción para VentanaDeudaAM.xaml
     /// </summary>
-    public partial class VentanaRegistroAM : Window
+    public partial class VentanaDeudaAM : Window
     {
-        public VentanaRegistroAM()
+        public VentanaDeudaAM()
         {
             InitializeComponent();
-        }
-
-
-
-        private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btnBuscarDeuda_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
