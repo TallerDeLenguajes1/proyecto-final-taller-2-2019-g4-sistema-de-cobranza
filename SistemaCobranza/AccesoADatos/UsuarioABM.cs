@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AccesoADatos
 {
@@ -24,14 +23,10 @@ namespace AccesoADatos
                 Conexion c = new Conexion();
                 MySqlCommand cmd = new MySqlCommand("Select * from usuario where user='" + u.Nombre + "'", c.Connection);
                 MySqlDataReader dr = cmd.ExecuteReader();
-
                 dr.Read();
                 string passEnBasedeD = dr["contrasena"].ToString();
                 string contracodif = Contrasena.Getmd5(u.Contrasena);//codificar contraseña del usuario
                 if (Contrasena.VerifyMd5Hash(passEnBasedeD, contracodif)) u.nivel = Convert.ToInt32(dr["nivel"]); //si las contraseñas son iguales devuelve el nivel
-                else MessageBox.Show("Contraseña Incorrecta");
-
-
                 dr.Dispose();//libera los recursos usados por ésta instancia
                 c.Close();
                 logger.Trace("Usuario logueado : " + u.Nombre);
@@ -41,7 +36,6 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Usuario incorrecto.", ex.ToString());
                 logger.Error(ex.ToString(), "Usuario incorrecto, Contraseña incorrecta o no se pudo conectar con el servidor.");
             }
 
@@ -61,7 +55,6 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se pudo crear el usuario", ex.ToString());
                 logger.Error(ex, "Error al Crear Usuario");
             }
         }

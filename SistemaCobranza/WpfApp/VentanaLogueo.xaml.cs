@@ -32,21 +32,17 @@ namespace WpfApp
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)
         {
+
             usuario = new Usuario();
             usuario.Nombre = txbuser.Text;
             usuario.Contrasena = pwbContra.Password;
-            
             UsuarioABM.Loguear(usuario);
-            
             if (usuario.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else
             {
-                MessageBox.Show("Sesión iniciada con éxito.");
                 VentanaRegistros ventanaPrincipal = new VentanaRegistros(usuario);
+                this.Close();
                 ventanaPrincipal.ShowDialog();
-                txbuser.Clear();
-                pwbContra.Clear();
-
             }
         }
     }

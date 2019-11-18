@@ -16,8 +16,8 @@
     <Grid>
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="776" >
             <MenuItem x:Name="btnDeudores" Header="DEUDORES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="40" Click="btnDeudores_Click"/>
-            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40" />
-            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40" />
+            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40" Click="btnDeuda_Click" />
+            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40" Click="btnEmpresas_Click" />
         </Menu>
 
         <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="10,223,0,0" Height="26" HorizontalAlignment="Left"/>
@@ -28,28 +28,32 @@
 				Margin="10,10,0,0" HorizontalAlignment="Left" Width="383" Height="47" VerticalAlignment="Top">
                 <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
                 <RadioButton
+                    x:Name="rdbDni"
 					Style="{StaticResource MaterialDesignTabRadioButton}"
 					Margin="4,8,4,7.127"
 					IsChecked="True"
-					Content="DNI" Width="72" FontSize="13" Checked="RadioButton_Checked" />
+					Content="DNI" Width="72" FontSize="13"/>
                 <RadioButton
+                    x:Name="rdbCuit"
 					Style="{StaticResource MaterialDesignTabRadioButton}"
 					Margin="4"
 					IsChecked="False"
-					Content="CUIT" Checked="RadioButton_Checked_1" />
+					Content="CUIT" />
                 <RadioButton
+                    x:Name="rdbUser"
                 	Style="{StaticResource MaterialDesignTabRadioButton}"
                 	Margin="4,7.5"
                 	IsChecked="False"
-                	Content="USUARIO" Checked="RadioButton_Checked" />
+                	Content="USUARIO"/>
             </StackPanel>
-            <Button x:Name="btnBuscarRegistro" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarRegistro_Click">
+            <Button x:Name="btnBuscar" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarRegistro_Click">
                 <materialDesign:PackIcon
 					Kind="Search"
 					Height="24"
 					Width="24" />
             </Button>
             <TextBox
+                x:Name="txbBuscar"
 				Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
 				TextWrapping="Wrap"
 				MaxWidth="400"
@@ -59,9 +63,9 @@
         </Grid>
 
         <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
-        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0"/>
-        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0"/>
-        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0"/>
+        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0" Click="btnAltaRegsitro_Click"/>
+        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0" Click="btnModRegistro_Click"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0" Click="btnBorrar_Click"/>
 
     </Grid>
 </Window>

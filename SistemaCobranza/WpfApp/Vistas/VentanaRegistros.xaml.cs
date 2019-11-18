@@ -21,21 +21,14 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class VentanaRegistros : Window
     {
-
+        Usuario UsuarioActual;
         List<Registro> registros;
         public VentanaRegistros(Usuario usuarioRecibido)
         {
+            UsuarioActual = usuarioRecibido;
             InitializeComponent();
-        }
-
-        private void RadioButton_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void RadioButton_Checked_1(object sender, RoutedEventArgs e)
-        {
-
+            //VentanaLogueo logout = new VentanaLogueo();
+            //logout.ShowDialog();
         }
 
         private void btnDeudores_Click(object sender, RoutedEventArgs e)
@@ -46,9 +39,38 @@ namespace WpfApp.Vistas
 
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
-       
+            string bot = txbBuscar.Text;
+            if (rdbDni.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("dni",bot);
+            else if (rdbCuit.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("cuit", bot);
+            else registros = RegistroABM.RegistrosPorAtributo(UsuarioActual.Id_usuario, bot);
         }
 
+        private void btnDeuda_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaDeudas ventanaDeudas = new VentanaDeudas();
+            ventanaDeudas.ShowDialog();
+        }
 
+        private void btnEmpresas_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaEmpresas ventanaEmpresas = new VentanaEmpresas();
+            ventanaEmpresas.ShowDialog();
+        }
+
+        private void btnAltaRegsitro_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaRegistroAM AltaRegistro = new VentanaRegistroAM(UsuarioActual);
+            AltaRegistro.ShowDialog();
+        }
+
+        private void btnModRegistro_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
