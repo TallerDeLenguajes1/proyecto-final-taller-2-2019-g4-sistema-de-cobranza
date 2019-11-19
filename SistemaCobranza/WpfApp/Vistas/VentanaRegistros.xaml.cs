@@ -42,7 +42,7 @@ namespace WpfApp.Vistas
             string bot = txbBuscar.Text;
             if (rdbDni.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("dni",bot);
             else if (rdbCuit.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("cuit", bot);
-            else registros = RegistroABM.RegistrosPorAtributo(UsuarioActual.Id_usuario, bot);
+            else registros = RegistroABM.RegistrosPorAtributo(UsuarioActual.Id_usuario.ToString(), bot);
         }
 
         private void btnDeuda_Click(object sender, RoutedEventArgs e)

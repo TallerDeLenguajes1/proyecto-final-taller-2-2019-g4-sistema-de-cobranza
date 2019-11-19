@@ -18,8 +18,6 @@ namespace AccesoADatos
         /// <returns>Lista Deudores</returns>
         public static List<Deudor> ListaDeudores()
         {
-            // TODO  verificar conexion y clase Deudor 
-
             try
             {
                 List<Deudor> Deudores = new List<Deudor>();

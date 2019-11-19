@@ -58,6 +58,43 @@ namespace AccesoADatos
                 logger.Error(ex, "Error al Crear Usuario");
             }
         }
+        /// <summary>
+        /// Busca y retorna un usuario por su user/nombre
+        /// </summary>
+        /// <param name="user">user</param>
+        /// <returns>Usuario</returns>
+        public static Usuario UsuarioPorId(string id)
+        {
+            Usuario UsuarioX;
+            try
+            {
+                Conexion con = new Conexion();
+
+                string sql = "select id_usuario,user,nivel from Usuario where id_usuario= @IdUsuario";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@IdUsuario", id);
+                var dr = cmd.ExecuteReader();
+
+                dr.Read();
+
+                UsuarioX = new Usuario();
+                UsuarioX.Id_usuario = dr.GetInt32("id_usuario");
+                UsuarioX.Nombre = dr.GetString("user");
+                UsuarioX.nivel = dr.GetInt16("nivel");
+
+                dr.Close();
+                con.Close();
+
+                return UsuarioX;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return null;
+            }
+
+
+        }
     }
 }
 

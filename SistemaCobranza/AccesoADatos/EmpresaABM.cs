@@ -19,8 +19,6 @@ namespace AccesoADatos
         /// <returns>Lista de empresas</returns>
         public static List<Empresa> listaEmpresas()
         {
-            // TODO  verificar conexion y clase empresa 
-
 
             try
             {
@@ -73,7 +71,11 @@ namespace AccesoADatos
                 logger.Error(ex);
             }
         }
-
+        /// <summary>
+        /// Busca en la base de datos y retorna un objeto empresa segun su cuit
+        /// </summary>
+        /// <param name="cuit">Cuit</param>
+        /// <returns>Empresa</returns>
         public static Empresa EmpresaPorCuit(string cuit)
         {
             try

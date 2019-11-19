@@ -44,7 +44,7 @@ namespace AccesoADatos
         /// <summary>
         /// Busca registros por el atributo indicado y su correspondiente valor. Ej: RegsitroPorAtributo(Dni,25655846) 
         /// </summary>
-        /// <param name="atributo">Atributo puede tomar: id_registo, dni, cuit, id_usuario</param>
+        /// <param name="atributo">Atributo puede tomar: dni, cuit, usuario</param>
         /// <param name="valor">valor de dicho atributo</param>
         /// <returns>Lista de registros</returns>
         public static List<Registro> RegistrosPorAtributo(string atributo, string valor)
@@ -56,8 +56,10 @@ namespace AccesoADatos
                 Conexion con = new Conexion();
 
 
-                string sql = "select * from Registro where " + atributo + "='" + valor + "'" ; // falta probar si funciona con int
+                string sql = "select * from Registro where @Atributo like @Valor ";
                 var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Atributo", atributo);
+                cmd.Parameters.AddWithValue("@Valor", valor);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -69,7 +71,7 @@ namespace AccesoADatos
                     registroX.Resultado = dr.GetString("resultado");
                     registroX.Deuda.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
                     registroX.Deuda.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
-                   // registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                    registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }
                 dr.Close();

@@ -9,7 +9,6 @@
         Title="VentanaDeudas" Height="650.74" Width="743.854">
     <Grid Margin="0,0,2.673,0.418">
 
-
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Deudas" VerticalAlignment="Top" Height="25" Width="78" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
 
         <Grid HorizontalAlignment="Left" Height="141" Margin="10,40,0,0" VerticalAlignment="Top" Width="533" Background="#EEEEEE">
