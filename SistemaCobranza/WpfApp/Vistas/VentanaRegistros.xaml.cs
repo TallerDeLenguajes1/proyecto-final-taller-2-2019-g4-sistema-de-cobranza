@@ -33,7 +33,7 @@ namespace WpfApp.Vistas
 
         private void btnDeudores_Click(object sender, RoutedEventArgs e)
         {
-            Deudores ventanaDeudores = new Deudores();
+            Deudores ventanaDeudores = new Deudores(UsuarioActual);
             ventanaDeudores.ShowDialog();
         }
 
@@ -42,7 +42,7 @@ namespace WpfApp.Vistas
             string bot = txbBuscar.Text;
             if (rdbDni.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("dni",bot);
             else if (rdbCuit.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("cuit", bot);
-            else registros = RegistroABM.RegistrosPorAtributo(UsuarioActual.Id_usuario.ToString(), bot);
+            else registros = RegistroABM.RegistrosPorAtributo("id_usuario", bot);
         }
 
         private void btnDeuda_Click(object sender, RoutedEventArgs e)
@@ -65,7 +65,8 @@ namespace WpfApp.Vistas
 
         private void btnModRegistro_Click(object sender, RoutedEventArgs e)
         {
-
+            VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual);
+            ModRegistro.ShowDialog();
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)

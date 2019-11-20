@@ -24,15 +24,16 @@ namespace AccesoADatos
                 Deudor deudorX;
                 Conexion con = new Conexion();
 
-                string sql = "select * from Deudor";
+                string sql = "select * from deudor";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     deudorX = new Deudor();
-                    deudorX.Dni = dr.GetString("cuit");
-                    deudorX.ApellidoNombre = dr.GetString("nombre");
+                    deudorX.Dni = dr.GetString("dni");
+                    deudorX.ApellidoNombre = dr.GetString("ApellidoNombre");
+                    deudorX.Telefono = dr.GetString("telefono");
                     Deudores.Add(deudorX);
                 }
                 dr.Close();
@@ -55,7 +56,7 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(dni,apellidoNombre,telefono) values(@Dni, @ApellidoNombre, @Telefono)";
+                string sql = @"Insert into deudor(dni,ApellidoNombre,telefono) values(@Dni, @ApellidoNombre, @Telefono)";
                 
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
@@ -87,6 +88,7 @@ namespace AccesoADatos
                 deudorX = new Deudor();
                 deudorX.Dni = dr.GetString("dni");
                 deudorX.ApellidoNombre = dr.GetString("ApellidoNombre");
+                deudorX.Telefono = dr.GetString("telefono");
 
                 dr.Close();
                 con.Close();
@@ -100,5 +102,6 @@ namespace AccesoADatos
 
 
         }
+
     }
 }

@@ -52,6 +52,7 @@ namespace AccesoADatos
                 cmd = new MySqlCommand("Insert into usuario(user,contrasena,nivel) values('" + u.Nombre + "','" + str + "'," + 1 + ")", c.Connection);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
+                c.Close();
             }
             catch (Exception ex)
             {

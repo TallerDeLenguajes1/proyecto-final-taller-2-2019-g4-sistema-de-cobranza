@@ -21,12 +21,12 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(dni,cuit,monto) values(@Dni,@Cuit,@Monto)";
+                string sql = @"Inset into deuda(dni,cuit,monto) values(@Dni,@Cuit,@Monto)";
 
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Cuit", deudaX.Empresa.Cuit);
-                cmd.Parameters.AddWithValue("@FechaHora", deudaX.Monto);
+                cmd.Parameters.AddWithValue("@Monto", deudaX.Monto);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
@@ -67,6 +67,43 @@ namespace AccesoADatos
                 }
 
                 dr.Close();
+                con.Close();
+
+                return deudas;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return null;
+            }
+        }
+        /// <summary>
+        /// Busca deudas por dni o cuit y retorna una lista con las coincidencias
+        /// </summary>
+        /// <param name="atributo">Dni/Cuit</param>
+        /// <param name="valor">Valor</param>
+        /// <returns>Lista Deudas</returns>
+        public static List<Deuda> ListadeDeudas()
+        {
+            try
+            {
+                List<Deuda> deudas = new List<Deuda>();
+                Deuda deudaX;
+                Conexion con = new Conexion();
+                string sql = "select * from deuda";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                var dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    deudaX = new Deuda();
+                    deudaX.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
+                    deudaX.Deudor = DeudorABM.DeudorPorDni(dr.GetString("dni"));
+                    deudaX.Monto = dr.GetDouble("monto");
+                    deudas.Add(deudaX);
+                }
+
+                dr.Dispose();
                 con.Close();
 
                 return deudas;

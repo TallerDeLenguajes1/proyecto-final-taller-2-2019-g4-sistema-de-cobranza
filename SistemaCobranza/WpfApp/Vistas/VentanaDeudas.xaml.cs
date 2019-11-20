@@ -29,7 +29,7 @@ namespace WpfApp.Vistas
         {
             InitializeComponent();
 
-            //deudas = DeudaABM.listaDeudas();
+            deudas = DeudaABM.ListadeDeudas();
 
             foreach (var item in deudas)
             {

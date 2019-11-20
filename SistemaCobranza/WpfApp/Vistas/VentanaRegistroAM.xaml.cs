@@ -48,7 +48,7 @@ namespace WpfApp.Vistas
             }
             else
             {
-                MessageBox.Show("No se selecciono una deuda");
+                MessageBox.Show("No se seleccionó una deuda");
             }          
         }
 
@@ -56,8 +56,8 @@ namespace WpfApp.Vistas
         {
             if (!Helpers.VerificarCampos.Verificarnum(txbBuscarDeudas.Text))//Verificar si son numeros
             {
-              //  if (rdbCuit.IsChecked.Value) listaDeudas = DeudaABM.DeudaPorCuit(txbBuscarDeudas.Text);
-              //  else listaDeudas = DeudaABM.DeudaPorDni(txbBuscarDeudas.Text);
+                if (rdbCuit.IsChecked.Value) listaDeudas = DeudaABM.deudasPorAtributo("cuit",txbBuscarDeudas.Text);
+                else listaDeudas = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
             }
             else MessageBox.Show("Debe ser solo numeros");
         }

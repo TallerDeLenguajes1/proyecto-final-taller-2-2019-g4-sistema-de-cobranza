@@ -81,7 +81,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex,"Error al crear registro.");
                 return null;
             }
         }
