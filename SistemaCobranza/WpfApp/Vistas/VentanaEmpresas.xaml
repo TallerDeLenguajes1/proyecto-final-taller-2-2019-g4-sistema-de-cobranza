@@ -18,10 +18,17 @@
                 Margin="10,10,0,0" HorizontalAlignment="Left" Width="268" Height="47" VerticalAlignment="Top">
                 <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
                 <RadioButton
+                    x:Name="rdbCuit"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4"
                     IsChecked="True"
                     Content="CUIT" />
+                <RadioButton
+                    x:Name="rdbNombre"
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4"
+                    IsChecked="True"
+                    Content="Nombre" />
             </StackPanel>
             <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarEmpresas_Click" >
                 <materialDesign:PackIcon
@@ -39,13 +46,10 @@
                 materialDesign:HintAssist.Hint="Buscar Empresas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListBox x:Name="lbEmpresas" HorizontalAlignment="Left" Margin="10,199,-85.691,-294.945" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
-        <Button x:Name="btnAltaEmpresa" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,-241.691,-148.945"/>
-        <Button x:Name="btnModEmpresa" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,-241.691,-212.945"/>
-        <Button x:Name="btnBorrarEmpresa" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,-241.691,-277.945"/>
+        <ListBox x:Name="lbEmpresas" HorizontalAlignment="Left" Margin="10,199,-85.691,-294.945" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        <Button x:Name="btnAltaEmpresa" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,-241.691,-148.945" Click="btnAltaEmpresa_Click"/>
+        <Button x:Name="btnModEmpresa" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,-241.691,-212.945" Click="btnModEmpresa_Click"/>
+        <Button x:Name="btnBorrarEmpresa" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,-241.691,-277.945" Click="btnBorrarEmpresa_Click"/>
 
 
     </Grid>

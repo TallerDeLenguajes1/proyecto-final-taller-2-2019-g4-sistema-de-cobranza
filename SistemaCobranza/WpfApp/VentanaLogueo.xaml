@@ -17,7 +17,7 @@
     <Grid>
         <Button x:Name="btnIngresar" Content="Ingresar" HorizontalAlignment="Left" Margin="108,211,0,0" VerticalAlignment="Top" Width="91" IsDefault="True" Click="btnIngresar_Click"/>
 
-        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="54" Margin="60,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+        <TextBox Name="txbuser" HorizontalAlignment="Left" Height="54" Margin="60,63,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"  materialDesign:HintAssist.Hint="Usuario" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
         
         <PasswordBox
             x:Name="pwbContra"

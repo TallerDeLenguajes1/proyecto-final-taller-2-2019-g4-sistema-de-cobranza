@@ -26,7 +26,7 @@ namespace AccesoADatos
                 Empresa empresaX;
                 Conexion con = new Conexion();
 
-                string sql = "select * from Empresa";
+                string sql = "select * from empresa";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
@@ -57,10 +57,10 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(cuit,nombre) values(@Cuit, @Nombre)";
+                string sql = @"Insert into empresa(cuit,nombre) values(@Cuit, @Nombre)";
 
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@cuit", empresaX.Cuit);
+                cmd.Parameters.AddWithValue("@Cuit", empresaX.Cuit);
                 cmd.Parameters.AddWithValue("@Nombre", empresaX.Nombre);
                 cmd.ExecuteNonQuery();
 
@@ -82,13 +82,10 @@ namespace AccesoADatos
             {
                 Empresa empresaX;
                 Conexion con = new Conexion();
-
-                string sql = "select * from Empresa where cuit='" + cuit + "'";
+                string sql = "select * from empresa where cuit='" + cuit + "'";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
-
                 dr.Read();
-
                 empresaX = new Empresa();
                 empresaX.Cuit = dr.GetString("cuit");
                 empresaX.Nombre = dr.GetString("nombre");
@@ -102,9 +99,33 @@ namespace AccesoADatos
                 logger.Error(ex);
                 return null;
             }
-
-
         }
-
+        public static List<Empresa> EmpresaPorNombre(string nombre)
+        {
+            try
+            {
+                Empresa empresaX;
+                List<Empresa> listaEmpresa = new List<Empresa>();
+                Conexion con = new Conexion();
+                string sql = "select * from empresa where nombre like '" + nombre + "'";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    empresaX = new Empresa();
+                    empresaX.Cuit = dr.GetString("cuit");
+                    empresaX.Nombre = dr.GetString("nombre");
+                    listaEmpresa.Add(empresaX);
+                }
+                dr.Close();
+                con.Close();
+                return listaEmpresa;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+                return null;
+            }
+        }
     }
 }

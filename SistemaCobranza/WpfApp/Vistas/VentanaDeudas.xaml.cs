@@ -23,7 +23,7 @@ namespace WpfApp.Vistas
     {
 
         List<Deuda> deudas;
-        Deuda deudaX;
+        //Deuda deudaX;
 
         public VentanaDeudas()
         {
@@ -43,33 +43,36 @@ namespace WpfApp.Vistas
 
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbDni.IsChecked == true)
+            if (rdbDni.IsChecked.Value)
             {
-               // deudaX = DeudaABM.DeudaPorDni(txbBuscarDeudas.Text);
-                string str = deudaX.Empresa.Nombre + "/" + deudaX.Empresa.Cuit + " / " + deudaX.Deudor.ApellidoNombre + " / " + deudaX.Deudor.Dni + " / " + deudaX.Deudor.Telefono;
-                lbDeudas.Items.Add(str);
-                lbDeudas.Items.Refresh();
+                deudas = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
+                foreach (Deuda x in deudas)
+                {
+                    string str = x.Empresa.Nombre + "/" + x.Empresa.Cuit + " / " + x.Deudor.ApellidoNombre + " / " + x.Deudor.Dni + " / " + x.Deudor.Telefono;
+                    lbDeudas.Items.Add(str);
+                    lbDeudas.Items.Refresh();
+                }
+                
             }
             else
             {
-              //  deudaX = DeudaABM.DeudaPorCuit(txbBuscarDeudas.Text);
-                string str = deudaX.Empresa.Nombre + "/" + deudaX.Empresa.Cuit + " / " + deudaX.Deudor.ApellidoNombre + " / " + deudaX.Deudor.Dni + " / " + deudaX.Deudor.Telefono;
-                lbDeudas.Items.Add(str);
-                lbDeudas.Items.Refresh();
+                deudas = DeudaABM.deudasPorAtributo("cuit", txbBuscarDeudas.Text);
+                foreach (Deuda x in deudas)
+                {
+                    string str = x.Empresa.Nombre + "/" + x.Empresa.Cuit + " / " + x.Deudor.ApellidoNombre + " / " + x.Deudor.Dni + " / " + x.Deudor.Telefono;
+                    lbDeudas.Items.Add(str);
+                    lbDeudas.Items.Refresh();
+                }
             }
-
-
         }
-
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)
         {
             VentanaDeudaAM deudaAM = new VentanaDeudaAM();
             deudaAM.Show();
         }
-
         private void btnModDeuda_Click(object sender, RoutedEventArgs e)
         {
-            VentanaDeudaAM deudaAM = new VentanaDeudaAM(deudaX);
+            VentanaDeudaAM deudaAM = new VentanaDeudaAM((Deuda)lbDeudas.SelectedItem);
             deudaAM.Show();
         }
 

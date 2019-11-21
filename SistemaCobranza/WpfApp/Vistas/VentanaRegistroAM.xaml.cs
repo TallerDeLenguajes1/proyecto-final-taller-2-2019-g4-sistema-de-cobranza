@@ -29,6 +29,7 @@ namespace WpfApp.Vistas
         {
             usuarioActual = usuarioRecibido;
             InitializeComponent();
+            lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
         }
         //private void btnBuscar_Click(object sender, RoutedEventArgs e)
         private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
@@ -36,11 +37,10 @@ namespace WpfApp.Vistas
             registroX = new Registro();
             registroX.Usuario = usuarioActual;
             registroX.Observacion = txbObservacion.Text;
-
             if (rdbContesto.IsChecked.Value) registroX.Resultado = "Contesto";
             else if (rdbNoContesto.IsChecked.Value) registroX.Resultado = "No contesto";
             else registroX.Resultado = "Corto";
-
+            registroX.FechaHora = DateTime.Now;
             if (lbDeudas.SelectedItem != null)
             {
                 registroX.Deuda = (Deuda)lbDeudas.SelectedItem;
@@ -51,7 +51,6 @@ namespace WpfApp.Vistas
                 MessageBox.Show("No se seleccionó una deuda");
             }          
         }
-
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
             if (!Helpers.VerificarCampos.Verificarnum(txbBuscarDeudas.Text))//Verificar si son numeros

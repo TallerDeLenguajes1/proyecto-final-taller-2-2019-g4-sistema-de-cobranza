@@ -21,7 +21,7 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into deuda(dni,cuit,monto) values(@Dni,@Cuit,@Monto)";
+                string sql = @"Insert into deuda(dni,cuit,monto) values(@Dni,@Cuit,@Monto)";
 
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
@@ -49,14 +49,11 @@ namespace AccesoADatos
                 List<Deuda> deudas = new List<Deuda>();
                 Deuda deudaX;
                 Conexion con = new Conexion();
-
-
                 string sql = "select * from deuda where @Atributo = @Valor ";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Atributo", atributo);
                 cmd.Parameters.AddWithValue("@Valor", valor);
                 var dr = cmd.ExecuteReader();
-
                 while (dr.Read())
                 {
                     deudaX = new Deuda();
@@ -65,10 +62,8 @@ namespace AccesoADatos
                     deudaX.Monto = dr.GetDouble("monto");
                     deudas.Add(deudaX);
                 }
-
                 dr.Close();
                 con.Close();
-
                 return deudas;
             }
             catch (Exception ex)
@@ -78,10 +73,8 @@ namespace AccesoADatos
             }
         }
         /// <summary>
-        /// Busca deudas por dni o cuit y retorna una lista con las coincidencias
+        /// Consigue una lista de deudas de la base de datos y la retorna.
         /// </summary>
-        /// <param name="atributo">Dni/Cuit</param>
-        /// <param name="valor">Valor</param>
         /// <returns>Lista Deudas</returns>
         public static List<Deuda> ListadeDeudas()
         {
@@ -93,7 +86,6 @@ namespace AccesoADatos
                 string sql = "select * from deuda";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
-
                 while (dr.Read())
                 {
                     deudaX = new Deuda();
@@ -102,10 +94,8 @@ namespace AccesoADatos
                     deudaX.Monto = dr.GetDouble("monto");
                     deudas.Add(deudaX);
                 }
-
                 dr.Dispose();
                 con.Close();
-
                 return deudas;
             }
             catch (Exception ex)
@@ -114,8 +104,5 @@ namespace AccesoADatos
                 return null;
             }
         }
-
-
-
     }
 }

@@ -50,12 +50,9 @@
                 Height="60"
                 materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-        
-        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,222,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
-        
+
+        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,222,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top"/>
+
         <TextBlock  Margin="573,40,0,0" TextWrapping="Wrap" Text="Observaciones" VerticalAlignment="Top" Height="18" Style="{StaticResource MaterialDesignSubheadingTextBlock}" HorizontalAlignment="Left" Width="107" />
         <TextBox x:Name="txbObservacion" Style="{StaticResource MaterialDesignOutlinedTextFieldTextBox}" Margin="573,70,31.127,0" VerticalAlignment="Top" Height="158" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
         

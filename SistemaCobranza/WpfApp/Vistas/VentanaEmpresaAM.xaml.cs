@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Entidades;
+using AccesoADatos;
 
 namespace WpfApp.Vistas
 {
@@ -24,6 +25,7 @@ namespace WpfApp.Vistas
         public VentanaEmpresaAM()
         {
             InitializeComponent();
+            btnModEmpresa.Visibility = Visibility.Collapsed;
         }
         public VentanaEmpresaAM(Empresa EmpresaRecibida)
         {
@@ -33,18 +35,25 @@ namespace WpfApp.Vistas
             txbCuit.Text = empresaX.Cuit;
             txbNombre.Text = empresaX.Nombre;
         }
-        private void bAgregar_Click(object sender, RoutedEventArgs e)
+        private void btnAgregarEmpresa_Click(object sender, RoutedEventArgs e)
         {
             empresaX = new Empresa();
             empresaX.Cuit = txbCuit.Text;
             empresaX.Nombre = txbNombre.Text;
-            AccesoADatos.EmpresaABM.InsertarEmpresa(empresaX);
+            string estado = Helpers.VerificarCampos.VerificarEmpresa(empresaX);
+            if (estado == "true")
+            {
+                EmpresaABM.InsertarEmpresa(empresaX);
+                this.Close();
+            }
+            else MessageBox.Show(estado);
         }
-        private void bModificar_Click(object sender, RoutedEventArgs e)
+
+        private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
         {
             empresaX.Cuit = txbCuit.Text;
             empresaX.Nombre = txbNombre.Text;
-           // AccesoADatos.EmpresaABM.ModificarEmpresa(empresaX); // Todo
+            //EmpresaABM.ModificarEmpresa(empresaX); // Todo
         }
     }
 }

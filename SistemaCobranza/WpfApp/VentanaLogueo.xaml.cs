@@ -28,6 +28,7 @@ namespace WpfApp
         public VentanaLogueo()
         {
             InitializeComponent();
+            txbuser.Focus();
         }
 
         private void btnIngresar_Click(object sender, RoutedEventArgs e)

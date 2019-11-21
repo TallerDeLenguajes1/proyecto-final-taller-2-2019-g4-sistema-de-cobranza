@@ -79,7 +79,7 @@ namespace AccesoADatos
             {
                 Conexion con = new Conexion();                
 
-                string sql = "select * from Deudor where dni='" + dni + "'"; // agregar parametro
+                string sql = "select * from deudor where dni='" + dni + "'"; // agregar parametro
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 

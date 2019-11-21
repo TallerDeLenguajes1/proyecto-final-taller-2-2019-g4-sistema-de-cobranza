@@ -53,7 +53,7 @@ namespace WpfApp.Vistas
 
         private void btnEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            VentanaEmpresas ventanaEmpresas = new VentanaEmpresas();
+            VentanaEmpresas ventanaEmpresas = new VentanaEmpresas(UsuarioActual);
             ventanaEmpresas.ShowDialog();
         }
 

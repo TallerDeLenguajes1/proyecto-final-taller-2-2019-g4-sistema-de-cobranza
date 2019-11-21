@@ -24,20 +24,20 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(fechaHora,observacion,resultado,dni,cuit) values(@FechaHora,@Observacion,@Resultado,@Dni,@Cuit)";
-
+                string sql = @"Insert into registro(fechahora,observacion,resultado,dni,cuit,id_usuario) values(@FechaHora,@Observacion,@Resultado,@Dni,@Cuit,@Usuario)";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@FechaHora", registroX.FechaHora);
                 cmd.Parameters.AddWithValue("@Observacion", registroX.Observacion);
                 cmd.Parameters.AddWithValue("@Resultado", registroX.Resultado);
                 cmd.Parameters.AddWithValue("@Dni", registroX.Deuda.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Cuit", registroX.Deuda.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Usuario", registroX.Usuario.Id_usuario);
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex,"Error al crear registro.");
             }
         }
 
