@@ -36,10 +36,7 @@
                 Height="60"
                 materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-        <ListBox x:Name="lbDeudores" HorizontalAlignment="Left" Margin="10,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
+        <ListBox x:Name="lbDeudores" HorizontalAlignment="Left" Margin="10,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
         <TextBlock HorizontalAlignment="Left" Margin="459,56,0,0" TextWrapping="Wrap" Text="Empresas" VerticalAlignment="Top" Height="25" Width="95" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
         <Grid HorizontalAlignment="Left" Height="141" Margin="459,86,0,0" VerticalAlignment="Top" Width="409" Background="#EEEEEE">
             <StackPanel
@@ -67,10 +64,7 @@
                 Height="60"
                 materialDesign:HintAssist.Hint="Buscar Empresas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-        <ListBox x:Name="lbEmpresas" HorizontalAlignment="Left" Margin="459,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
+        <ListBox x:Name="lbEmpresas" HorizontalAlignment="Left" Margin="459,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
         <TextBox
             x:Name="txbMonto"
             Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
@@ -84,5 +78,11 @@
             Height="40"
             materialDesign:ButtonAssist.CornerRadius="5"
             Margin="923,245,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Click="btnGuardarDeuda_Click"/>
+        <Button
+            x:Name="btnModificarDeuda"
+            Style="{StaticResource MaterialDesignRaisedDarkButton}"
+            Height="40"
+            materialDesign:ButtonAssist.CornerRadius="5"
+            Margin="923,245,0,0" Content="Guardar" VerticalAlignment="Top" HorizontalAlignment="Left" Width="149" Click="btnModificarDeuda_Click"/>
     </Grid>
 </Window>

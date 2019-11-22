@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
+using System.Text.RegularExpressions;
 
 namespace Helpers
 {
@@ -20,7 +21,7 @@ namespace Helpers
         {
             string estado = "true";
             if (!Verificarnum(dni)) estado = "El DNI debe ser de sólo numeros.";
-            if (!Verificarnum(telefono)) estado = "Cuit debe ser de sólo numeros.";
+            if (!Verificarnum(telefono)) estado = "Telefono debe ser de sólo numeros.";
             if (!Verificarcaracteres(nombreyape)) estado = "Debe haber al menos un nombre y un apellido y solo letras.";
             return estado;
         }
@@ -33,9 +34,13 @@ namespace Helpers
         }
         public static bool Verificarcaracteres(string prueba)
         {
-            bool estado = true;
-            if (!prueba.All(char.IsLetter)) estado = false;
-            return estado;
+            string pattern = @"^[A-Za-z ]+$";
+            Regex regex = new Regex(pattern);
+            if (regex.IsMatch(prueba) == false)
+            {
+               return false;
+            }
+            return true;
         }
 
     }

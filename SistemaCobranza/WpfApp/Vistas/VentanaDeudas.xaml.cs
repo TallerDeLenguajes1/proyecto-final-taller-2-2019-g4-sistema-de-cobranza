@@ -23,21 +23,14 @@ namespace WpfApp.Vistas
     {
 
         List<Deuda> deudas;
-        //Deuda deudaX;
+        Deuda deudaX;
 
         public VentanaDeudas()
         {
             InitializeComponent();
 
             deudas = DeudaABM.ListadeDeudas();
-
-            foreach (var item in deudas)
-            {
-                string str = item.Empresa.Nombre + "/" + item.Empresa.Cuit + " / " + item.Deudor.ApellidoNombre + " / " + item.Deudor.Dni + " / " + item.Deudor.Telefono;
-                lbDeudas.Items.Add(str);
-                lbDeudas.Items.Refresh();
-            }
-
+            lbDeudas.ItemsSource =  deudas;
 
         }
 
@@ -67,14 +60,21 @@ namespace WpfApp.Vistas
         }
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)
         {
-            VentanaDeudaAM deudaAM = new VentanaDeudaAM();
-            deudaAM.Show();
+            VentanaDeudaAM Altadeuda = new VentanaDeudaAM();
+            Altadeuda.ShowDialog();
         }
         private void btnModDeuda_Click(object sender, RoutedEventArgs e)
         {
-            VentanaDeudaAM deudaAM = new VentanaDeudaAM((Deuda)lbDeudas.SelectedItem);
-            deudaAM.Show();
+            if (lbDeudas.SelectedItem != null)
+            {
+                VentanaDeudaAM deudaMod = new VentanaDeudaAM((Deuda) lbDeudas.SelectedItem);
+                deudaMod.ShowDialog();
+            }
+            else MessageBox.Show("Debes escoger una deuda de la lista para modificarla.");
         }
-
+        private void btnBorrarDeuda_Click(object sender, RoutedEventArgs e)
+        {
+            //acceso a datos para borrar una deuda
+        }
     }
 }

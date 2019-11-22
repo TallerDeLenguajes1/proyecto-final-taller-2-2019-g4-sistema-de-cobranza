@@ -27,6 +27,7 @@ namespace AccesoADatos
                 string passEnBasedeD = dr["contrasena"].ToString();
                 string contracodif = Contrasena.Getmd5(u.Contrasena);//codificar contraseña del usuario
                 if (Contrasena.VerifyMd5Hash(passEnBasedeD, contracodif)) u.nivel = Convert.ToInt32(dr["nivel"]); //si las contraseñas son iguales devuelve el nivel
+                u.Id_usuario = Convert.ToInt32(dr["id_usuario"]);
                 dr.Dispose();//libera los recursos usados por ésta instancia
                 c.Close();
                 logger.Trace("Usuario logueado : " + u.Nombre);

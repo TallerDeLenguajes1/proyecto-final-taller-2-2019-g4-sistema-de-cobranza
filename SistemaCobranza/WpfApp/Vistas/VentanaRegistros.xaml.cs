@@ -27,8 +27,7 @@ namespace WpfApp.Vistas
         {
             UsuarioActual = usuarioRecibido;
             InitializeComponent();
-            //VentanaLogueo logout = new VentanaLogueo();
-            //logout.ShowDialog();
+            lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
         }
 
         private void btnDeudores_Click(object sender, RoutedEventArgs e)

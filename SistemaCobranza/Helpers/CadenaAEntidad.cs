@@ -12,12 +12,27 @@ namespace Helpers
         public static Empresa StringToEmpresa(string Item)
         {
             Empresa empresaX = new Empresa();
-            string[] separados;
-            char[] separator = { '|', ' ' };
-            separados = Item.Split(separator);
+            char[] separator = {'/'};
+            string[] separados = Item.Split(separator);
             empresaX.Cuit = separados[0];
             empresaX.Nombre = separados[1];
             return empresaX;
+        }
+        public static Deudor StringToDeudor(string Item)
+        {
+            Deudor deudorX = new Deudor();
+            char[] separator = { '/' };
+            string[] separados = Item.Split(separator);
+            deudorX.Dni = separados[0];
+            deudorX.ApellidoNombre = separados[1];
+            deudorX.Telefono = separados[2];
+            return deudorX;
+        }
+        public static string[] StringToDeuda(string Item)
+        {
+            char[] separator = { '/' };
+            string[] separados = Item.Split(separator);
+            return separados;
         }
     }
 }

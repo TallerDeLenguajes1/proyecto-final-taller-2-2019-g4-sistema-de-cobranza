@@ -45,7 +45,7 @@ namespace WpfApp.Vistas
         {
             if (rdbCuit.IsChecked.Value)
             {
-                if (Helpers.VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
+                if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
                 {
                     empresaX = EmpresaABM.EmpresaPorCuit(txbBuscarEmpresas.Text);
                     lbEmpresas.ItemsSource = null;

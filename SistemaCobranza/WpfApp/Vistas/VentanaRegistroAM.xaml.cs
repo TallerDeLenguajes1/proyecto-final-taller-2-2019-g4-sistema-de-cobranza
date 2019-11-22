@@ -29,7 +29,13 @@ namespace WpfApp.Vistas
         {
             usuarioActual = usuarioRecibido;
             InitializeComponent();
-            lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
+            listaDeudas = DeudaABM.ListadeDeudas();
+            foreach (var item in listaDeudas)
+            {
+                string str = item.Deudor.Dni + "/" + item.Empresa.Cuit + "/" + item.Monto + "/" + item.Deudor.ApellidoNombre + "/" + item.Empresa.Nombre;
+                lbDeudas.Items.Add(str);
+                lbDeudas.Items.Refresh();
+            }
         }
         //private void btnBuscar_Click(object sender, RoutedEventArgs e)
         private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
@@ -40,11 +46,18 @@ namespace WpfApp.Vistas
             if (rdbContesto.IsChecked.Value) registroX.Resultado = "Contesto";
             else if (rdbNoContesto.IsChecked.Value) registroX.Resultado = "No contesto";
             else registroX.Resultado = "Corto";
-            registroX.FechaHora = DateTime.Now;
+            registroX.FechaHora = DateTime.Now.ToShortDateString();
             if (lbDeudas.SelectedItem != null)
             {
-                registroX.Deuda = (Deuda)lbDeudas.SelectedItem;
+                Deuda deudaX = new Deuda();
+                string[] CadenaDeuda = Helpers.CadenaAEntidad.StringToDeuda(lbDeudas.SelectedItem.ToString());
+                deudaX.Deudor = DeudorABM.DeudorPorDni(CadenaDeuda[0]);
+                deudaX.Empresa = EmpresaABM.EmpresaPorCuit(CadenaDeuda[1]);
+                deudaX.Monto = Convert.ToDouble(CadenaDeuda[2]);
+                registroX.Deuda = deudaX;
+                registroX.Usuario = usuarioActual;
                 RegistroABM.InsertarRegistro(registroX);
+                this.Close();
             }
             else
             {

@@ -62,7 +62,7 @@
 				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320" />
         </Grid>
 
-        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        <ListBox x:Name="lbRegistros" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
         <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0" Click="btnAltaRegsitro_Click"/>
         <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0" Click="btnModRegistro_Click"/>
         <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0" Click="btnBorrar_Click"/>

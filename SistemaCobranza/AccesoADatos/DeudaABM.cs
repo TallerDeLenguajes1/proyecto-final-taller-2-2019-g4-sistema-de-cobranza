@@ -72,6 +72,35 @@ namespace AccesoADatos
                 return null;
             }
         }
+        public static Deuda DeudaPorDniCuit(string dni, string cuit)
+        {
+            try
+            {
+                Deuda deudaX;
+                Conexion con = new Conexion();
+                string sql = "select * from deuda where dni = @Dni and cuit = @Cuit";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Dni", dni);
+                cmd.Parameters.AddWithValue("@Cuit", cuit);
+                var dr = cmd.ExecuteReader();
+
+                dr.Read();
+                deudaX = new Deuda();
+                deudaX.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
+                deudaX.Deudor = DeudorABM.DeudorPorDni(dr.GetString("dni"));
+                deudaX.Monto = dr.GetDouble("monto");
+            
+                
+                dr.Close();
+                con.Close();
+                return deudaX;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(),"No se cargo deuda");
+                return null;
+            }
+        }
         /// <summary>
         /// Consigue una lista de deudas de la base de datos y la retorna.
         /// </summary>

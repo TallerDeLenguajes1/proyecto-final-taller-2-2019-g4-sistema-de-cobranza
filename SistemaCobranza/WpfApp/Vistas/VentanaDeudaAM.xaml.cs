@@ -30,86 +30,69 @@ namespace WpfApp.Vistas
         public VentanaDeudaAM()
         {
             InitializeComponent();
-
-            deudores = DeudorABM.ListaDeudores();
-            empresas = EmpresaABM.listaEmpresas();
-
-            foreach (var item in deudores)
-            {
-                string str = item.ApellidoNombre + "/" + item.Dni + " / " + item.Telefono;
-                lbDeudores.Items.Add(str);
-                lbDeudores.Items.Refresh();
-            }
-            foreach (var item in empresas)
-            {
-                string str = item.Nombre + "/" + item.Cuit;
-                lbEmpresas.Items.Add(str);
-                lbEmpresas.Items.Refresh();
-            }
-
+            lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+            lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
         }
 
         public VentanaDeudaAM(Deuda deuda)
         {
             InitializeComponent();
             deudaX = deuda;
-            deudores = DeudorABM.ListaDeudores();
-            empresas = EmpresaABM.listaEmpresas();
-
-            foreach (var item in deudores)
-            {
-                string str = item.ApellidoNombre + "/" + item.Dni + " / " + item.Telefono;
-                lbDeudores.Items.Add(str);
-                lbDeudores.Items.Refresh();
-            }
-            foreach (var item in empresas)
-            {
-                string str = item.Nombre + "/" + item.Cuit;
-                lbEmpresas.Items.Add(str);
-                lbEmpresas.Items.Refresh();
-            }
+            lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+            lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
+            lbDeudores.SelectedItem = deuda.Deudor;
+            lbEmpresas.SelectedItem = deuda.Empresa;
+            txbMonto.Text = deuda.Monto.ToString();
+            btnGuardarDeuda.Visibility = Visibility.Collapsed; 
 
         }
 
         private void btnGuardarDeuda_Click(object sender, RoutedEventArgs e)
         {
-
-            if (deudorX != null && empresaX != null && txbMonto.Text != "")
+            if (lbDeudores.SelectedItem != null && lbEmpresas.SelectedItem != null)
             {
-                deudaX.Deudor = deudorX;
-                deudaX.Empresa = empresaX;
-                deudaX.Monto = Convert.ToDouble(txbMonto.Text);
-             //   DeudaABM.InsertarDeuda(deudaX);
+                deudaX = new Deuda();
+                deudaX.Deudor = ((Deudor)lbDeudores.SelectedItem);
+                deudaX.Empresa = ((Empresa)lbEmpresas.SelectedItem);
+                if (Helpers.VerificarCampos.Verificarnum(txbMonto.Text))
+                {
+                    deudaX.Monto = Convert.ToDouble(txbMonto.Text);
+                    DeudaABM.InsertarDeuda(deudaX);
+                    this.Close();
+                }
+                else MessageBox.Show("Monto debe ser Numérico.");
             }
-
+            else MessageBox.Show("Debe elegir al menos un Deudor y una Empresa.");
         }
 
         private void BtnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            deudorX = DeudorABM.DeudorPorDni(txbBuscarDeudores.Text);
-            string str = deudorX.ApellidoNombre + "/" + deudorX.Dni + "/" + deudorX.Telefono;
-            lbDeudores.Items.Clear();
-            lbDeudores.Items.Add(str);
-            lbDeudores.Items.Refresh();
+            lbDeudores.ItemsSource = DeudorABM.DeudorPorDniParecidos(txbBuscarDeudores.Text);
         }
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            empresaX = EmpresaABM.EmpresaPorCuit(txbBuscarEmpresas.Text);
-            string str = empresaX.Nombre + "/" + empresaX.Cuit;
-            lbDeudores.Items.Clear();
-            lbDeudores.Items.Add(str);
-            lbDeudores.Items.Refresh();
+            lbEmpresas.ItemsSource = EmpresaABM.EmpresaPorNombre(txbBuscarEmpresas.Text);
+
         }
 
-        private void LbDeudores_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void btnModificarDeuda_Click(object sender, RoutedEventArgs e)
         {
-            deudorX = (Deudor)(lbDeudores.SelectedItem);
-        }
-
-        private void LbEmpresas_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            empresaX = (Empresa)(lbEmpresas.SelectedItem);
+            if (lbDeudores.SelectedItem != null && lbEmpresas.SelectedItem != null)
+            {
+                deudaX = new Deuda();
+                deudaX.Deudor = ((Deudor) lbDeudores.SelectedItem);
+                deudaX.Empresa = ((Empresa) lbEmpresas.SelectedItem);
+                if (Helpers.VerificarCampos.Verificarnum(txbMonto.Text))
+                {
+                    deudaX.Monto = Convert.ToDouble(txbMonto.Text);
+                    //DeudaABM.ModificarDeuda(deudaX);
+                    this.Close();
+                }
+                else MessageBox.Show("Monto debe ser Numérico.");
+            }
+            else MessageBox.Show("Debe elegir al menos un Deudor y una Empresa.");
+         
         }
     }
 }

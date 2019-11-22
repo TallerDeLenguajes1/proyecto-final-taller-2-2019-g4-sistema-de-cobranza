@@ -12,7 +12,7 @@ namespace Entidades
         public string Nombre { get; set; }
         public override string ToString()
         {
-            string Pasaje = Cuit + " | " + Nombre;
+            string Pasaje = Cuit + "/" + Nombre;
             return Pasaje;
         }
     }

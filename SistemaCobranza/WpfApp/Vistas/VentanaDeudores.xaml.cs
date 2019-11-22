@@ -38,7 +38,7 @@ namespace WpfApp.Vistas
 
             foreach (var item in deudores)
             {
-                string str = item.Dni + "/" + item.ApellidoNombre + " / " + item.Telefono;
+                string str = item.Dni + "/" + item.ApellidoNombre + "/" + item.Telefono;
                 lbDeudores.Items.Add(str);
                 lbDeudores.Items.Refresh();
             }
@@ -54,12 +54,12 @@ namespace WpfApp.Vistas
         {
             if (lbDeudores.SelectedItem != null)
             {
-                VentanaDeudorAM ModDeudor = new VentanaDeudorAM((Deudor)lbDeudores.SelectedItem);
+                Deudor deudorX = Helpers.CadenaAEntidad.StringToDeudor(lbDeudores.SelectedItem.ToString()); 
+                VentanaDeudorAM ModDeudor = new VentanaDeudorAM(deudorX);
                 ModDeudor.ShowDialog();
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
         }
-
         private void btnBorrarDeudores_Click(object sender, RoutedEventArgs e)
         {
             //borrar deudor

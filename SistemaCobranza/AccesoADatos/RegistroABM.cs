@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AccesoADatos
 {
@@ -35,8 +36,9 @@ namespace AccesoADatos
                 cmd.ExecuteNonQuery();
                 con.Close();
             }
-            catch (Exception ex)
+            catch (MySqlException ex)
             {
+                MessageBox.Show(ex.ToString());
                 logger.Error(ex,"Error al crear registro.");
             }
         }
@@ -65,26 +67,60 @@ namespace AccesoADatos
                 while (dr.Read())
                 {
                     registroX = new Registro();
-                    registroX.Id_Registro = dr.GetInt32("cuit");
-                    registroX.FechaHora = dr.GetDateTime("fechaHora");
+                    //registroX.Id_Registro = dr.GetInt32("cuit");
+                    registroX.FechaHora = dr.GetString("fechaHora");
                     registroX.Observacion = dr.GetString("observacion");
                     registroX.Resultado = dr.GetString("resultado");
-                    registroX.Deuda.Deudor = DeudorABM.DeudorPorDni( dr.GetString("dni"));
+                    registroX.Deuda.Deudor = DeudorABM.DeudorPorDni(dr.GetString("dni"));
                     registroX.Deuda.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
                     registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }
                 dr.Close();
                 con.Close();
-                
+
                 return Registros;
             }
             catch (Exception ex)
             {
-                logger.Error(ex,"Error al crear registro.");
+                logger.Error(ex, "Error al crear registro.");
                 return null;
             }
         }
-    
+        public static List<Registro> ListaRegistros()
+        {
+            try
+            {
+                List<Registro> Registros = new List<Registro>();
+                Registro registroX;
+                Conexion con = new Conexion();
+
+
+                string sql = "select * from registro";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                var dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    registroX = new Registro();
+                    registroX.FechaHora = dr.GetString("fechahora");
+                    registroX.Observacion = dr.GetString("observacion");
+                    registroX.Resultado = dr.GetString("resultado");
+                    registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cuit"));
+                    registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                    Registros.Add(registroX);
+                }
+                dr.Close();
+                con.Close();
+
+                return Registros;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(), "Error al cargar registro.");
+                return null;
+            }
+        }
+
     }
 }

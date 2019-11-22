@@ -45,13 +45,10 @@
                 materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,199,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" >
-            <TextBlock><Run Text="Old"/></TextBlock>
-            <TextBlock><Run Text="ListBox"/></TextBlock>
-        </ListBox>
-        <Button x:Name="btnAltaDeuda" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0"/>
-        <Button x:Name="btnModDeuda" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,0"/>
-        <Button x:Name="btnBorrarDeuda" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,0"/>
+        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,199,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        <Button x:Name="btnAltaDeuda" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaDeuda_Click"/>
+        <Button x:Name="btnModDeuda" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,0" Click="btnModDeuda_Click"/>
+        <Button x:Name="btnBorrarDeuda" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,0" Click="btnBorrarDeuda_Click"/>
 
 
     </Grid>

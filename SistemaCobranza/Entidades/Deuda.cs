@@ -11,5 +11,12 @@ namespace Entidades
         public Empresa Empresa{ get; set; }
         public Deudor Deudor { get; set; }
         public double Monto { get; set; }
+
+
+        public override string ToString()
+        {
+            return  Deudor.Dni + "/" + Empresa.Cuit + "/" + Monto + "/" + Deudor.ApellidoNombre + "/" + Empresa.Nombre;
+        }
     }
+    
 }

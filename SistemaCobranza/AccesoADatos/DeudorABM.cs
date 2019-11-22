@@ -96,12 +96,39 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
+                logger.Error(ex.ToString(), "Error al buscar deudor");
+                return null;
+            }
+        }
+        public static List<Deudor> DeudorPorDniParecidos(string dni)
+        {
+
+            try
+            {
+                Deudor deudorX;
+                List<Deudor> Deudores = new List<Deudor>();
+                Conexion con = new Conexion();
+                string sql = "select * from deudor where dni like '%" + dni + "%'"; // agregar parametro
+                var cmd = new MySqlCommand(sql, con.Connection);
+                var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    deudorX = new Deudor();
+                    deudorX.Dni = dr["dni"].ToString();
+                    deudorX.ApellidoNombre = dr["ApellidoNombre"].ToString();
+                    deudorX.Telefono = dr["telefono"].ToString();
+                    Deudores.Add(deudorX);
+                }
+                dr.Close();
+                con.Close();
+                return Deudores;
+            }
+            catch (Exception ex)
+            {
                 logger.Error(ex);
                 return null;
             }
-
-
         }
-
+        
     }
 }
