@@ -39,9 +39,10 @@ namespace WpfApp.Vistas
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
             string bot = txbBuscar.Text;
-            if (rdbDni.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("dni",bot);
-            else if (rdbCuit.IsChecked.Value) registros = RegistroABM.RegistrosPorAtributo("cuit", bot);
-            else registros = RegistroABM.RegistrosPorAtributo("id_usuario", bot);
+            if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni",bot);
+            else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", bot);
+            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("id_usuario", bot);
+
         }
 
         private void btnDeuda_Click(object sender, RoutedEventArgs e)

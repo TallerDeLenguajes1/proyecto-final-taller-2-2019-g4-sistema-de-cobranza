@@ -107,10 +107,14 @@ namespace AccesoADatos
             {
                 Deudor deudorX;
                 List<Deudor> Deudores = new List<Deudor>();
+                
                 Conexion con = new Conexion();
-                string sql = "select * from deudor where dni like '%" + dni + "%'"; // agregar parametro
+                string sql = @"SELECT * FROM deudor WHERE dni like @Dni";
+                
                 var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Dni", "%" + dni + "%");
                 var dr = cmd.ExecuteReader();
+                
                 while (dr.Read())
                 {
                     deudorX = new Deudor();
@@ -129,6 +133,53 @@ namespace AccesoADatos
                 return null;
             }
         }
-        
+
+        /// <summary>
+        /// Modifica datos de una deudor a partir de su dni
+        /// </summary>
+        /// <param name="deudorX"></param>
+        public static void ModificarDeudor(Deudor deudorX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"UPDATE deudor SET apellidonombre = @ApellidoNombre, telefono = @Telefono WHERE dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@ApellidoNombre", deudorX.ApellidoNombre);
+                cmd.Parameters.AddWithValue("@Telefono", deudorX.Telefono);
+                cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+        /// <summary>
+        /// Borra una deudor de la BD segun su dni
+        /// </summary>
+        /// <param name="deudorX"></param>
+        public static void BorrarDeudor(Deudor deudorX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"DELETE FROM deudor WHERE dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+
     }
 }

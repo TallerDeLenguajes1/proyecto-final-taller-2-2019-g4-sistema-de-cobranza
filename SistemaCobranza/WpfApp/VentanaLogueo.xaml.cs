@@ -38,7 +38,7 @@ namespace WpfApp
             usuario.Nombre = txbuser.Text;
             usuario.Contrasena = pwbContra.Password;
             UsuarioABM.Loguear(usuario);
-            if (usuario.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
+            if (usuario.Nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else
             {
                 VentanaRegistros ventanaPrincipal = new VentanaRegistros(usuario);

@@ -94,6 +94,12 @@
     <Compile Include="Vistas\VentanaRegistroAM.xaml.cs">
       <DependentUpon>VentanaRegistroAM.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Vistas\VentanaUsuarioAM.xaml.cs">
+      <DependentUpon>VentanaUsuarioAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaUsuarios.xaml.cs">
+      <DependentUpon>VentanaUsuarios.xaml</DependentUpon>
+    </Compile>
     <Page Include="VentanaLogueo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -135,6 +141,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Vistas\VentanaRegistroAM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VentanaUsuarioAM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VentanaUsuarios.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

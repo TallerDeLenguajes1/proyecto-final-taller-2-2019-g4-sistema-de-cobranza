@@ -27,19 +27,16 @@ namespace WpfApp.Vistas
         public VentanaEmpresas(Usuario usuarioactual)
         {
             InitializeComponent();
-            if(usuarioactual.nivel != 1)
+            if(usuarioactual.Nivel != 1)
             {
                 btnBorrarEmpresa.Visibility = Visibility.Collapsed;
             }
-            else if(usuarioactual.nivel == 3)
+            else if(usuarioactual.Nivel == 3)
             {
                 btnModEmpresa.Visibility = Visibility.Collapsed;
             }
-            empresas = EmpresaABM.listaEmpresas();
-            foreach (Empresa x in empresas)
-            {
-                lbEmpresas.Items.Add(x.ToString());
-            }
+            lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
+
         }
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {

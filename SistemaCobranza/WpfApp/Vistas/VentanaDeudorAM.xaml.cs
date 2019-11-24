@@ -35,8 +35,11 @@ namespace WpfApp.Vistas
         {
             InitializeComponent();
             deudorX = deudorRecibido;
+            tbTitulo.Text = "Modificar Deudor";
             btnAgregar.Visibility = Visibility.Collapsed;
+            
             txbDni.Text = deudorRecibido.Dni;
+            txbDni.IsEnabled = false;
             txbNomYApe.Text = deudorRecibido.ApellidoNombre;
             txbTelefono.Text = deudorRecibido.Telefono;
         }
@@ -65,7 +68,7 @@ namespace WpfApp.Vistas
                 deudorX.ApellidoNombre = txbNomYApe.Text;
                 deudorX.Telefono = txbTelefono.Text;
                 deudorX.Dni = txbDni.Text;
-                //DeudorABM.ModificarDeudor(deudorX);
+                DeudorABM.ModificarDeudor(deudorX);
                 this.Close();
             }
             else MessageBox.Show(resultado);

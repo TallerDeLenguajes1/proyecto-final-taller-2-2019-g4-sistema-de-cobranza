@@ -11,8 +11,6 @@ namespace AccesoADatos
 {
     public static class RegistroABM
     {
-        // TODO  verificar conexion y clase Registro 
-        
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
         /// <summary>
@@ -58,21 +56,19 @@ namespace AccesoADatos
                 Conexion con = new Conexion();
 
 
-                string sql = "select * from Registro where @Atributo like @Valor ";
+                string sql = "select * from Registro where " + atributo + " like @Valor";
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@Atributo", atributo);
-                cmd.Parameters.AddWithValue("@Valor", valor);
+                cmd.Parameters.AddWithValue("@Valor","%" + valor + "%");
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     registroX = new Registro();
-                    //registroX.Id_Registro = dr.GetInt32("cuit");
+                    registroX.Id_Registro = dr.GetInt32("id_registro");
                     registroX.FechaHora = dr.GetString("fechaHora");
                     registroX.Observacion = dr.GetString("observacion");
                     registroX.Resultado = dr.GetString("resultado");
-                    registroX.Deuda.Deudor = DeudorABM.DeudorPorDni(dr.GetString("dni"));
-                    registroX.Deuda.Empresa = EmpresaABM.EmpresaPorCuit(dr.GetString("cuit"));
+registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cuit"));
                     registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
                     Registros.Add(registroX);
                 }
@@ -103,6 +99,7 @@ namespace AccesoADatos
                 while (dr.Read())
                 {
                     registroX = new Registro();
+                    registroX.Id_Registro = dr.GetInt32("id_registro");
                     registroX.FechaHora = dr.GetString("fechahora");
                     registroX.Observacion = dr.GetString("observacion");
                     registroX.Resultado = dr.GetString("resultado");
@@ -119,6 +116,57 @@ namespace AccesoADatos
             {
                 logger.Error(ex.ToString(), "Error al cargar registro.");
                 return null;
+            }
+        }
+
+        /// <summary>
+        /// Modifica un registro a partir de su id
+        /// </summary>
+        /// <param name="registroX"></param>
+        public static void ModificarRegistro(Registro registroX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"UPDATE registro SET observacion = @Observacion, fechahora = @FechaHora, resultado = @Resultado, cuit = @Cuit, dni = @Dni, id_usuario = @Usuario  WHERE id_registro = @IdRegistro";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Observacion", registroX.Observacion);
+                cmd.Parameters.AddWithValue("@FechaHora", registroX.FechaHora);
+                cmd.Parameters.AddWithValue("@Resultado", registroX.Resultado);
+                cmd.Parameters.AddWithValue("@Dni", registroX.Deuda.Deudor.Dni);
+                cmd.Parameters.AddWithValue("@Cuit", registroX.Deuda.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Usuario", registroX.Usuario.Id_usuario);
+                cmd.Parameters.AddWithValue("@Usuario", registroX.Id_Registro);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+        /// <summary>
+        /// Borra una Registro de la BD segun su id
+        /// </summary>
+        /// <param name="registroX"></param>
+        public static void BorrarRegistro(Registro registroX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"DELETE FROM registro WHERE id_registro = @IdRegistro";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@IdRegistro", registroX.Id_Registro);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
             }
         }
 

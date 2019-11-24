@@ -72,6 +72,52 @@ namespace AccesoADatos
             }
         }
         /// <summary>
+        /// Modifica el nombre de una empresa a partir de su cuit
+        /// </summary>
+        /// <param name="empresaX"></param>
+        public static void ModificarEmpresa(Empresa empresaX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"UPDATE empresa SET nombre = @Nombre WHERE cuit = @Cuit";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Cuit", empresaX.Cuit);
+                cmd.Parameters.AddWithValue("@Nombre", empresaX.Nombre);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+        /// <summary>
+        /// Borra una empresa de la BD segun su cuit
+        /// </summary>
+        /// <param name="empresaX"></param>
+        public static void BorrarEmpresa(Empresa empresaX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"DELETE FROM empresa WHERE cuit = @Cuit";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Cuit", empresaX.Cuit);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+
+        /// <summary>
         /// Busca en la base de datos y retorna un objeto empresa segun su cuit
         /// </summary>
         /// <param name="cuit">Cuit</param>

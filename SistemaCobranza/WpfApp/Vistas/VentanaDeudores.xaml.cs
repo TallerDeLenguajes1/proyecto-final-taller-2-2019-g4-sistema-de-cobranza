@@ -21,27 +21,20 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class Deudores : Window
     {
-        List<Deudor> deudores;
         public Deudores(Usuario usuarioactual)
         {
             InitializeComponent();
-            if(usuarioactual.nivel == 3)
+            if(usuarioactual.Nivel == 3)
             {
                 btnBorrarDeudores.Visibility = Visibility.Collapsed;
                 btnModDeudores.Visibility = Visibility.Collapsed;
             }
-            else if(usuarioactual.nivel == 2) 
+            else if(usuarioactual.Nivel == 2) 
             {
                 btnBorrarDeudores.Visibility = Visibility.Collapsed;
             }
-            deudores = DeudorABM.ListaDeudores();
-
-            foreach (var item in deudores)
-            {
-                string str = item.Dni + "/" + item.ApellidoNombre + "/" + item.Telefono;
-                lbDeudores.Items.Add(str);
-                lbDeudores.Items.Refresh();
-            }
+            lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+        
         }
 
         private void btnAltaDeudores_Click(object sender, RoutedEventArgs e)
@@ -54,7 +47,7 @@ namespace WpfApp.Vistas
         {
             if (lbDeudores.SelectedItem != null)
             {
-                Deudor deudorX = Helpers.CadenaAEntidad.StringToDeudor(lbDeudores.SelectedItem.ToString()); 
+                Deudor deudorX =(Deudor) lbDeudores.SelectedItem; 
                 VentanaDeudorAM ModDeudor = new VentanaDeudorAM(deudorX);
                 ModDeudor.ShowDialog();
             }
@@ -62,7 +55,23 @@ namespace WpfApp.Vistas
         }
         private void btnBorrarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            //borrar deudor
+            if (lbDeudores.SelectedItem != null)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar el deudor?", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    DeudorABM.BorrarDeudor((Deudor)lbDeudores.SelectedItem);
+                }
+            }
+            else MessageBox.Show("Debe seleccionar un deudor.");
+        }
+
+        private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
+        {
+            if(txbBuscarDeudores.Text != null)
+            {
+                lbDeudores.ItemsSource = DeudorABM.DeudorPorDniParecidos(txbBuscarDeudores.Text);
+            }
         }
     }
 }

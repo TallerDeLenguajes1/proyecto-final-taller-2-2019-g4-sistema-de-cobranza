@@ -133,5 +133,53 @@ namespace AccesoADatos
                 return null;
             }
         }
+
+        /// <summary>
+        /// Modifica el monto de una deuda a partir de su cuit
+        /// </summary>
+        /// <param name="deudaX"></param>
+        public static void ModificarDeuda(Deuda deudaX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"UPDATE deuda SET monto = @Monto WHERE cuit = @Cuit and dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Monto", deudaX.Monto);
+                cmd.Parameters.AddWithValue("@Cuit", deudaX.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
+        /// <summary>
+        /// Borra una Deuda de la BD segun su cuit y dni
+        /// </summary>
+        /// <param name="deudaX"></param>
+        public static void BorrarDeuda(Deuda deudaX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"DELETE FROM deuda WHERE cuit = @Cuit and dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Cuit", deudaX.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex);
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ namespace Entidades
 
         public override string ToString()
         {
-            return Dni + "/" + ApellidoNombre + "/" + Telefono;
+            return Dni + " | " + ApellidoNombre + " | " + Telefono;
         }
     }
 }
