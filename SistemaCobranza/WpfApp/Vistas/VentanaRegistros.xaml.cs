@@ -40,7 +40,7 @@ namespace WpfApp.Vistas
         {
             if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
             else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
-            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("", txbBuscar.Text);
+            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
             if (lbRegistros.Items.Count == 0) lblNoticia.Content = "No Match";
             else lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
         }
