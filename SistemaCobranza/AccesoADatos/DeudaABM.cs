@@ -49,10 +49,11 @@ namespace AccesoADatos
                 List<Deuda> deudas = new List<Deuda>();
                 Deuda deudaX;
                 Conexion con = new Conexion();
-                string sql = "select * from deuda where @Atributo = @Valor ";
+                string sql;
+                if (atributo == "dni") sql= "select * from deuda where dni like @Valor";
+                else sql = "select * from deuda where cuit like @Valor";
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@Atributo", atributo);
-                cmd.Parameters.AddWithValue("@Valor", valor);
+                cmd.Parameters.AddWithValue("@Valor", "%"+valor+"%");
                 var dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {

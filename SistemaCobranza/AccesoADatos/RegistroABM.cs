@@ -45,14 +45,14 @@ namespace AccesoADatos
         /// <param name="atributo">Atributo puede tomar: dni, cuit, usuario</param>
         /// <param name="valor">valor de dicho atributo</param>
         /// <returns>Lista de registros</returns>
-        public static List<Registro> RegistrosPorAtributo(int atributo, string valor)
+        public static List<Registro> RegistrosPorAtributo(string atributo, string valor)
         {
             try
             {
                 List<Registro> Registros = new List<Registro>();
                 Registro registroX;
                 List<Usuario> Prueba;
-                if (atributo == 3)
+                if (atributo == "usuario")
                 {
                     Prueba = UsuarioABM.UsuarioPorNombre(valor);
                     Conexion con = new Conexion();
@@ -82,7 +82,7 @@ namespace AccesoADatos
                 {
                     string sql;
                     Conexion con = new Conexion();
-                    if(atributo == 1)  sql= "SELECT * FROM registro WHERE dni LIKE @Valor";
+                    if(atributo == "dni")  sql= "SELECT * FROM registro WHERE dni LIKE @Valor";
                     else sql = "SELECT * FROM registro WHERE cuit LIKE @Valor";
                     var cmd = new MySqlCommand(sql, con.Connection);
                     cmd.Parameters.AddWithValue("@Valor","%" + valor + "%");
