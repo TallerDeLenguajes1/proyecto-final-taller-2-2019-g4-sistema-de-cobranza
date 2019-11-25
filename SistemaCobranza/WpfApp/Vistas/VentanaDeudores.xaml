@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp.Vistas"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.Deudores"
         mc:Ignorable="d"
-        Title="Deudores" Height="664.044" Width="745.563">
+        Title="Deudores" Height="664.044" Width="781.477">
     <Grid>
 
 
@@ -50,9 +50,9 @@
             </ListView.View>
         </ListView>
 
-        <Button x:Name="btnAltaDeudores" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaDeudores_Click"/>
-        <Button x:Name="btnModDeudores" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,-50.618" Click="btnModDeudores_Click"/>
-        <Button x:Name="btnBorrarDeudores" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,-115.618" Click="btnBorrarDeudores_Click"/>
+        <Button x:Name="btnAltaDeudores" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,424,0,0" Click="btnAltaDeudores_Click"/>
+        <Button x:Name="btnModDeudores" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,488,0,0" Click="btnModDeudores_Click"/>
+        <Button x:Name="btnBorrarDeudores" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,553,0,0" Click="btnBorrarDeudores_Click"/>
 
 
     </Grid>
