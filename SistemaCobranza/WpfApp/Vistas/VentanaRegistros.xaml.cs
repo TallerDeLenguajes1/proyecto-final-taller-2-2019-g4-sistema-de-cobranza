@@ -22,7 +22,6 @@ namespace WpfApp.Vistas
     public partial class VentanaRegistros : Window
     {
         Usuario UsuarioActual;
-        List<Registro> registros;
         public VentanaRegistros(Usuario usuarioRecibido)
         {
             UsuarioActual = usuarioRecibido;

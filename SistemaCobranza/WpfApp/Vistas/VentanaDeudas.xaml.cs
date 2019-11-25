@@ -23,8 +23,6 @@ namespace WpfApp.Vistas
     {
 
         List<Deuda> deudas;
-        Deuda deudaX;
-
         public VentanaDeudas()
         {
             InitializeComponent();

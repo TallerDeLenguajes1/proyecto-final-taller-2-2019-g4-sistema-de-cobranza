@@ -22,11 +22,6 @@ namespace WpfApp.Vistas
     public partial class VentanaDeudaAM : Window
     {
         Deuda deudaX;
-        Deudor deudorX;
-        Empresa empresaX;
-        List<Deudor> deudores;
-        List<Empresa> empresas;
-
         public VentanaDeudaAM()
         {
             InitializeComponent();
@@ -44,9 +39,7 @@ namespace WpfApp.Vistas
             lbEmpresas.SelectedItem = deuda.Empresa;
             txbMonto.Text = deuda.Monto.ToString();
             btnGuardarDeuda.Visibility = Visibility.Collapsed; 
-
         }
-
         private void btnGuardarDeuda_Click(object sender, RoutedEventArgs e)
         {
             if (lbDeudores.SelectedItem != null && lbEmpresas.SelectedItem != null)
@@ -86,7 +79,7 @@ namespace WpfApp.Vistas
                 if (Helpers.VerificarCampos.Verificarnum(txbMonto.Text))
                 {
                     deudaX.Monto = Convert.ToDouble(txbMonto.Text);
-                    //DeudaABM.ModificarDeuda(deudaX);
+                    DeudaABM.ModificarDeuda(deudaX);
                     this.Close();
                 }
                 else MessageBox.Show("Monto debe ser Numérico.");

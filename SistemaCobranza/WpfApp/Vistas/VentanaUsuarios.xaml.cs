@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Entidades;
+using AccesoADatos;
 
 namespace WpfApp.Vistas
 {
@@ -26,22 +28,39 @@ namespace WpfApp.Vistas
 
         private void btnBuscarUsuarios_Click(object sender, RoutedEventArgs e)
         {
+            lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre(txbBuscarUsuarios.Text);
 
         }
 
         private void btnAltaUsuario_Click(object sender, RoutedEventArgs e)
         {
-
+            VentanaUsuarioAM AltaUsuario = new VentanaUsuarioAM();
+            AltaUsuario.ShowDialog();
         }
 
         private void btnModUsuario_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lbUsuarios.SelectedItem != null)
+            {
+                VentanaUsuarioAM ModUsuario = new VentanaUsuarioAM((Usuario)lbUsuarios.SelectedItem);
+                ModUsuario.ShowDialog();
+            }
         }
 
         private void btnBorrarUsuario_Click(object sender, RoutedEventArgs e)
         {
-
+            if (lbUsuarios.SelectedItem != null)
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar el Usuario?", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    UsuarioABM.BorrarUsuario((Usuario)lbUsuarios.SelectedItem);
+                    lbUsuarios.Items.Refresh();
+                }
+            }
+            else MessageBox.Show("Debe seleccionar un usuario.");
+            
+            
         }
     }
 }

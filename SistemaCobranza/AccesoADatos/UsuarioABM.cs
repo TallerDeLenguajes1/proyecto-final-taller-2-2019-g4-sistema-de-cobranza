@@ -65,33 +65,34 @@ namespace AccesoADatos
         /// </summary>
         /// <param name="user">user</param>
         /// <returns>Usuario</returns>
-        public static Usuario UsuarioPorId(string id)
+        public static List<Usuario> UsuarioPorNombre(string nombre)
         {
             Usuario UsuarioX;
+            List<Usuario> usuarios = new List<Usuario>();
             try
             {
                 Conexion con = new Conexion();
 
-                string sql = "select id_usuario,user,nivel from Usuario where id_usuario= @IdUsuario";
+                string sql = "select * from Usuario where user like @nombre";
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@IdUsuario", id);
+                cmd.Parameters.AddWithValue("@Usuario", nombre);
                 var dr = cmd.ExecuteReader();
 
-                dr.Read();
-
-                UsuarioX = new Usuario();
-                UsuarioX.Id_usuario = dr.GetInt32("id_usuario");
-                UsuarioX.Nombre = dr.GetString("user");
-                UsuarioX.Nivel = dr.GetInt16("nivel");
-
-                dr.Close();
+                while (dr.Read())
+                {
+                    UsuarioX = new Usuario();
+                    UsuarioX.Id_usuario = dr.GetInt32("id_usuario");
+                    UsuarioX.Nombre = dr.GetString("user");
+                    UsuarioX.Nivel = dr.GetInt16("nivel");
+                    usuarios.Add(UsuarioX);
+                }
+                dr.Dispose();
                 con.Close();
-
-                return UsuarioX;
+                return usuarios;
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(),"Error al buscar usuarios.");
                 return null;
             }
         }
