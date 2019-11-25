@@ -153,7 +153,7 @@ namespace AccesoADatos
                 Empresa empresaX;
                 List<Empresa> listaEmpresa = new List<Empresa>();
                 Conexion con = new Conexion();
-                string sql = "select * from empresa where '" + atributo + "' like '" + valor + "'";
+                string sql = "select * from empresa where " + atributo + " like '%" + valor + "%'";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
                 while (dr.Read())

@@ -47,12 +47,13 @@ namespace WpfApp.Vistas
                     lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
                 }
                 else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
-               
             }
             else
             {
-                lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre",txbBuscarEmpresas.Text);
+                lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
             }
+            if (lbEmpresas.Items.Count == 0) lblNoticia.Content = "No Match";
+            else lblNoticia.Content = lbEmpresas.Items.Count;
         }
         private void btnAltaEmpresa_Click(object sender, RoutedEventArgs e)
         {

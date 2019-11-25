@@ -29,7 +29,7 @@
                     IsChecked="False"
                     Content="CUIT" />
             </StackPanel>
-            <Button x:Name="btnBuscarDeudas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
+            <Button x:Name="btnBuscarDeudas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsDefault="True" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
                 <materialDesign:PackIcon
                     Kind="Search"
                     Height="24"
