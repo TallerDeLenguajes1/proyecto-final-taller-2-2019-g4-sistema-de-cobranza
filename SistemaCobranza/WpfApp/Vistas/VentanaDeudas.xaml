@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WpfApp.Vistas"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.VentanaDeudas"
         mc:Ignorable="d"
-        Title="VentanaDeudas" Height="650.74" Width="743.854">
+        Title="VentanaDeudas" Height="650.74" Width="767.786">
     <Grid Margin="0,0,2.673,0.418">
 
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Deudas" VerticalAlignment="Top" Height="25" Width="78" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
@@ -45,10 +45,23 @@
                 materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListBox x:Name="lbDeudas" HorizontalAlignment="Left" Margin="10,199,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
-        <Button x:Name="btnAltaDeuda" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaDeuda_Click"/>
-        <Button x:Name="btnModDeuda" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,0" Click="btnModDeuda_Click"/>
-        <Button x:Name="btnBorrarDeuda" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,0" Click="btnBorrarDeuda_Click"/>
+
+        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="600" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbDeudas">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cuit" Width="80" DisplayMemberBinding="{Binding Empresa.Cuit}" />
+                    <GridViewColumn Header="Empresa" Width="100" DisplayMemberBinding="{Binding Empresa.Nombre}" />
+                    <GridViewColumn Header="Dni" Width="80" DisplayMemberBinding="{Binding Deudor.Dni}" />
+                    <GridViewColumn Header="Apellido y Nombre" Width="200" DisplayMemberBinding="{Binding Deudor.ApellidoNombre}" />
+                    <GridViewColumn Header="Monto" Width="100" DisplayMemberBinding="{Binding Monto}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Button x:Name="btnAltaDeuda" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,421,0,0" Click="btnAltaDeuda_Click"/>
+        <Button x:Name="btnModDeuda" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,485,0,0" Click="btnModDeuda_Click"/>
+        <Button x:Name="btnBorrarDeuda" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,550,0,0" Click="btnBorrarDeuda_Click"/>
 
 
     </Grid>

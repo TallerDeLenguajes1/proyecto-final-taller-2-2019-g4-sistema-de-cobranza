@@ -39,7 +39,16 @@
                 materialDesign:HintAssist.Hint="Buscar usuarios" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListBox x:Name="lbUsuarios" HorizontalAlignment="Left" Margin="10,199,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="533" Height="411" VerticalAlignment="Top"  x:Name="lbUsuarios">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nivel" Width="Auto" DisplayMemberBinding="{Binding Nivel}" />
+                    <GridViewColumn Header="Usuario" Width="Auto" DisplayMemberBinding="{Binding Nombre}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        
+        
         <Button x:Name="btnAltaUsuario" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaUsuario_Click"/>
         <Button x:Name="btnModUsuario" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,0" Click="btnModUsuario_Click"/>
         <Button x:Name="btnBorrarUsuario" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,0" Click="btnBorrarUsuario_Click"/>

@@ -38,9 +38,9 @@ namespace WpfApp.Vistas
 
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(1, txbBuscar.Text);
-            else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(2, txbBuscar.Text);
-            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(3, txbBuscar.Text);
+            if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
+            else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
+            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
             if (lbRegistros.Items.Count == 0) lblNoticia.Content = "No Match";
             else lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
         }

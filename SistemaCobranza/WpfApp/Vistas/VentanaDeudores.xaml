@@ -39,7 +39,17 @@
                 materialDesign:HintAssist.Hint="Buscar deudores" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListBox x:Name="lbDeudores" HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+
+        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="600" Height="411" VerticalAlignment="Top"  x:Name="lbDeudores">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Dni" Width="100" DisplayMemberBinding="{Binding Dni}" />
+                    <GridViewColumn Header="Apellido y Nombre" Width="300" DisplayMemberBinding="{Binding ApellidoNombre}" />
+                    <GridViewColumn Header="Telefono" Width="Auto" DisplayMemberBinding="{Binding Telefono}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
         <Button x:Name="btnAltaDeudores" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaDeudores_Click"/>
         <Button x:Name="btnModDeudores" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,-50.618" Click="btnModDeudores_Click"/>
         <Button x:Name="btnBorrarDeudores" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,-115.618" Click="btnBorrarDeudores_Click"/>

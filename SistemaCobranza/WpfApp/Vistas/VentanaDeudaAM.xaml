@@ -36,7 +36,18 @@
                 Height="60"
                 materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-        <ListBox x:Name="lbDeudores" HorizontalAlignment="Left" Margin="10,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        
+        <ListView HorizontalAlignment="Left" Margin="10,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" x:Name="lbDeudores">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Dni" Width="100" DisplayMemberBinding="{Binding Dni}" />
+                    <GridViewColumn Header="Apellido y Nombre" Width="300" DisplayMemberBinding="{Binding ApellidoNombre}" />
+                    <GridViewColumn Header="Telefono" Width="Auto" DisplayMemberBinding="{Binding Telefono}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
         <TextBlock HorizontalAlignment="Left" Margin="459,56,0,0" TextWrapping="Wrap" Text="Empresas" VerticalAlignment="Top" Height="25" Width="95" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
         <Grid HorizontalAlignment="Left" Height="141" Margin="459,86,0,0" VerticalAlignment="Top" Width="409" Background="#EEEEEE">
             <StackPanel
@@ -64,7 +75,17 @@
                 Height="60"
                 materialDesign:HintAssist.Hint="Buscar Empresas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
-        <ListBox x:Name="lbEmpresas" HorizontalAlignment="Left" Margin="459,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+
+        <ListView HorizontalAlignment="Left" Margin="459,245,0,0" Width="409" Background="#EEEEEE" Height="411" VerticalAlignment="Top" x:Name="lbEmpresas">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cuit" Width="100" DisplayMemberBinding="{Binding Cuit}" />
+                    <GridViewColumn Header="Empresa" Width="Auto" DisplayMemberBinding="{Binding Nombre}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
         <TextBox
             x:Name="txbMonto"
             Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
