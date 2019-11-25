@@ -26,34 +26,18 @@ namespace WpfApp.Vistas
         public VentanaDeudas()
         {
             InitializeComponent();
-
-            deudas = DeudaABM.ListadeDeudas();
-            lbDeudas.ItemsSource =  deudas;
-
+            lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
         }
 
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
             if (rdbDni.IsChecked.Value)
             {
-                deudas = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
-                foreach (Deuda x in deudas)
-                {
-                    string str = x.Empresa.Nombre + "/" + x.Empresa.Cuit + " / " + x.Deudor.ApellidoNombre + " / " + x.Deudor.Dni + " / " + x.Deudor.Telefono;
-                    lbDeudas.Items.Add(str);
-                    lbDeudas.Items.Refresh();
-                }
-                
+                lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
             }
             else
             {
-                deudas = DeudaABM.deudasPorAtributo("cuit", txbBuscarDeudas.Text);
-                foreach (Deuda x in deudas)
-                {
-                    string str = x.Empresa.Nombre + "/" + x.Empresa.Cuit + " / " + x.Deudor.ApellidoNombre + " / " + x.Deudor.Dni + " / " + x.Deudor.Telefono;
-                    lbDeudas.Items.Add(str);
-                    lbDeudas.Items.Refresh();
-                }
+                lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("cuit", txbBuscarDeudas.Text);
             }
         }
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)
@@ -65,14 +49,14 @@ namespace WpfApp.Vistas
         {
             if (lbDeudas.SelectedItem != null)
             {
-                VentanaDeudaAM deudaMod = new VentanaDeudaAM((Deuda) lbDeudas.SelectedItem);
+                VentanaDeudaAM deudaMod = new VentanaDeudaAM((Deuda)lbDeudas.SelectedItem);
                 deudaMod.ShowDialog();
             }
             else MessageBox.Show("Debes escoger una deuda de la lista para modificarla.");
         }
         private void btnBorrarDeuda_Click(object sender, RoutedEventArgs e)
         {
-            //acceso a datos para borrar una deuda
+            DeudaABM.BorrarDeuda((Deuda)lbDeudas.SelectedItem);
         }
     }
 }

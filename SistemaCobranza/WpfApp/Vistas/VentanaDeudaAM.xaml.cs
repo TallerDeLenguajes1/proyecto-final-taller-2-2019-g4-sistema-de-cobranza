@@ -32,11 +32,10 @@ namespace WpfApp.Vistas
         public VentanaDeudaAM(Deuda deuda)
         {
             InitializeComponent();
-            deudaX = deuda;
             lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
             lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
-            lbDeudores.SelectedItem = deuda.Deudor;
-            lbEmpresas.SelectedItem = deuda.Empresa;
+            lbDeudores.SelectedItem = deuda.Deudor; //arreglar
+            lbEmpresas.SelectedItem = deuda.Empresa; //arreglar
             txbMonto.Text = deuda.Monto.ToString();
             btnGuardarDeuda.Visibility = Visibility.Collapsed; 
         }
@@ -57,7 +56,6 @@ namespace WpfApp.Vistas
             }
             else MessageBox.Show("Debe elegir al menos un Deudor y una Empresa.");
         }
-
         private void BtnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
             lbDeudores.ItemsSource = DeudorABM.DeudorPorDniParecidos(txbBuscarDeudores.Text);
@@ -65,8 +63,7 @@ namespace WpfApp.Vistas
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            lbEmpresas.ItemsSource = EmpresaABM.EmpresaPorNombre(txbBuscarEmpresas.Text);
-
+            lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
         }
 
         private void btnModificarDeuda_Click(object sender, RoutedEventArgs e)

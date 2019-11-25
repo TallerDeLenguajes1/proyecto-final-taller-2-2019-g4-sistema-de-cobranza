@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using NLog;
 
@@ -21,8 +20,8 @@ namespace AccesoADatos
         public Conexion()
         {
             string str;
-            str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo 
-
+            //str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo, con contraseña
+            str = "server=localhost;userid=root;database=cobranza"; //sin contraseña
             try
             {
                 this.connection = new MySqlConnection(str);
@@ -31,8 +30,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se conecto con la base de datos.");
-                logger.Error(ex, "No se pudo conectar con la base de datos.");
+                logger.Error(ex.ToString(), "No se pudo conectar con la base de datos.");
   
             }
         }
@@ -44,8 +42,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No se conecto con la base de datos.");
-                logger.Error(ex, "No se pudo desconectar con la base de datos (tal vez no estaba conectada en primer lugar?).");
+                logger.Error(ex.ToString(), "No se pudo desconectar con la base de datos (tal vez no estaba conectada en primer lugar?).");
             }
 
         }

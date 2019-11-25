@@ -43,7 +43,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
                 return null;
             }
         }
@@ -68,7 +68,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
         /// <summary>
@@ -91,7 +91,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
         /// <summary>
@@ -113,7 +113,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
 
@@ -142,18 +142,18 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
                 return null;
             }
         }
-        public static List<Empresa> EmpresaPorNombre(string nombre)
+        public static List<Empresa> EmpresasPorAtributo(string atributo,string valor)
         {
             try
             {
                 Empresa empresaX;
                 List<Empresa> listaEmpresa = new List<Empresa>();
                 Conexion con = new Conexion();
-                string sql = "select * from empresa where nombre like '" + nombre + "'";
+                string sql = "select * from empresa where '" + atributo + "' like '" + valor + "'";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -169,7 +169,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
                 return null;
             }
         }

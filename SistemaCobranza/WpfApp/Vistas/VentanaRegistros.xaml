@@ -13,16 +13,13 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
-    <Grid>
+    <Grid HorizontalAlignment="Left" Width="776">
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="776" >
             <MenuItem x:Name="btnDeudores" Header="DEUDORES" HorizontalAlignment="Left" VerticalAlignment="Top" Width="195" Height="40" Click="btnDeudores_Click"/>
             <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="135" Height="40" Click="btnDeuda_Click" />
             <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40" Click="btnEmpresas_Click" />
         </Menu>
-
-        <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="10,223,0,0" Height="26" HorizontalAlignment="Left"/>
-
-        <Grid HorizontalAlignment="Left" Height="141" Margin="10,69,0,0" VerticalAlignment="Top" Width="533" Background="#EEEEEE">
+        <Grid HorizontalAlignment="Left" Height="141" Margin="6,51,0,0" VerticalAlignment="Top" Width="532" Background="#EEEEEE">
             <StackPanel
 				Orientation="Horizontal"
 				Margin="10,10,0,0" HorizontalAlignment="Left" Width="383" Height="47" VerticalAlignment="Top">
@@ -46,7 +43,7 @@
                 	IsChecked="False"
                 	Content="USUARIO"/>
             </StackPanel>
-            <Button x:Name="btnBuscar" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar"  Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarRegistro_Click">
+            <Button x:Name="btnBuscar" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsDefault="True" ToolTip="Buscar"  Margin="338,67,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarRegistro_Click">
                 <materialDesign:PackIcon
 					Kind="Search"
 					Height="24"
@@ -56,16 +53,17 @@
                 x:Name="txbBuscar"
 				Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
 				TextWrapping="Wrap"
-				MaxWidth="400"
+				MaxWidth="10"
 				MinWidth="320"
 				Height="60"
-				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320" />
+				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,0,0,19" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="320" />
         </Grid>
-
-        <ListBox x:Name="lbRegistros" HorizontalAlignment="Left" Margin="10,254,0,0" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top" />
+        <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="8,196,0,0" Height="26" HorizontalAlignment="Left"/>
+        <ListBox x:Name="lbRegistros" HorizontalAlignment="Left" Margin="10,222,0,0" Width="532" Background="#EEEEEE" Height="449" VerticalAlignment="Top" />
         <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,447,0,0" Click="btnAltaRegsitro_Click"/>
         <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,510,0,0" Click="btnModRegistro_Click"/>
         <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="585,570,0,0" Click="btnBorrar_Click"/>
+        <Label x:Name="lblNoticia" HorizontalContentAlignment="Right" Content="Estado." HorizontalAlignment="Right" Margin="0,190,234,0" VerticalAlignment="Top" Width="250"/>
 
     </Grid>
 </Window>

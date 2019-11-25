@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace AccesoADatos
 {
@@ -36,8 +35,7 @@ namespace AccesoADatos
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show(ex.ToString());
-                logger.Error(ex,"Error al crear registro.");
+                logger.Error(ex.ToString(),"Error al crear registro.");
             }
         }
 
@@ -47,39 +45,67 @@ namespace AccesoADatos
         /// <param name="atributo">Atributo puede tomar: dni, cuit, usuario</param>
         /// <param name="valor">valor de dicho atributo</param>
         /// <returns>Lista de registros</returns>
-        public static List<Registro> RegistrosPorAtributo(string atributo, string valor)
+        public static List<Registro> RegistrosPorAtributo(int atributo, string valor)
         {
             try
             {
                 List<Registro> Registros = new List<Registro>();
                 Registro registroX;
-                Conexion con = new Conexion();
-
-
-                string sql = "select * from Registro where " + atributo + " like @Valor";
-                var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@Valor","%" + valor + "%");
-                var dr = cmd.ExecuteReader();
-
-                while (dr.Read())
+                List<Usuario> Prueba;
+                if (atributo == 3)
                 {
-                    registroX = new Registro();
-                    registroX.Id_Registro = dr.GetInt32("id_registro");
-                    registroX.FechaHora = dr.GetString("fechaHora");
-                    registroX.Observacion = dr.GetString("observacion");
-                    registroX.Resultado = dr.GetString("resultado");
-registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cuit"));
-                    registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
-                    Registros.Add(registroX);
+                    Prueba = UsuarioABM.UsuarioPorNombre(valor);
+                    Conexion con = new Conexion();
+                    for(int i= 0; i<Prueba.Count; i++)
+                    {
+                        string sql = @"SELECT * FROM registro WHERE id_usuario LIKE @Valor";
+                        var cmd = new MySqlCommand(sql, con.Connection);
+                        cmd.Parameters.AddWithValue("@Valor","%" + Prueba[i].Id_usuario + "%");
+                        var dr = cmd.ExecuteReader();
+                        while (dr.Read())
+                        {
+                            registroX = new Registro();
+                            registroX.Id_Registro = dr.GetInt32("id_registro");
+                            registroX.FechaHora = dr.GetString("fechaHora");
+                            registroX.Observacion = dr.GetString("observacion");
+                            registroX.Resultado = dr.GetString("resultado");
+                            registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cuit"));
+                            registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                            Registros.Add(registroX);
+                        }
+                        dr.Dispose();
+                        con.Close();
+                    }
+                    return Registros;
                 }
-                dr.Close();
-                con.Close();
-
-                return Registros;
+                else
+                {
+                    string sql;
+                    Conexion con = new Conexion();
+                    if(atributo == 1)  sql= "SELECT * FROM registro WHERE dni LIKE @Valor";
+                    else sql = "SELECT * FROM registro WHERE cuit LIKE @Valor";
+                    var cmd = new MySqlCommand(sql, con.Connection);
+                    cmd.Parameters.AddWithValue("@Valor","%" + valor + "%");
+                    var dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        registroX = new Registro();
+                        registroX.Id_Registro = dr.GetInt32("id_registro");
+                        registroX.FechaHora = dr.GetString("fechaHora");
+                        registroX.Observacion = dr.GetString("observacion");
+                        registroX.Resultado = dr.GetString("resultado");
+                        registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cuit"));
+                        registroX.Usuario = UsuarioABM.UsuarioPorId(dr.GetString("id_usuario"));
+                        Registros.Add(registroX);
+                    }
+                    dr.Dispose();
+                    con.Close();
+                    return Registros;
+                }
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Error al crear registro.");
+                logger.Error(ex.ToString(), "Error al Buscar registro de " + atributo + ": "+ valor +".");
                 return null;
             }
         }
@@ -144,7 +170,7 @@ registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cu
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
         /// <summary>
@@ -166,7 +192,7 @@ registroX.Deuda = DeudaABM.DeudaPorDniCuit(dr.GetString("dni"), dr.GetString("cu
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
 

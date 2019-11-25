@@ -29,15 +29,8 @@ namespace WpfApp.Vistas
         {
             usuarioActual = usuarioRecibido;
             InitializeComponent();
-            listaDeudas = DeudaABM.ListadeDeudas();
-            foreach (var item in listaDeudas)
-            {
-                string str = item.Deudor.Dni + "/" + item.Empresa.Cuit + "/" + item.Monto + "/" + item.Deudor.ApellidoNombre + "/" + item.Empresa.Nombre;
-                lbDeudas.Items.Add(str);
-                lbDeudas.Items.Refresh();
-            }
+            lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
         }
-        //private void btnBuscar_Click(object sender, RoutedEventArgs e)
         private void btnGuardarRegistro_Click(object sender, RoutedEventArgs e)
         {
             registroX = new Registro();
@@ -49,13 +42,7 @@ namespace WpfApp.Vistas
             registroX.FechaHora = DateTime.Now.ToShortDateString();
             if (lbDeudas.SelectedItem != null)
             {
-                Deuda deudaX = new Deuda();
-                string[] CadenaDeuda = Helpers.CadenaAEntidad.StringToDeuda(lbDeudas.SelectedItem.ToString());
-                deudaX.Deudor = DeudorABM.DeudorPorDni(CadenaDeuda[0]);
-                deudaX.Empresa = EmpresaABM.EmpresaPorCuit(CadenaDeuda[1]);
-                deudaX.Monto = Convert.ToDouble(CadenaDeuda[2]);
-                registroX.Deuda = deudaX;
-                registroX.Usuario = usuarioActual;
+                registroX.Deuda = (Deuda)lbDeudas.SelectedItem;
                 RegistroABM.InsertarRegistro(registroX);
                 this.Close();
             }
@@ -68,8 +55,9 @@ namespace WpfApp.Vistas
         {
             if (!Helpers.VerificarCampos.Verificarnum(txbBuscarDeudas.Text))//Verificar si son numeros
             {
-                if (rdbCuit.IsChecked.Value) listaDeudas = DeudaABM.deudasPorAtributo("cuit",txbBuscarDeudas.Text);
-                else listaDeudas = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
+                if (rdbCuit.IsChecked.Value) lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("cuit",txbBuscarDeudas.Text);
+                else lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
+
             }
             else MessageBox.Show("Debe ser solo numeros");
         }

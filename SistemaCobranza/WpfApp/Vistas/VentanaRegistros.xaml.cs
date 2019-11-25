@@ -27,6 +27,7 @@ namespace WpfApp.Vistas
             UsuarioActual = usuarioRecibido;
             InitializeComponent();
             lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
+            txbBuscar.Focus();
         }
 
         private void btnDeudores_Click(object sender, RoutedEventArgs e)
@@ -37,11 +38,11 @@ namespace WpfApp.Vistas
 
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
-            string bot = txbBuscar.Text;
-            if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni",bot);
-            else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", bot);
-            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("id_usuario", bot);
-
+            if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(1, txbBuscar.Text);
+            else if (rdbCuit.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(2, txbBuscar.Text);
+            else lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(3, txbBuscar.Text);
+            if (lbRegistros.Items.Count == 0) lblNoticia.Content = "No Match";
+            else lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
         }
 
         private void btnDeuda_Click(object sender, RoutedEventArgs e)

@@ -57,7 +57,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex, "Error al Crear Usuario");
+                logger.Error(ex.ToString(), "Error al Crear Usuario");
             }
         }
         /// <summary>
@@ -73,11 +73,10 @@ namespace AccesoADatos
             {
                 Conexion con = new Conexion();
 
-                string sql = "select * from Usuario where user like @nombre";
+                string sql = @"select * from Usuario where user like @Usuario";
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@Usuario", nombre);
+                cmd.Parameters.AddWithValue("@Usuario", "%"+nombre+"%");
                 var dr = cmd.ExecuteReader();
-
                 while (dr.Read())
                 {
                     UsuarioX = new Usuario();
@@ -92,7 +91,32 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex.ToString(),"Error al buscar usuarios.");
+                logger.Error(ex.ToString(), "Error al buscar usuarios.");
+                return null;
+            }
+        }
+        public static Usuario UsuarioPorId(string id)
+        {
+            Usuario UsuarioX;
+            try
+            {
+                Conexion con = new Conexion();
+
+                string sql = "select * from usuario where id_usuario = "+ id +"";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                var dr = cmd.ExecuteReader();
+                dr.Read();
+                UsuarioX = new Usuario();
+                UsuarioX.Id_usuario = dr.GetInt32("id_usuario");
+                UsuarioX.Nombre = dr.GetString("user");
+                UsuarioX.Nivel = dr.GetInt32("nivel");
+                dr.Dispose();
+                con.Close();
+                return UsuarioX;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(), "Error al buscar el usuario.");
                 return null;
             }
         }
@@ -119,7 +143,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
 
@@ -143,7 +167,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString());
             }
         }
 

@@ -44,20 +44,14 @@ namespace WpfApp.Vistas
             {
                 if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
                 {
-                    empresaX = EmpresaABM.EmpresaPorCuit(txbBuscarEmpresas.Text);
-                    lbEmpresas.ItemsSource = null;
-                    lbEmpresas.Items.Clear();
-                    lbEmpresas.Items.Add(empresaX);
+                    lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
                 }
                 else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
                
             }
             else
             {
-                empresas = EmpresaABM.EmpresaPorNombre(txbBuscarEmpresas.Text);
-                lbEmpresas.ItemsSource = null;
-                lbEmpresas.Items.Clear();
-                lbEmpresas.Items.Add(empresaX);
+                lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre",txbBuscarEmpresas.Text);
             }
         }
         private void btnAltaEmpresa_Click(object sender, RoutedEventArgs e)
@@ -69,17 +63,15 @@ namespace WpfApp.Vistas
         private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
         {
             if (lbEmpresas.SelectedItem != null)
-            {
-                empresaX = CadenaAEntidad.StringToEmpresa(lbEmpresas.SelectedItem.ToString());
-                VentanaEmpresaAM ModEmpresa = new VentanaEmpresaAM(empresaX);
+            { 
+                VentanaEmpresaAM ModEmpresa = new VentanaEmpresaAM((Empresa)lbEmpresas.SelectedItem);
                 ModEmpresa.ShowDialog();
             }
             else MessageBox.Show("No se ha elegido una empresa.");
         }
-
         private void btnBorrarEmpresa_Click(object sender, RoutedEventArgs e)
         {
-
+            EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
         }
     }
 }
