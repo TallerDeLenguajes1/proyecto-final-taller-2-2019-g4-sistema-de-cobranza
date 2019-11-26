@@ -22,8 +22,6 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class VentanaEmpresas : Window
     {
-        List<Empresa> empresas;
-        Empresa empresaX;
         public VentanaEmpresas(Usuario usuarioactual)
         {
             InitializeComponent();
@@ -36,7 +34,6 @@ namespace WpfApp.Vistas
                 btnModEmpresa.Visibility = Visibility.Collapsed;
             }
             lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
-
         }
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
@@ -53,7 +50,7 @@ namespace WpfApp.Vistas
                 lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
             }
             if (lbEmpresas.Items.Count == 0) lblNoticia.Content = "No Match";
-            else lblNoticia.Content = lbEmpresas.Items.Count;
+            else lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
         }
         private void btnAltaEmpresa_Click(object sender, RoutedEventArgs e)
         {

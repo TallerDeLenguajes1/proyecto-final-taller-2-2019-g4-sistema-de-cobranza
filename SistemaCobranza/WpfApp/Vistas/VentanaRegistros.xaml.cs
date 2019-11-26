@@ -35,7 +35,6 @@ namespace WpfApp.Vistas
             Deudores ventanaDeudores = new Deudores(UsuarioActual);
             ventanaDeudores.ShowDialog();
         }
-
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
             if (rdbDni.IsChecked.Value) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
@@ -44,7 +43,6 @@ namespace WpfApp.Vistas
             if (lbRegistros.Items.Count == 0) lblNoticia.Content = "No Match";
             else lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
         }
-
         private void btnDeuda_Click(object sender, RoutedEventArgs e)
         {
             VentanaDeudas ventanaDeudas = new VentanaDeudas();

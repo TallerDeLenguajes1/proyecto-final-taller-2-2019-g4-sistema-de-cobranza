@@ -25,13 +25,16 @@ namespace WpfApp.Vistas
         {
             InitializeComponent();
         }
-
         private void btnBuscarUsuarios_Click(object sender, RoutedEventArgs e)
         {
-            lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre(txbBuscarUsuarios.Text);
-
+            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarUsuarios.Text))
+            {
+                lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre(txbBuscarUsuarios.Text);
+                if (lbUsuarios.Items.Count == 0) lblNoticia.Content = "No Match";
+                else lblNoticia.Content = "Se han encontrado " + lbUsuarios.Items.Count + " Coincidencias.";
+            }
+            else lblNoticia.Content = "No se admiten numeros";
         }
-
         private void btnAltaUsuario_Click(object sender, RoutedEventArgs e)
         {
             VentanaUsuarioAM AltaUsuario = new VentanaUsuarioAM();

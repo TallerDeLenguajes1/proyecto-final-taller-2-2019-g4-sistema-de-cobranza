@@ -61,9 +61,7 @@
 				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,0,0,19" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="320" />
         </Grid>
         <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="8,196,0,0" Height="26" HorizontalAlignment="Left"/>
-
-
-
+        <Label x:Name="lblNoticia" HorizontalContentAlignment="Right" Content="Estado." HorizontalAlignment="Right" Margin="0,166,165,0" VerticalAlignment="Top" Width="250"/>
         <ListView HorizontalAlignment="Left" Margin="10,254,0,0" Width="851" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbRegistros">
             <ListView.View>
                 <GridView>
@@ -71,17 +69,13 @@
                     <GridViewColumn Header="Dni" Width="80" DisplayMemberBinding="{Binding Deuda.Deudor.Dni}" />
                     <GridViewColumn Header="Fecha y Hora" Width="120" DisplayMemberBinding="{Binding FechaHora}" />
                     <GridViewColumn Header="Resultado" Width="100" DisplayMemberBinding="{Binding Resultado}" />
-                    <GridViewColumn Header="ID User" Width="80" DisplayMemberBinding="{Binding Usuario.Id_usuario}" />
+                    <GridViewColumn Header="Usuario" Width="80" DisplayMemberBinding="{Binding Usuario.Nombre}" />
                     <GridViewColumn Header="Observacion" Width="300" DisplayMemberBinding="{Binding Observacion}" />
                 </GridView>
             </ListView.View>
         </ListView>
-
-
         <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,455,0,0" Click="btnAltaRegsitro_Click"/>
         <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,515,0,0" Click="btnModRegistro_Click"/>
         <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,579,0,0" Click="btnBorrar_Click"/>
-        <Label x:Name="lblNoticia" HorizontalContentAlignment="Right" Content="Estado." HorizontalAlignment="Right" Margin="0,166,165,0" VerticalAlignment="Top" Width="250"/>
-
     </Grid>
 </Window>

@@ -68,10 +68,13 @@ namespace WpfApp.Vistas
 
         private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            if(txbBuscarDeudores.Text != null)
+            if (rdbDni.IsChecked.Value && txbBuscarDeudores.Text != null)
             {
-                lbDeudores.ItemsSource = DeudorABM.DeudorPorDniParecidos(txbBuscarDeudores.Text);
+                lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni",txbBuscarDeudores.Text);
             }
+            else lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre",txbBuscarDeudores.Text);
+            if (lbDeudores.Items.Count == 0) lblNoticia.Content = "No Match";
+            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " Empresas.";
         }
     }
 }

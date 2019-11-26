@@ -45,7 +45,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al buscar deudores");
                 return null;
             }
         }
@@ -68,7 +68,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al Insertar el deudor: " + deudorX.ApellidoNombre);
             }
         }
 
@@ -100,21 +100,24 @@ namespace AccesoADatos
                 return null;
             }
         }
-        public static List<Deudor> DeudorPorDniParecidos(string dni)
+        /// <summary>
+        /// Retorna una lsita con los deudores acorde a los datos introducidos
+        /// </summary>
+        /// <param name="atributo"> recibe dni o nombre</param>
+        /// <returns>Lista Deudores</returns>
+        public static List<Deudor> DeudorPorAtributo(string atributo, string valor)
         {
-
             try
             {
                 Deudor deudorX;
                 List<Deudor> Deudores = new List<Deudor>();
-                
                 Conexion con = new Conexion();
-                string sql = @"SELECT * FROM deudor WHERE dni like @Dni";
-                
+                string sql;
+                if (atributo == "dni") sql = @"SELECT * FROM deudor WHERE dni like @Valor"; 
+                else sql = @"SELECT * FROM deudor WHERE ApellidoNombre like @Valor";
                 var cmd = new MySqlCommand(sql, con.Connection);
-                cmd.Parameters.AddWithValue("@Dni", "%" + dni + "%");
+                cmd.Parameters.AddWithValue("@Valor", "%" + valor + "%");
                 var dr = cmd.ExecuteReader();
-                
                 while (dr.Read())
                 {
                     deudorX = new Deudor();
@@ -129,11 +132,10 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(),"Error al buscar deudores con los atributos "+ atributo+", " + valor +"");
                 return null;
             }
         }
-
         /// <summary>
         /// Modifica datos de una deudor a partir de su dni
         /// </summary>
@@ -155,7 +157,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(),"Error al modificar el deudor: "+ deudorX.ApellidoNombre);
             }
         }
         /// <summary>
@@ -172,12 +174,11 @@ namespace AccesoADatos
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
                 cmd.ExecuteNonQuery();
-
                 con.Close();
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al modificar el deudor: " + deudorX.ApellidoNombre);
             }
         }
 

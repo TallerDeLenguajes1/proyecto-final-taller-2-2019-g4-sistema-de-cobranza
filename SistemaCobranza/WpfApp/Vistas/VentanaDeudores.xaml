@@ -18,10 +18,16 @@
                 Margin="10,10,0,0" HorizontalAlignment="Left" Width="268" Height="47" VerticalAlignment="Top">
                 <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
                 <RadioButton
+                    x:Name="rdbDni"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4,8,4,7.127"
                     IsChecked="True"
                     Content="DNI" Width="72" FontSize="13" />
+                <RadioButton
+                    x:Name="rdbNombre"
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4,8,4,7"
+                    Content="Nombre" Width="72" FontSize="13" />
             </StackPanel>
             <Button x:Name="btnBuscarDeudores" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudores_Click">
                 <materialDesign:PackIcon
@@ -40,7 +46,7 @@
         </Grid>
 
 
-        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="600" Height="411" VerticalAlignment="Top"  x:Name="lbDeudores">
+        <ListView HorizontalAlignment="Left" Margin="10,213,0,0" Width="600" Height="411" VerticalAlignment="Top"  x:Name="lbDeudores">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Dni" Width="100" DisplayMemberBinding="{Binding Dni}" />
@@ -53,6 +59,7 @@
         <Button x:Name="btnAltaDeudores" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,424,0,0" Click="btnAltaDeudores_Click"/>
         <Button x:Name="btnModDeudores" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,488,0,0" Click="btnModDeudores_Click"/>
         <Button x:Name="btnBorrarDeudores" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,553,0,0" Click="btnBorrarDeudores_Click"/>
+        <Label x:Name="lblNoticia" Content="Estado." HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="395,187,0,0" VerticalAlignment="Top" Width="215"/>
 
 
     </Grid>

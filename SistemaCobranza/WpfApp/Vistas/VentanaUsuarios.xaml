@@ -47,11 +47,12 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        
-        
+
+
         <Button x:Name="btnAltaUsuario" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,0,0" Click="btnAltaUsuario_Click"/>
         <Button x:Name="btnModUsuario" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,0,0" Click="btnModUsuario_Click"/>
         <Button x:Name="btnBorrarUsuario" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,0,0" Click="btnBorrarUsuario_Click"/>
+        <Label x:Name="lblNoticia" Content="Estado." HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="350,173,0,0" VerticalAlignment="Top" Width="193"/>
 
 
     </Grid>

@@ -46,7 +46,7 @@
                 materialDesign:HintAssist.Hint="Buscar Empresas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
         </Grid>
 
-        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="533" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbEmpresas">
+        <ListView HorizontalAlignment="Left" Margin="10,212,0,0" Width="533" Background="#EEEEEE" Height="398" VerticalAlignment="Top"  x:Name="lbEmpresas">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Cuit" Width="100" DisplayMemberBinding="{Binding Cuit}" />
@@ -58,6 +58,7 @@
         <Button x:Name="btnAltaEmpresa" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,424,-241.691,-148.945" Click="btnAltaEmpresa_Click"/>
         <Button x:Name="btnModEmpresa" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,488,-241.691,-212.945" Click="btnModEmpresa_Click"/>
         <Button x:Name="btnBorrarEmpresa" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="584,553,-241.691,-277.945" Click="btnBorrarEmpresa_Click"/>
+        <Label x:Name="lblNoticia" Content="Estado." HorizontalContentAlignment="Right" HorizontalAlignment="Left" Margin="298,186,0,0" VerticalAlignment="Top" Width="245"/>
 
 
     </Grid>
