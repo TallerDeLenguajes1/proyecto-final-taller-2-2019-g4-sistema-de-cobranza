@@ -23,7 +23,7 @@ namespace Helpers
             {
                 sw.Write("Empresa;");
                 sw.Write("Deudor;");
-                sw.Write("Monto;");
+                sw.Write("Monto;"); 
                 sw.Write("Telefono;");
                 sw.WriteLine("DNI;");
                 foreach (var item in registros)

@@ -160,10 +160,10 @@ namespace AccesoADatos
                 cmd.Parameters.AddWithValue("@Observacion", registroX.Observacion);
                 cmd.Parameters.AddWithValue("@FechaHora", registroX.FechaHora);
                 cmd.Parameters.AddWithValue("@Resultado", registroX.Resultado);
-                cmd.Parameters.AddWithValue("@Dni", registroX.Deuda.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Cuit", registroX.Deuda.Empresa.Cuit);
+                cmd.Parameters.AddWithValue("@Dni", registroX.Deuda.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Usuario", registroX.Usuario.Id_usuario);
-                cmd.Parameters.AddWithValue("@Usuario", registroX.Id_Registro);
+                cmd.Parameters.AddWithValue("@IdRegistro", registroX.Id_Registro);
                 cmd.ExecuteNonQuery();
 
                 con.Close();

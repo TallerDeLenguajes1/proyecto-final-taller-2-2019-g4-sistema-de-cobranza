@@ -51,7 +51,11 @@ namespace WpfApp.Vistas
                 Deudor deudorX =(Deudor) lbDeudores.SelectedItem; 
                 VentanaDeudorAM ModDeudor = new VentanaDeudorAM(deudorX);
                 ModDeudor.ShowDialog();
+<<<<<<< Updated upstream
                 Refresh();
+=======
+                lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+>>>>>>> Stashed changes
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
         }
@@ -63,7 +67,11 @@ namespace WpfApp.Vistas
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     DeudorABM.BorrarDeudor((Deudor)lbDeudores.SelectedItem);
+<<<<<<< Updated upstream
                     Refresh();
+=======
+                    lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+>>>>>>> Stashed changes
                 }
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
@@ -77,7 +85,11 @@ namespace WpfApp.Vistas
             lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni": "nombre",txbBuscarDeudores.Text);
 
             if (lbDeudores.Items.Count == 0) lblNoticia.Content = "No Match";
+<<<<<<< Updated upstream
             else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
+=======
+            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " Deudores.";
+>>>>>>> Stashed changes
         }
     }
 }

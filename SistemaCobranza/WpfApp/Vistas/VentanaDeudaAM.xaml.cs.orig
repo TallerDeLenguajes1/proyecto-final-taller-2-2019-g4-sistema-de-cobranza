@@ -70,6 +70,7 @@ namespace WpfApp.Vistas
         }
         private void BtnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
             if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
             {
                 if (rdbDni.IsChecked == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
@@ -78,11 +79,18 @@ namespace WpfApp.Vistas
             else lbNoticiaDeudor.Content = "Dni sólo numero y Nombre sólo letras.";
             if (lbDeudores.Items.Count == 0) lbNoticiaDeudor.Content = "No Match.";
             else lbNoticiaDeudor.Content = "Se han encontrado "+ lbDeudores.Items.Count +" Coincidencias.";
+=======
+            if (rdbDni.IsChecked.Value && txbBuscarDeudores.Text != null)
+            {
+                lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
+            }
+            else lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre", txbBuscarDeudores.Text);
+>>>>>>> Stashed changes
         }
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbCuit.IsChecked.Value)
+<<<<<<< Updated upstream
             if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
             {
                 if (rdbCuit.IsChecked == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit", txbBuscarEmpresas.Text);
@@ -92,6 +100,12 @@ namespace WpfApp.Vistas
             if (lbEmpresas.Items.Count == 0) lbNoticiaEmpresa.Content = "No Match.";
             else lbNoticiaEmpresa.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Coincidencias.";
             
+=======
+            if (rdbCuit.IsChecked.Value)
+            {
+                if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
+                {
+                    lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit", txbBuscarEmpresas.Text);
                 }
                 else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
             }
@@ -99,6 +113,7 @@ namespace WpfApp.Vistas
             {
                 lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
             }
+>>>>>>> Stashed changes
         }
 
         private void btnModificarDeuda_Click(object sender, RoutedEventArgs e)

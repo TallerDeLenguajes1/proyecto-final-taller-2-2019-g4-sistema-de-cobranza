@@ -70,22 +70,43 @@ namespace WpfApp.Vistas
         {
             VentanaRegistroAM AltaRegistro = new VentanaRegistroAM(UsuarioActual);
             AltaRegistro.ShowDialog();
+<<<<<<< Updated upstream
             Refresh();
+=======
+            lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
+>>>>>>> Stashed changes
         }
 
         private void btnModRegistro_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
+            VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual);
+            ModRegistro.ShowDialog();
+            Refresh();
+=======
             if (lbRegistros.SelectedItem != null)
             {
                 VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual, (Registro) lbRegistros.SelectedItem);
                 ModRegistro.ShowDialog();   
-            Refresh();
+                lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
             }
             else MessageBox.Show("Debes escoger un registro de la lista para modificarlo.");
+>>>>>>> Stashed changes
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
+            RegistroABM.BorrarRegistro((Registro)lbRegistros.SelectedItem);
+            Refresh();
+        }
+
+        private void btnUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaUsuarios Usuarios = new VentanaUsuarios();
+            Usuarios.ShowDialog();
+            Refresh();
+=======
             if (lbRegistros.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar esta Registro?", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
@@ -100,14 +121,9 @@ namespace WpfApp.Vistas
         private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
         {
             lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(RadioSeleccionado(), txbBuscar.Text);
+>>>>>>> Stashed changes
         }
 
-        private void btnUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            VentanaUsuarios Usuarios = new VentanaUsuarios();
-            Usuarios.ShowDialog();
-            Refresh();
-        }
         private string RadioSeleccionado()
         {
             if (rdbDni.IsChecked.Value) return "dni";

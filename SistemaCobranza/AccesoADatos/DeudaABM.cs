@@ -75,9 +75,9 @@ namespace AccesoADatos
         }
         public static Deuda DeudaPorDniCuit(string dni, string cuit)
         {
+            Deuda deudaX;
             try
             {
-                Deuda deudaX;
                 Conexion con = new Conexion();
                 string sql = "select * from deuda where dni = @Dni and cuit = @Cuit";
                 var cmd = new MySqlCommand(sql, con.Connection);
@@ -139,17 +139,18 @@ namespace AccesoADatos
         /// Modifica el monto de una deuda a partir de su cuit
         /// </summary>
         /// <param name="deudaX"></param>
-        public static void ModificarDeuda(Deuda deudaX)
+        public static void ModificarDeuda(Deuda deudaX, string cuitAnterior)
         {
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"UPDATE deuda SET monto = @Monto WHERE cuit = @Cuit and dni = @Dni";
+                string sql = @"UPDATE deuda SET cuit = @Cuit, monto = @Monto WHERE cuit = @CuitAnterior and dni = @Dni";
 
                 var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
                 cmd.Parameters.AddWithValue("@Monto", deudaX.Monto);
                 cmd.Parameters.AddWithValue("@Cuit", deudaX.Empresa.Cuit);
-                cmd.Parameters.AddWithValue("@Dni", deudaX.Deudor.Dni);
+                cmd.Parameters.AddWithValue("@CuitAnterior", cuitAnterior);
                 cmd.ExecuteNonQuery();
 
                 con.Close();

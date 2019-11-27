@@ -9,7 +9,7 @@
         Title="Add_Mod_Empresa" Height="298.689" Width="263.583">
     <Grid>
         <Button x:Name="btnAgregarEmpresa" Content="Agregar" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="98" Click="btnAgregarEmpresa_Click"/>
-        <Button x:Name="btnModEmpresa" Content="Modificar" HorizontalAlignment="Left" Margin="77,222,0,0" VerticalAlignment="Top" Width="98" Click="btnModEmpresa_Click"/>
+        <Button x:Name="btnModEmpresa" Content="Modificar" HorizontalAlignment="Left" Margin="77,189,0,0" VerticalAlignment="Top" Width="98" Click="btnModEmpresa_Click"/>
 
         <TextBlock x:Name="tbTitulo" Width="98" VerticalAlignment="Top" Text="Alta Empresa" TextWrapping="Wrap" TextAlignment="Center" Style="{StaticResource MaterialDesignSubheadingTextBlock}" Margin="77,15,0,0" Height="25" HorizontalAlignment="Left"/>
 

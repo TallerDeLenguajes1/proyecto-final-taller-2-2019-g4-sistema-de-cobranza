@@ -21,7 +21,12 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class VentanaDeudas : Window
     {
+<<<<<<< Updated upstream
         public VentanaDeudas(Usuario usuarioRecibido)
+=======
+
+        public VentanaDeudas()
+>>>>>>> Stashed changes
         {
             InitializeComponent();
             if(usuarioRecibido.Nivel == 2)
@@ -42,17 +47,31 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
+            if (rdbDni.IsChecked.Value)
+            {
+                lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("dni",txbBuscarDeudas.Text);
+            }
+            else
+            {
+                lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("cuit", txbBuscarDeudas.Text);
+            }
+            Refresh();
+=======
             var radio = rdbDni.IsChecked.Value ? "dni" : "cuit ";
             
             lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo(radio, txbBuscarDeudas.Text);
-            Refresh();
+>>>>>>> Stashed changes
         }
-
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)
         {
             VentanaDeudaAM Altadeuda = new VentanaDeudaAM();
             Altadeuda.ShowDialog();
+<<<<<<< Updated upstream
             Refresh();
+=======
+            lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
+>>>>>>> Stashed changes
         }
         private void btnModDeuda_Click(object sender, RoutedEventArgs e)
         {
@@ -60,23 +79,32 @@ namespace WpfApp.Vistas
             {
                 VentanaDeudaAM deudaMod = new VentanaDeudaAM((Deuda)lbDeudas.SelectedItem);
                 deudaMod.ShowDialog();
+<<<<<<< Updated upstream
                 Refresh();
+=======
+                lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
+>>>>>>> Stashed changes
             }
             else MessageBox.Show("Debes escoger una deuda de la lista para modificarla.");
         }
         private void btnBorrarDeuda_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
+            DeudaABM.BorrarDeuda((Deuda)lbDeudas.SelectedItem);
+            Refresh();
+=======
             if (lbDeudas.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar esta deuda?", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     DeudaABM.BorrarDeuda((Deuda)lbDeudas.SelectedItem);
-            Refresh();
+                    lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
                 }
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
 
+>>>>>>> Stashed changes
         }
  
     }

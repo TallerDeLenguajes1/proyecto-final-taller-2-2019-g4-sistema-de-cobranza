@@ -25,8 +25,12 @@
                     x:Name="rdbNombreDeudor"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
                     Margin="4,8,4,7"
+<<<<<<< Updated upstream
                     IsChecked="True"
                     Content="Nombre/Apelldio" Width="140" FontSize="13" />
+=======
+                    Content="NOMBRE" Width="72" FontSize="13" />
+>>>>>>> Stashed changes
             </StackPanel>
             <Button x:Name="btnBuscarDeudores" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsDefault="True" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="BtnBuscarDeudores_Click">
                 <materialDesign:PackIcon
@@ -70,9 +74,15 @@
                 <RadioButton
                     x:Name="rdbNombreEmpresa"
                     Style="{StaticResource MaterialDesignTabRadioButton}"
+<<<<<<< Updated upstream
                     Margin="4,7.5"
                     IsChecked="True"
+                    Content="Nombre" />
+=======
+                    Margin="4"
+                    IsChecked="True"
                     Content="NOMBRE" />
+>>>>>>> Stashed changes
             </StackPanel>
             <Button x:Name="btnBuscarEmpresas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarEmpresas_Click">
                 <materialDesign:PackIcon

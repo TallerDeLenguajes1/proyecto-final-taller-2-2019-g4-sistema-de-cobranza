@@ -63,7 +63,11 @@ namespace WpfApp.Vistas
         {
             VentanaEmpresaAM AltaEmpresa = new VentanaEmpresaAM();
             AltaEmpresa.ShowDialog();
+<<<<<<< Updated upstream
             Refresh();
+=======
+            lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
+>>>>>>> Stashed changes
         }
 
         private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
@@ -72,22 +76,31 @@ namespace WpfApp.Vistas
             { 
                 VentanaEmpresaAM ModEmpresa = new VentanaEmpresaAM((Empresa)lbEmpresas.SelectedItem);
                 ModEmpresa.ShowDialog();
+<<<<<<< Updated upstream
                 Refresh();
+=======
+                lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
+>>>>>>> Stashed changes
             }
             else MessageBox.Show("No se ha elegido una empresa.");
         }
         private void btnBorrarEmpresa_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< Updated upstream
+            EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
+            Refresh();
+=======
             if (lbEmpresas.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar el Empresa? Esta accion borrara todas las deudas asociadas a esta", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
-            Refresh();
+                    lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
                 }
             }
             else MessageBox.Show("Debe seleccionar una Empresa.");
+>>>>>>> Stashed changes
         }
     }
 }

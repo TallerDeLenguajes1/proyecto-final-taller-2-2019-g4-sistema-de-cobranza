@@ -30,8 +30,11 @@ namespace WpfApp.Vistas
         public VentanaEmpresaAM(Empresa EmpresaRecibida)
         {
             InitializeComponent();
-            empresaX = EmpresaRecibida;
+            tbTitulo.Text = "Modificar Empresa";
             btnAgregarEmpresa.Visibility = Visibility.Collapsed;
+            txbCuit.IsEnabled = false;
+
+            empresaX = EmpresaRecibida;
             txbCuit.Text = empresaX.Cuit;
             txbNombre.Text = empresaX.Nombre;
         }
@@ -51,9 +54,17 @@ namespace WpfApp.Vistas
 
         private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
         {
+            empresaX = new Empresa();
             empresaX.Cuit = txbCuit.Text;
             empresaX.Nombre = txbNombre.Text;
-            //EmpresaABM.ModificarEmpresa(empresaX); // Todo
+            string estado = Helpers.VerificarCampos.VerificarEmpresa(empresaX);
+            if (estado == "true")
+            {
+                EmpresaABM.InsertarEmpresa(empresaX);
+                this.Close();
+            }
+            else MessageBox.Show(estado);
+            EmpresaABM.ModificarEmpresa(empresaX);
         }
     }
 }
