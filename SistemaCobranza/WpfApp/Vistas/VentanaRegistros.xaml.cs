@@ -115,5 +115,10 @@ namespace WpfApp.Vistas
             else return "usuario";
         }
 
+        private void btnExportar_Click(object sender, RoutedEventArgs e)
+        {
+
+            Helpers.ExprotarExcel.ExportarRegistro(lbRegistros.Items.OfType<Registro>().ToList());
+        }
     }
 }

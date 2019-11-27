@@ -12,7 +12,7 @@
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
-    
+
     <Grid HorizontalAlignment="Left" Width="1046" Margin="0,0,0,-0.4">
 
         <Menu x:Name="menu" Height="50" VerticalAlignment="Top" Background="{DynamicResource MaterialDesignBackground}" HorizontalAlignment="Left" Width="776" >
@@ -74,8 +74,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,455,0,0" Click="btnAltaRegsitro_Click"/>
-        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,515,0,0" Click="btnModRegistro_Click"/>
-        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,579,0,0" Click="btnBorrar_Click"/>
+        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,268,0,0" Click="btnAltaRegsitro_Click"/>
+        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,328,0,0" Click="btnModRegistro_Click"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,392,0,0" Click="btnBorrar_Click"/>
+        <Button x:Name="btnExportar" Content="EXPORTAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,604,0,0" Click="btnExportar_Click"/>
     </Grid>
 </Window>
