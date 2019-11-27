@@ -13,7 +13,7 @@ namespace Helpers
         {
             return 0 == StringComparer.OrdinalIgnoreCase.Compare(x, y); //compara las cadenas de texto ingresadas 
         }
-        public static string getmd5(string contra)
+        public static string Getmd5(string contra)
         {
             MD5 md5Convert = MD5.Create();//Crea el objeto md5
             //Convierte el string contra en array de bytes y lo codifica

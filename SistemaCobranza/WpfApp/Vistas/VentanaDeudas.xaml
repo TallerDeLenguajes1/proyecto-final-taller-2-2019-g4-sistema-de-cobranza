@@ -1,0 +1,68 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp.Vistas"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.VentanaDeudas"
+        mc:Ignorable="d"
+        Title="VentanaDeudas" Height="650.74" Width="767.786">
+    <Grid Margin="0,0,2.673,0.418">
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Deudas" VerticalAlignment="Top" Height="25" Width="78" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" />
+
+        <Grid HorizontalAlignment="Left" Height="141" Margin="10,40,0,0" VerticalAlignment="Top" Width="533" Background="#EEEEEE">
+            <StackPanel
+                Orientation="Horizontal"
+                Margin="10,10,0,0" HorizontalAlignment="Left" Width="268" Height="47" VerticalAlignment="Top">
+                <TextBlock  Margin="4" TextWrapping="Wrap" Text="Buscar por:" VerticalAlignment="Center" Height="18" Width="74" Style="{StaticResource MaterialDesignBody1TextBlock}" />
+                <RadioButton
+                    x:Name="rdbDni"
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4,8,4,7.127"
+                    IsChecked="True"
+                    Content="DNI" Width="72" FontSize="13" />
+                <RadioButton
+                     x:Name="rdbCuit"
+                    Style="{StaticResource MaterialDesignTabRadioButton}"
+                    Margin="4"
+                    IsChecked="False"
+                    Content="CUIT" />
+            </StackPanel>
+            <Button x:Name="btnBuscarDeudas" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" IsDefault="True" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarDeudas_Click">
+                <materialDesign:PackIcon
+                    Kind="Search"
+                    Height="24"
+                    Width="24" />
+            </Button>
+            <TextBox
+                x:Name="txbBuscarDeudas"
+                Style="{StaticResource MaterialDesignFilledTextFieldTextBox}"
+                TextWrapping="Wrap"
+                MaxWidth="400"
+                MinWidth="320"
+                Height="60"
+                materialDesign:HintAssist.Hint="Buscar deudas" Margin="10,62,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="320"/>
+        </Grid>
+
+
+        <ListView HorizontalAlignment="Left" Margin="10,199,0,-132.618" Width="600" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbDeudas">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cuit" Width="80" DisplayMemberBinding="{Binding Empresa.Cuit}" />
+                    <GridViewColumn Header="Empresa" Width="100" DisplayMemberBinding="{Binding Empresa.Nombre}" />
+                    <GridViewColumn Header="Dni" Width="80" DisplayMemberBinding="{Binding Deudor.Dni}" />
+                    <GridViewColumn Header="Apellido y Nombre" Width="200" DisplayMemberBinding="{Binding Deudor.ApellidoNombre}" />
+                    <GridViewColumn Header="Monto" Width="100" DisplayMemberBinding="{Binding Monto}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
+        <Button x:Name="btnAltaDeuda" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,421,0,0" Click="btnAltaDeuda_Click"/>
+        <Button x:Name="btnModDeuda" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,485,0,0" Click="btnModDeuda_Click"/>
+        <Button x:Name="btnBorrarDeuda" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="615,550,0,0" Click="btnBorrarDeuda_Click"/>
+
+
+    </Grid>
+</Window>

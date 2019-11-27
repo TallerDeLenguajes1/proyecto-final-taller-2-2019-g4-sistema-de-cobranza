@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 using AccesoADatos;
 using Entidades;
 
@@ -22,6 +23,7 @@ namespace WpfApp
     /// </summary>
     public partial class MainWindow : Window
     {
+        LogIn nuevologin;
         Usuario nuevo;
         //CrearUsuario nuevouser = new CrearUsuario();
         int nivel;
@@ -34,8 +36,10 @@ namespace WpfApp
             nuevo = new Usuario();
             nuevo.Nombre = txbuser.Text;
             nuevo.Contrasena = txbcontra.Text;
-            UsuarioABM.Loguear(nuevo);
-            if (nuevo.nivel == 0) MessageBox.Show("Error al iniciar sesión.");
+            nuevologin = new LogIn();
+            //nuevouser.Crearuser(nuevo);
+            nivel = nuevologin.Loguear(nuevo);
+            if (nivel == 0) MessageBox.Show("Error al iniciar sesión.");
             else MessageBox.Show("Sesión iniciada con éxito.");
         }
     }

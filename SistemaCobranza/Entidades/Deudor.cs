@@ -11,5 +11,10 @@ namespace Entidades
         public string Dni { get; set; }
         public string ApellidoNombre { get; set; }
         public string Telefono { get; set; }
+
+        public override string ToString()
+        {
+            return Dni + " | " + ApellidoNombre + " | " + Telefono;
+        }
     }
 }

@@ -10,5 +10,11 @@ namespace Entidades
     {
         public string Cuit { get; set; }
         public string Nombre { get; set; }
+        public override string ToString()
+        {
+            string Pasaje = Cuit + "/" + Nombre;
+            return Pasaje;
+        }
     }
+    
 }

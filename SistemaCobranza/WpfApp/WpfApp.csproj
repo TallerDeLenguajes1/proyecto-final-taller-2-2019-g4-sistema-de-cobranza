@@ -36,6 +36,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.2.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.2.0\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.6.0.325, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.6.0\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
       <HintPath>..\packages\NLog.4.6.8\lib\net45\NLog.dll</HintPath>
     </Reference>
@@ -64,7 +70,37 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Vistas\VentanaDeudaAM.xaml.cs">
+      <DependentUpon>VentanaDeudaAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaDeudas.xaml.cs">
+      <DependentUpon>VentanaDeudas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaDeudorAM.xaml.cs">
+      <DependentUpon>VentanaDeudorAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaEmpresaAM.xaml.cs">
+      <DependentUpon>VentanaEmpresaAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaDeudores.xaml.cs">
+      <DependentUpon>VentanaDeudores.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaEmpresas.xaml.cs">
+      <DependentUpon>VentanaEmpresas.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaRegistros.xaml.cs">
+      <DependentUpon>VentanaRegistros.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaRegistroAM.xaml.cs">
+      <DependentUpon>VentanaRegistroAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaUsuarioAM.xaml.cs">
+      <DependentUpon>VentanaUsuarioAM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Vistas\VentanaUsuarios.xaml.cs">
+      <DependentUpon>VentanaUsuarios.xaml</DependentUpon>
+    </Compile>
+    <Page Include="VentanaLogueo.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -72,10 +108,50 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="VentanaLogueo.xaml.cs">
+      <DependentUpon>VentanaLogueo.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Vistas\VentanaDeudaAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaDeudas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaDeudorAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaEmpresaAM.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaDeudores.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaEmpresas.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Vistas\VentanaRegistros.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VentanaRegistroAM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VentanaUsuarioAM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Vistas\VentanaUsuarios.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -110,9 +186,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Vistas\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\AccesoADatos\AccesoADatos.csproj">
       <Project>{6bbb69c9-c471-401b-bb62-d9ced00af04d}</Project>
@@ -121,6 +195,10 @@
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{04D65D24-CEEE-405B-AE96-48E259B7B2CE}</Project>
       <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{166c25b4-2fbd-439a-b93f-63a5cc0e2700}</Project>
+      <Name>Helpers</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

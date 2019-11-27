@@ -12,28 +12,30 @@ namespace AccesoADatos
     {
         private static NLog.Logger logger = NLog.LogManager.GetCurrentClassLogger();
 
+        /// <summary>
+        /// Retorna una lsita con todos los deudores
+        /// </summary>
+        /// <returns>Lista Deudores</returns>
         public static List<Deudor> ListaDeudores()
         {
-            // TODO  verificar conexion y clase Deudor 
-
             try
             {
                 List<Deudor> Deudores = new List<Deudor>();
                 Deudor deudorX;
                 Conexion con = new Conexion();
 
-                string sql = "select * from Deudor";
+                string sql = "select * from deudor";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
                 while (dr.Read())
                 {
                     deudorX = new Deudor();
-                    deudorX.Dni = dr.GetString("cuit");
-                    deudorX.ApellidoNombre = dr.GetString("nombre");
+                    deudorX.Dni = dr.GetString("dni");
+                    deudorX.ApellidoNombre = dr.GetString("ApellidoNombre");
+                    deudorX.Telefono = dr.GetString("telefono");
                     Deudores.Add(deudorX);
                 }
-                dr.Close();
                 dr.Dispose();
 
                 con.Close();
@@ -42,7 +44,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al buscar deudores");
                 return null;
             }
         }
@@ -53,7 +55,7 @@ namespace AccesoADatos
             try
             {
                 Conexion con = new Conexion();
-                string sql = @"Inset into alumno(dni,apellidoNombre,telefono) values(@Dni, @ApellidoNombre, @Telefono)";
+                string sql = @"Insert into deudor(dni,ApellidoNombre,telefono) values(@Dni, @ApellidoNombre, @Telefono)";
                 
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
@@ -65,7 +67,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al Insertar el deudor: " + deudorX.ApellidoNombre);
             }
         }
 
@@ -76,7 +78,7 @@ namespace AccesoADatos
             {
                 Conexion con = new Conexion();                
 
-                string sql = "select * from Deudor where dni='" + dni + "'"; // agregar parametro
+                string sql = "select * from deudor where dni='" + dni + "'"; // agregar parametro
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
 
@@ -85,6 +87,7 @@ namespace AccesoADatos
                 deudorX = new Deudor();
                 deudorX.Dni = dr.GetString("dni");
                 deudorX.ApellidoNombre = dr.GetString("ApellidoNombre");
+                deudorX.Telefono = dr.GetString("telefono");
 
                 dr.Close();
                 con.Close();
@@ -92,11 +95,91 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex);
+                logger.Error(ex.ToString(), "Error al buscar deudor");
                 return null;
             }
-
-
         }
+        /// <summary>
+        /// Retorna una lsita con los deudores acorde a los datos introducidos
+        /// </summary>
+        /// <param name="atributo"> recibe dni o nombre</param>
+        /// <returns>Lista Deudores</returns>
+        public static List<Deudor> DeudorPorAtributo(string atributo, string valor)
+        {
+            try
+            {
+                Deudor deudorX;
+                List<Deudor> Deudores = new List<Deudor>();
+                Conexion con = new Conexion();
+                string sql;
+                if (atributo == "dni") sql = @"SELECT * FROM deudor WHERE dni like @Valor";
+                else sql = @"SELECT * FROM deudor WHERE ApellidoNombre like @Valor";
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Valor", "%" + valor + "%");
+                var dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    deudorX = new Deudor();
+                    deudorX.Dni = dr["dni"].ToString();
+                    deudorX.ApellidoNombre = dr["ApellidoNombre"].ToString();
+                    deudorX.Telefono = dr["telefono"].ToString();
+                    Deudores.Add(deudorX);
+                }
+                dr.Close();
+                con.Close();
+                return Deudores;
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(), "Error al buscar deudores con los atributos " + atributo + ", " + valor + "");
+                return null;
+            }
+        }
+        /// <summary>
+        /// Modifica datos de una deudor a partir de su dni
+        /// </summary>
+        /// <param name="deudorX"></param>
+        public static void ModificarDeudor(Deudor deudorX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"UPDATE deudor SET apellidonombre = @ApellidoNombre, telefono = @Telefono WHERE dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@ApellidoNombre", deudorX.ApellidoNombre);
+                cmd.Parameters.AddWithValue("@Telefono", deudorX.Telefono);
+                cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
+                cmd.ExecuteNonQuery();
+
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(),"Error al modificar el deudor: "+ deudorX.ApellidoNombre);
+            }
+        }
+        /// <summary>
+        /// Borra una deudor de la BD segun su dni
+        /// </summary>
+        /// <param name="deudorX"></param>
+        public static void BorrarDeudor(Deudor deudorX)
+        {
+            try
+            {
+                Conexion con = new Conexion();
+                string sql = @"DELETE FROM deudor WHERE dni = @Dni";
+
+                var cmd = new MySqlCommand(sql, con.Connection);
+                cmd.Parameters.AddWithValue("@Dni", deudorX.Dni);
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex.ToString(), "Error al modificar el deudor: " + deudorX.ApellidoNombre);
+            }
+        }
+
     }
 }
