@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+	<compile Include="ArchivoDeConeccion.cs" />
+    <Compile Include="ArchivoConfig.cs" />
     <Compile Include="Contrasena.cs" />
     <Compile Include="ExportarExcel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
