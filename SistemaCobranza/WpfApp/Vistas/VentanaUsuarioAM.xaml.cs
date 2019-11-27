@@ -25,11 +25,13 @@ namespace WpfApp.Vistas
         public VentanaUsuarioAM()
         {
             InitializeComponent();
+            btnModificarUsuario.Visibility = Visibility.Collapsed;
         }
         public VentanaUsuarioAM(Usuario UsuarioRecibido)
         {
             Recibido = UsuarioRecibido;
             InitializeComponent();
+            btnAgregarUsuario.Visibility = Visibility.Collapsed;
             txbUsuario.Text = Recibido.Nombre;
             txbNivel.Text = Recibido.Nivel.ToString();
         }
@@ -40,6 +42,7 @@ namespace WpfApp.Vistas
             if (txbContrasena.Text != "") Recibido.Contrasena = txbContrasena.Text;
             Recibido.Nivel = Convert.ToInt32(txbNivel.Text);
             UsuarioABM.ModificarUsuario(Recibido);
+            this.Close();
         }
 
         private void btnAgregarUsuario_Click(object sender, RoutedEventArgs e)
@@ -49,6 +52,7 @@ namespace WpfApp.Vistas
             UsuarioNovo.Contrasena = txbContrasena.Text;
             UsuarioNovo.Nivel = Convert.ToInt32(txbNivel.Text);
             UsuarioABM.Crearuser(UsuarioNovo);
+            this.Close();
         }
     }
 }

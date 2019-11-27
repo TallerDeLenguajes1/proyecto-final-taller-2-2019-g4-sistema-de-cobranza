@@ -24,12 +24,17 @@ namespace WpfApp.Vistas
         public VentanaUsuarios()
         {
             InitializeComponent();
+            Refresh();
+        }
+        private void Refresh()
+        {
+            lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre("");
         }
         private void btnBuscarUsuarios_Click(object sender, RoutedEventArgs e)
         {
             if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarUsuarios.Text))
             {
-                lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre(txbBuscarUsuarios.Text);
+                Refresh();
                 if (lbUsuarios.Items.Count == 0) lblNoticia.Content = "No Match";
                 else lblNoticia.Content = "Se han encontrado " + lbUsuarios.Items.Count + " Coincidencias.";
             }
@@ -39,6 +44,7 @@ namespace WpfApp.Vistas
         {
             VentanaUsuarioAM AltaUsuario = new VentanaUsuarioAM();
             AltaUsuario.ShowDialog();
+            Refresh();
         }
 
         private void btnModUsuario_Click(object sender, RoutedEventArgs e)
@@ -47,6 +53,7 @@ namespace WpfApp.Vistas
             {
                 VentanaUsuarioAM ModUsuario = new VentanaUsuarioAM((Usuario)lbUsuarios.SelectedItem);
                 ModUsuario.ShowDialog();
+                Refresh();
             }
         }
 

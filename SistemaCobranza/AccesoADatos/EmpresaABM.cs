@@ -116,7 +116,6 @@ namespace AccesoADatos
                 logger.Error(ex.ToString());
             }
         }
-
         /// <summary>
         /// Busca en la base de datos y retorna un objeto empresa segun su cuit
         /// </summary>
@@ -153,7 +152,9 @@ namespace AccesoADatos
                 Empresa empresaX;
                 List<Empresa> listaEmpresa = new List<Empresa>();
                 Conexion con = new Conexion();
-                string sql = "select * from empresa where " + atributo + " like '%" + valor + "%'";
+                string sql;
+                if (atributo == "cuit") sql = "select * from empresa where cuit like '%" + valor + "%'";
+                else sql = "select * from empresa where nombre like '%" + valor + "%'";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 var dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -163,13 +164,13 @@ namespace AccesoADatos
                     empresaX.Nombre = dr.GetString("nombre");
                     listaEmpresa.Add(empresaX);
                 }
-                dr.Close();
+                dr.Dispose();
                 con.Close();
                 return listaEmpresa;
             }
             catch (Exception ex)
             {
-                logger.Error(ex.ToString());
+                logger.Error(ex.ToString(),"Fallo al buscar las empresas que coinciden con "+ valor +".");
                 return null;
             }
         }

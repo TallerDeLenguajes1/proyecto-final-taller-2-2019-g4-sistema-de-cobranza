@@ -26,14 +26,25 @@ namespace WpfApp.Vistas
         {
             UsuarioActual = usuarioRecibido;
             InitializeComponent();
-            lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
+            if (UsuarioActual.Nivel == 1) btnUsuario.Visibility = Visibility.Visible;
+            if (UsuarioActual.Nivel == 3)
+            {
+                btnModRegistro.Visibility = Visibility.Collapsed;
+                btnBorrar.Visibility = Visibility.Collapsed;
+            }
+            else if (UsuarioActual.Nivel == 2) btnBorrar.Visibility = Visibility.Collapsed;
+            Refresh();
             txbBuscar.Focus();
         }
-
+        private void Refresh()
+        {
+            lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
+        }
         private void btnDeudores_Click(object sender, RoutedEventArgs e)
         {
             Deudores ventanaDeudores = new Deudores(UsuarioActual);
             ventanaDeudores.ShowDialog();
+            Refresh();
         }
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
@@ -45,31 +56,43 @@ namespace WpfApp.Vistas
         }
         private void btnDeuda_Click(object sender, RoutedEventArgs e)
         {
-            VentanaDeudas ventanaDeudas = new VentanaDeudas();
+            VentanaDeudas ventanaDeudas = new VentanaDeudas(UsuarioActual);
             ventanaDeudas.ShowDialog();
+            Refresh();
         }
 
         private void btnEmpresas_Click(object sender, RoutedEventArgs e)
         {
             VentanaEmpresas ventanaEmpresas = new VentanaEmpresas(UsuarioActual);
             ventanaEmpresas.ShowDialog();
+            Refresh();
         }
 
         private void btnAltaRegsitro_Click(object sender, RoutedEventArgs e)
         {
             VentanaRegistroAM AltaRegistro = new VentanaRegistroAM(UsuarioActual);
             AltaRegistro.ShowDialog();
+            Refresh();
         }
 
         private void btnModRegistro_Click(object sender, RoutedEventArgs e)
         {
             VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual);
             ModRegistro.ShowDialog();
+            Refresh();
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
+            RegistroABM.BorrarRegistro((Registro)lbRegistros.SelectedItem);
+            Refresh();
+        }
 
+        private void btnUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaUsuarios Usuarios = new VentanaUsuarios();
+            Usuarios.ShowDialog();
+            Refresh();
         }
     }
 }

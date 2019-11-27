@@ -29,10 +29,15 @@ namespace WpfApp.Vistas
             {
                 btnBorrarEmpresa.Visibility = Visibility.Collapsed;
             }
-            else if(usuarioactual.Nivel == 3)
+            if(usuarioactual.Nivel == 3)
             {
+                btnAltaEmpresa.Visibility = Visibility.Collapsed;
                 btnModEmpresa.Visibility = Visibility.Collapsed;
             }
+            Refresh();
+        }
+        private void Refresh()
+        {
             lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
         }
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
@@ -42,12 +47,14 @@ namespace WpfApp.Vistas
                 if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
                 {
                     lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
+                    Refresh();
                 }
                 else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
             }
             else
             {
                 lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
+                Refresh();
             }
             if (lbEmpresas.Items.Count == 0) lblNoticia.Content = "No Match";
             else lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
@@ -56,6 +63,7 @@ namespace WpfApp.Vistas
         {
             VentanaEmpresaAM AltaEmpresa = new VentanaEmpresaAM();
             AltaEmpresa.ShowDialog();
+            Refresh();
         }
 
         private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
@@ -64,12 +72,14 @@ namespace WpfApp.Vistas
             { 
                 VentanaEmpresaAM ModEmpresa = new VentanaEmpresaAM((Empresa)lbEmpresas.SelectedItem);
                 ModEmpresa.ShowDialog();
+                Refresh();
             }
             else MessageBox.Show("No se ha elegido una empresa.");
         }
         private void btnBorrarEmpresa_Click(object sender, RoutedEventArgs e)
         {
             EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
+            Refresh();
         }
     }
 }

@@ -22,11 +22,11 @@ namespace AccesoADatos
             string str;
             //str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo, con contraseña
             str = "server=localhost;userid=root;database=cobranza"; //sin contraseña
+            //str = "server="+ datodelarchivo +";userid=" + datodelarchivo +";database=" + datodelarchivo + ";
             try
             {
                 this.connection = new MySqlConnection(str);
                 this.connection.Open();
-                
             }
             catch (Exception ex)
             {

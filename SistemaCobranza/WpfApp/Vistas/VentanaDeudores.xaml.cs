@@ -28,19 +28,20 @@ namespace WpfApp.Vistas
             {
                 btnBorrarDeudores.Visibility = Visibility.Collapsed;
                 btnModDeudores.Visibility = Visibility.Collapsed;
+                btnAltaDeudores.Visibility = Visibility.Collapsed;
             }
             else if(usuarioactual.Nivel == 2) 
             {
                 btnBorrarDeudores.Visibility = Visibility.Collapsed;
             }
-            lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
-        
+            Refresh();
         }
 
         private void btnAltaDeudores_Click(object sender, RoutedEventArgs e)
         {
             VentanaDeudorAM AltaDeudor = new VentanaDeudorAM();
             AltaDeudor.ShowDialog();
+            Refresh();
         }
 
         private void btnModDeudores_Click(object sender, RoutedEventArgs e)
@@ -50,6 +51,7 @@ namespace WpfApp.Vistas
                 Deudor deudorX =(Deudor) lbDeudores.SelectedItem; 
                 VentanaDeudorAM ModDeudor = new VentanaDeudorAM(deudorX);
                 ModDeudor.ShowDialog();
+                Refresh();
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
         }
@@ -61,11 +63,15 @@ namespace WpfApp.Vistas
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     DeudorABM.BorrarDeudor((Deudor)lbDeudores.SelectedItem);
+                    Refresh();
                 }
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
         }
-
+        private void Refresh()
+        {
+            lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
+        }
         private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
             if (rdbDni.IsChecked.Value && txbBuscarDeudores.Text != null)
@@ -74,7 +80,7 @@ namespace WpfApp.Vistas
             }
             else lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre",txbBuscarDeudores.Text);
             if (lbDeudores.Items.Count == 0) lblNoticia.Content = "No Match";
-            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " Empresas.";
+            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
         }
     }
 }

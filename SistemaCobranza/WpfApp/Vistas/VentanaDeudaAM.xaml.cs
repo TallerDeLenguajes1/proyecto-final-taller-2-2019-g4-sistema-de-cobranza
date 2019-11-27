@@ -58,12 +58,27 @@ namespace WpfApp.Vistas
         }
         private void BtnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            lbDeudores.ItemsSource = DeudorABM.DeudorPorDniParecidos(txbBuscarDeudores.Text);
+            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
+            {
+                if (rdbDni.IsChecked == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
+                else lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre", txbBuscarDeudores.Text);
+            }
+            else lbNoticiaDeudor.Content = "Dni sólo numero y Nombre sólo letras.";
+            if (lbDeudores.Items.Count == 0) lbNoticiaDeudor.Content = "No Match.";
+            else lbNoticiaDeudor.Content = "Se han encontrado "+ lbDeudores.Items.Count +" Coincidencias.";
         }
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
+            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
+            {
+                if (rdbCuit.IsChecked == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit", txbBuscarEmpresas.Text);
+                else lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
+            }
+            else lbNoticiaEmpresa.Content = "Dni sólo numero y Nombre sólo letras.";
+            if (lbEmpresas.Items.Count == 0) lbNoticiaEmpresa.Content = "No Match.";
+            else lbNoticiaEmpresa.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Coincidencias.";
+            
         }
 
         private void btnModificarDeuda_Click(object sender, RoutedEventArgs e)
@@ -83,6 +98,11 @@ namespace WpfApp.Vistas
             }
             else MessageBox.Show("Debe elegir al menos un Deudor y una Empresa.");
          
+        }
+
+        private void txbBuscarEmpresas_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter) btnBuscarEmpresas_Click(null,null);
         }
     }
 }

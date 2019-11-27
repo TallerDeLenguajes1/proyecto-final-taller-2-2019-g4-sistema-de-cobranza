@@ -50,7 +50,7 @@ namespace AccesoADatos
             try
             {
                 string str = Contrasena.Getmd5(u.Contrasena);//usa la funcion getmd5 para codificar la contraseña y para almacenarla en la base de datos
-                cmd = new MySqlCommand("Insert into usuario(user,contrasena,nivel) values('" + u.Nombre + "','" + str + "'," + 1 + ")", c.Connection);
+                cmd = new MySqlCommand("Insert into usuario(user,contrasena,nivel) values('" + u.Nombre + "','" + str + "'," + u.Nivel + ")", c.Connection);
                 cmd.ExecuteNonQuery();
                 cmd.Dispose();
                 c.Close();

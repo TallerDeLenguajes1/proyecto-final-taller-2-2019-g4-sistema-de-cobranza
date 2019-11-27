@@ -21,14 +21,25 @@ namespace WpfApp.Vistas
     /// </summary>
     public partial class VentanaDeudas : Window
     {
-
-        List<Deuda> deudas;
-        public VentanaDeudas()
+        public VentanaDeudas(Usuario usuarioRecibido)
         {
             InitializeComponent();
+            if(usuarioRecibido.Nivel == 2)
+            {
+                btnBorrarDeuda.Visibility = Visibility.Collapsed;
+            }
+            else if (usuarioRecibido.Nivel == 3)
+            {
+                btnAltaDeuda.Visibility = Visibility.Collapsed;
+                btnBorrarDeuda.Visibility = Visibility.Collapsed;
+                btnModDeuda.Visibility = Visibility.Collapsed;
+            }
+            Refresh();
+        }
+        private void Refresh()
+        {
             lbDeudas.ItemsSource = DeudaABM.ListadeDeudas();
         }
-
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
             if (rdbDni.IsChecked.Value)
@@ -39,11 +50,13 @@ namespace WpfApp.Vistas
             {
                 lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo("cuit", txbBuscarDeudas.Text);
             }
+            Refresh();
         }
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)
         {
             VentanaDeudaAM Altadeuda = new VentanaDeudaAM();
             Altadeuda.ShowDialog();
+            Refresh();
         }
         private void btnModDeuda_Click(object sender, RoutedEventArgs e)
         {
@@ -51,12 +64,14 @@ namespace WpfApp.Vistas
             {
                 VentanaDeudaAM deudaMod = new VentanaDeudaAM((Deuda)lbDeudas.SelectedItem);
                 deudaMod.ShowDialog();
+                Refresh();
             }
             else MessageBox.Show("Debes escoger una deuda de la lista para modificarla.");
         }
         private void btnBorrarDeuda_Click(object sender, RoutedEventArgs e)
         {
             DeudaABM.BorrarDeuda((Deuda)lbDeudas.SelectedItem);
+            Refresh();
         }
     }
 }

@@ -23,7 +23,7 @@
                     IsChecked="True"
                     Content="User" Width="72" FontSize="13" />
             </StackPanel>
-            <Button x:Name="btnBuscarUsuarios" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarUsuarios_Click">
+            <Button x:Name="btnBuscarUsuarios" IsDefault="True" Style="{StaticResource MaterialDesignFloatingActionMiniButton}" ToolTip="Buscar" Margin="338,65,0,0" MinHeight="55" MinWidth="55" VerticalAlignment="Top" HorizontalAlignment="Left" Click="btnBuscarUsuarios_Click">
                 <materialDesign:PackIcon
                     Kind="Search"
                     Height="24"
