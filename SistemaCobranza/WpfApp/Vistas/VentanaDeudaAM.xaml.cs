@@ -82,23 +82,17 @@ namespace WpfApp.Vistas
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-            if (rdbCuit.IsChecked.Value)
+
             if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
             {
                 if (rdbCuit.IsChecked == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit", txbBuscarEmpresas.Text);
                 else lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
             }
             else lbNoticiaEmpresa.Content = "Dni sólo numero y Nombre sólo letras.";
+            
             if (lbEmpresas.Items.Count == 0) lbNoticiaEmpresa.Content = "No Match.";
             else lbNoticiaEmpresa.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Coincidencias.";
             
-                }
-                else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
-            }
-            else
-            {
-                lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
-            }
         }
 
         private void btnModificarDeuda_Click(object sender, RoutedEventArgs e)
