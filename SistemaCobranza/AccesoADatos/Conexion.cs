@@ -19,8 +19,8 @@ namespace AccesoADatos
 
         public Conexion()
         {
-            string str;
-            str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo, con contraseña
+            string str = Helpers.ArchivoDeConeccion.ExtraerDirecciones()[0];
+            //str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo, con contraseña
             //str = "server=localhost;userid=root;database=cobranza"; //sin contraseña
             //str = "server="+ datodelarchivo +";userid=" + datodelarchivo +";database=" + datodelarchivo + ";
             try

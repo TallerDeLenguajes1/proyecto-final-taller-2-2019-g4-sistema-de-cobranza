@@ -7,14 +7,14 @@ using System.IO;
 
 namespace Helpers
 {
-    class ArchivoDeConeccion
+    public static class ArchivoDeConeccion
     {
 
         /// <summary>
         /// Lee un archivo y debuelve una lista con las direcciones
         /// </summary>
         /// <returns></returns>
-        public List<string> ExtraerDirecciones ()
+        public static List<string> ExtraerDirecciones ()
         {
             List<string> direcciones = new List<string>();
             // intenta leer un archivo
