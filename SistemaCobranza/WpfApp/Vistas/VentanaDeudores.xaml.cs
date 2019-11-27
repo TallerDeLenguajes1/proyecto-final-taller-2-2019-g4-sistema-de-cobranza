@@ -19,7 +19,7 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Deudores.xaml
     /// </summary>
-    public partial class Deudores : Window
+        public partial class Deudores : Window
     {
         public Deudores(Usuario usuarioactual)
         {
@@ -74,10 +74,11 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni": "nombre",txbBuscarDeudores.Text);
-
-            if (lbDeudores.Items.Count == 0) lblNoticia.Content = "No Match";
-            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
+            if ( txbBuscarDeudores.Text != null)
+            {
+                lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni" : "nombre",txbBuscarDeudores.Text);
+            }
+            lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
         }
     }
 }

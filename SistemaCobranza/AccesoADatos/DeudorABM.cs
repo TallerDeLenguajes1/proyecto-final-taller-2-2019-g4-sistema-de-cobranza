@@ -36,7 +36,6 @@ namespace AccesoADatos
                     deudorX.Telefono = dr.GetString("telefono");
                     Deudores.Add(deudorX);
                 }
-                dr.Close();
                 dr.Dispose();
 
                 con.Close();
@@ -113,7 +112,7 @@ namespace AccesoADatos
                 List<Deudor> Deudores = new List<Deudor>();
                 Conexion con = new Conexion();
                 string sql;
-                if (atributo == "dni") sql = @"SELECT * FROM deudor WHERE dni like @Valor"; 
+                if (atributo == "dni") sql = @"SELECT * FROM deudor WHERE dni like @Valor";
                 else sql = @"SELECT * FROM deudor WHERE ApellidoNombre like @Valor";
                 var cmd = new MySqlCommand(sql, con.Connection);
                 cmd.Parameters.AddWithValue("@Valor", "%" + valor + "%");
@@ -132,7 +131,7 @@ namespace AccesoADatos
             }
             catch (Exception ex)
             {
-                logger.Error(ex.ToString(),"Error al buscar deudores con los atributos "+ atributo+", " + valor +"");
+                logger.Error(ex.ToString(), "Error al buscar deudores con los atributos " + atributo + ", " + valor + "");
                 return null;
             }
         }

@@ -11,6 +11,8 @@ namespace AccesoADatos
     public class Conexion
     {
         MySqlConnection connection;
+        public static string direccion;
+
         public MySqlConnection Connection
         {
             get { return this.connection; }
@@ -19,13 +21,13 @@ namespace AccesoADatos
 
         public Conexion()
         {
-            string str = Helpers.ArchivoDeConeccion.ExtraerDirecciones()[0];
-            //str = "server=localhost;userid=root;pwd=1234;database=cobranza"; // traer de archivo, con contraseña
-            //str = "server=localhost;userid=root;database=cobranza"; //sin contraseña
-            //str = "server="+ datodelarchivo +";userid=" + datodelarchivo +";database=" + datodelarchivo + ";
+            if ( direccion == null)
+            {
+                direccion = Helpers.ArchivoConfig.configfile();
+            }
             try
             {
-                this.connection = new MySqlConnection(str);
+                this.connection = new MySqlConnection(direccion);
                 this.connection.Open();
             }
             catch (Exception ex)

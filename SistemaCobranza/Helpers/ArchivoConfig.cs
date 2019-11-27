@@ -4,25 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using NLog;
 
 namespace Helpers
 {
     public static class ArchivoConfig
     {
-        public static string[] configfile()
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+        public static string configfile()
         {
             string line = "";
             string[] dude = null;
             try
             {
-                string path = "C:\\Config";
-                if (!Directory.Exists(path))
+                if (File.Exists("configuracion.config"))
                 {
-                    Directory.CreateDirectory(path);
-                }
-                if (File.Exists("C:\\Config\\configuracion.config"))
-                {
-                    StreamReader fileexist = new StreamReader("C:\\Config\\configuracion.config");
+                    StreamReader fileexist = new StreamReader("configuracion.config");
                     int cont = 0;
                     while((line = fileexist.ReadLine()) != null)
                     {
@@ -38,11 +35,14 @@ namespace Helpers
                     }
                     fileexist.Close();
                     string[] datos = { dude[2], dude[5], dude[8], dude[11] };
-                    return datos;
+                    string str;
+                    if (datos[2] == "") str = "server=" + datos[0] + ";userid=" + datos[1] + ";database=" + datos[3];
+                    else str = "server=" + datos[0] + ";userid=" + datos[1] + ";pwd=" + datos[2] + ";database=" + datos[3];
+                return str;
                 }
                 else
                 {
-                    using (StreamWriter sw = File.AppendText("C:\\Config\\configuracion.config"))
+                    using (StreamWriter sw = File.AppendText("configuracion.config"))
                     {
                         sw.WriteLine("Servidor = localhost");
                         sw.WriteLine("Usuario = root");
@@ -50,13 +50,14 @@ namespace Helpers
                         sw.WriteLine("Nombre_de_DB = cobranza");
                         sw.Close();
                     }
-                    string[] datoscreados = { "localhost", "root", "", "cobranza" };
-                    return datoscreados;
+                    string str = "server=localhost;userid=root;database=cobranza";
+                    return str;
                 }
                 
             }
             catch (Exception ex)
             {
+                logger.Error(ex.ToString(), "No se pudo leer o crear archivo de configuracion");
                 return null;
             }
         }

@@ -34,9 +34,9 @@ namespace WpfApp.Vistas
         {
             if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarUsuarios.Text))
             {
-                Refresh();
-                if (lbUsuarios.Items.Count == 0) lblNoticia.Content = "No Match";
-                else lblNoticia.Content = "Se han encontrado " + lbUsuarios.Items.Count + " Coincidencias.";
+                lbUsuarios.ItemsSource = UsuarioABM.UsuarioPorNombre(txbBuscarUsuarios.Text);
+                lblNoticia.Content = "Se han encontrado " + lbUsuarios.Items.Count + " Coincidencias.";
+                
             }
             else lblNoticia.Content = "No se admiten numeros";
         }

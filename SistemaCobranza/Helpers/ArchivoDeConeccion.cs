@@ -21,7 +21,7 @@ namespace Helpers
             try
             {
                 string str="";
-                var file = new StreamReader (File.Open("coneccion.txt",FileMode.Open));
+                var file = new StreamReader (File.Open("conecciones.txt",FileMode.Open));
                 while ( file.Peek() >=0 )
                 {
                     str = file.ReadLine();
