@@ -28,7 +28,7 @@ namespace Helpers
             //    sw.Write("Monto;"); 
             //    sw.Write("Telefono;");
             //    sw.WriteLine("DNI;");
-            //    foreach (var item in registros)
+            //    foreach (var item in registros)   
             //    {
             //        sw.Write($"{item.Deuda.Empresa.Nombre};");
             //        sw.Write($"{item.Deuda.Deudor.ApellidoNombre};");
