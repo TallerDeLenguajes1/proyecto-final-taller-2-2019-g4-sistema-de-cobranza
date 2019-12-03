@@ -117,7 +117,6 @@ namespace WpfApp.Vistas
 
         private void btnExportar_Click(object sender, RoutedEventArgs e)
         {
-
             Helpers.ExprotarExcel.ExportarRegistro(lbRegistros.Items.OfType<Registro>().ToList());
         }
     }
