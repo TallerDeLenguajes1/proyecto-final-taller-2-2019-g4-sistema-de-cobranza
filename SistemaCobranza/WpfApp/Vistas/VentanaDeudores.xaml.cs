@@ -74,10 +74,22 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            if ( txbBuscarDeudores.Text != null)
+
+            if (rdbDni.IsChecked.Value == true)
             {
-                lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni" : "nombre",txbBuscarDeudores.Text);
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
             }
+            else if(rdbNombre.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre", txbBuscarDeudores.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            if (txbBuscarDeudores.Text == "")
+            {
+                Refresh();
+            }
+
             lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
         }
     }
