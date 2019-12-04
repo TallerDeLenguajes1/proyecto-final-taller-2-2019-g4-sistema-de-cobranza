@@ -28,8 +28,8 @@ CREATE TABLE `deuda` (
   `monto` double DEFAULT NULL,
   PRIMARY KEY (`dni`,`cuit`),
   KEY `fkCuitDeuda_idx` (`cuit`),
-  CONSTRAINT `fkCuitDeuda` FOREIGN KEY (`cuit`) REFERENCES `empresa` (`cuit`) ON UPDATE CASCADE,
-  CONSTRAINT `fkDniDeuda` FOREIGN KEY (`dni`) REFERENCES `deudor` (`dni`) ON UPDATE CASCADE
+  CONSTRAINT `fkCuitDeuda` FOREIGN KEY (`cuit`) REFERENCES `empresa` (`cuit`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fkDniDeuda` FOREIGN KEY (`dni`) REFERENCES `deudor` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -39,8 +39,24 @@ CREATE TABLE `deuda` (
 
 LOCK TABLES `deuda` WRITE;
 /*!40000 ALTER TABLE `deuda` DISABLE KEYS */;
+INSERT INTO `deuda` VALUES ('1515612','253615478',58353);
 /*!40000 ALTER TABLE `deuda` ENABLE KEYS */;
 UNLOCK TABLES;
+/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
+/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
+/*!50003 SET @saved_col_connection = @@collation_connection */ ;
+/*!50003 SET character_set_client  = utf8mb4 */ ;
+/*!50003 SET character_set_results = utf8mb4 */ ;
+/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
+/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
+/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
+DELIMITER ;;
+/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `borrarRegistro` AFTER DELETE ON `deuda` FOR EACH ROW DELETE FROM registro where dni=Old.dni and cuit=old.cuit */;;
+DELIMITER ;
+/*!50003 SET sql_mode              = @saved_sql_mode */ ;
+/*!50003 SET character_set_client  = @saved_cs_client */ ;
+/*!50003 SET character_set_results = @saved_cs_results */ ;
+/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `deudor`
@@ -63,6 +79,7 @@ CREATE TABLE `deudor` (
 
 LOCK TABLES `deudor` WRITE;
 /*!40000 ALTER TABLE `deudor` DISABLE KEYS */;
+INSERT INTO `deudor` VALUES ('1515612','Santiago Toledo','2385615'),('41238727','Ismael Marques','48674695');
 /*!40000 ALTER TABLE `deudor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,6 +103,7 @@ CREATE TABLE `empresa` (
 
 LOCK TABLES `empresa` WRITE;
 /*!40000 ALTER TABLE `empresa` DISABLE KEYS */;
+INSERT INTO `empresa` VALUES ('253615478','Personal');
 /*!40000 ALTER TABLE `empresa` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,21 +115,21 @@ DROP TABLE IF EXISTS `registro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `registro` (
-  `id_registro` int(11) NOT NULL,
-  `fechahora` datetime DEFAULT NULL,
+  `id_registro` int(11) NOT NULL AUTO_INCREMENT,
+  `fechahora` varchar(10) DEFAULT NULL,
   `observacion` varchar(45) DEFAULT NULL,
   `resultado` varchar(15) DEFAULT NULL,
-  `dni` varchar(10) DEFAULT NULL,
-  `cuit` varchar(15) DEFAULT NULL,
+  `dni` varchar(10) NOT NULL,
+  `cuit` varchar(15) NOT NULL,
   `id_usuario` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id_registro`),
-  KEY `fkDniRegistro_idx` (`dni`),
-  KEY `fkCuitRegistro_idx` (`cuit`),
+  PRIMARY KEY (`id_registro`,`cuit`,`dni`),
   KEY `fkUsuarioRegistro_idx` (`id_usuario`),
-  CONSTRAINT `fkCuitRegistro` FOREIGN KEY (`cuit`) REFERENCES `empresa` (`cuit`),
-  CONSTRAINT `fkDniRegistro` FOREIGN KEY (`dni`) REFERENCES `deudor` (`dni`),
-  CONSTRAINT `fkUsuarioRegistro` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  KEY `fkDniRegsitro_idx` (`dni`),
+  KEY `fkCuitRegistro_idx` (`cuit`),
+  CONSTRAINT `fkCuitRegistro` FOREIGN KEY (`cuit`) REFERENCES `empresa` (`cuit`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fkDniRegsitro` FOREIGN KEY (`dni`) REFERENCES `deudor` (`dni`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fkUsuarioRegistro` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -133,11 +151,11 @@ DROP TABLE IF EXISTS `usuario`;
 CREATE TABLE `usuario` (
   `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
   `user` varchar(45) DEFAULT NULL,
-  `contraseña` varchar(50) DEFAULT NULL,
+  `contrasena` varchar(50) DEFAULT NULL,
   `nivel` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `user_UNIQUE` (`user`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,6 +164,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+INSERT INTO `usuario` VALUES (1,'admin','21232f297a57a5a743894a0e4a801fc3',1);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -158,4 +177,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-04 21:23:41
+-- Dump completed on 2019-11-26 22:53:06

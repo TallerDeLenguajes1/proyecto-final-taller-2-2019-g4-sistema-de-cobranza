@@ -44,20 +44,19 @@ namespace WpfApp.Vistas
         {
             if (rdbCuit.IsChecked.Value)
             {
-                if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
-                {
-                    lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
-                    Refresh();
-                }
-                else MessageBox.Show("Cuit debe ser sólo numeros tal vez quiso buscar por nombre?.");
+                if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text)) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
             }
             else
             {
-                lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarEmpresas.Text) == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";  
+            }
+            if (txbBuscarEmpresas.Text == "")
+            {
                 Refresh();
             }
-            if (lbEmpresas.Items.Count == 0) lblNoticia.Content = "No Match";
-            else lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
+            lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
         }
         private void btnAltaEmpresa_Click(object sender, RoutedEventArgs e)
         {

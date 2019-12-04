@@ -19,7 +19,7 @@ namespace WpfApp.Vistas
     /// <summary>
     /// Lógica de interacción para Deudores.xaml
     /// </summary>
-    public partial class Deudores : Window
+        public partial class Deudores : Window
     {
         public Deudores(Usuario usuarioactual)
         {
@@ -51,11 +51,7 @@ namespace WpfApp.Vistas
                 Deudor deudorX =(Deudor) lbDeudores.SelectedItem; 
                 VentanaDeudorAM ModDeudor = new VentanaDeudorAM(deudorX);
                 ModDeudor.ShowDialog();
-<<<<<<< Updated upstream
                 Refresh();
-=======
-                lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
->>>>>>> Stashed changes
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
         }
@@ -67,11 +63,7 @@ namespace WpfApp.Vistas
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     DeudorABM.BorrarDeudor((Deudor)lbDeudores.SelectedItem);
-<<<<<<< Updated upstream
                     Refresh();
-=======
-                    lbDeudores.ItemsSource = DeudorABM.ListaDeudores();
->>>>>>> Stashed changes
                 }
             }
             else MessageBox.Show("Debe seleccionar un deudor.");
@@ -82,14 +74,30 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni": "nombre",txbBuscarDeudores.Text);
-
-            if (lbDeudores.Items.Count == 0) lblNoticia.Content = "No Match";
-<<<<<<< Updated upstream
-            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
+<<<<<<< HEAD
+            if ( txbBuscarDeudores.Text != null)
+            {
+                lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo(rdbDni.IsChecked.Value ? "dni" : "nombre",txbBuscarDeudores.Text);
+            }
 =======
-            else lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " Deudores.";
->>>>>>> Stashed changes
+
+            if (rdbDni.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else if(rdbNombre.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre", txbBuscarDeudores.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            if (txbBuscarDeudores.Text == "")
+            {
+                Refresh();
+            }
+
+>>>>>>> desarrolloVistas
+            lblNoticia.Content = "Se han encontrado " + lbDeudores.Items.Count + " coincidencias.";
         }
     }
 }

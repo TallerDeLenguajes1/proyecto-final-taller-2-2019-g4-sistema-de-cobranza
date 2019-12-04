@@ -39,10 +39,13 @@ namespace WpfApp.Vistas
                 
             }
             else lblNoticia.Content = "No se admiten numeros";
+<<<<<<< HEAD
+=======
             if (txbBuscarUsuarios.Text == "")
             {
                 Refresh();
             }
+>>>>>>> desarrolloVistas
         }
         private void btnAltaUsuario_Click(object sender, RoutedEventArgs e)
         {

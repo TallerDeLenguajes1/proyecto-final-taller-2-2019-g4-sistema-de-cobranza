@@ -48,9 +48,27 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
-            RegistroABM.RegistrosPorAtributo(RadioSeleccionado(), txbBuscar.Text);
             
-            lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
+            if (rdbDni.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else if (rdbCuit.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            else
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";
+            }
+            lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";            
+            if (txbBuscar.Text == "")
+            {
+                Refresh();
+            }
         }
         private void btnDeuda_Click(object sender, RoutedEventArgs e)
         {
@@ -99,7 +117,26 @@ namespace WpfApp.Vistas
 
         private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(RadioSeleccionado(), txbBuscar.Text);
+            if (rdbDni.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else if (rdbCuit.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            else
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";
+            }
+            if (txbBuscar.Text == "")
+            {
+                Refresh();
+            }
+            lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
         }
 
         private void btnUsuario_Click(object sender, RoutedEventArgs e)
@@ -115,5 +152,9 @@ namespace WpfApp.Vistas
             else return "usuario";
         }
 
+        private void btnExportar_Click(object sender, RoutedEventArgs e)
+        {
+            Helpers.ExprotarExcel.ExportarRegistro(lbRegistros.Items.OfType<Registro>().ToList());
+        }
     }
 }

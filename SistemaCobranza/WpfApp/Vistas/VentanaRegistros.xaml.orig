@@ -6,12 +6,18 @@
         xmlns:local="clr-namespace:WpfApp.Vistas"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="WpfApp.Vistas.VentanaRegistros"
         mc:Ignorable="d"
+<<<<<<< HEAD
         Title="Registros" Height="711" Width="1056.249"
+=======
+        Title="Registros" Height="738.491" Width="1056.249"
+        WindowStartupLocation="CenterScreen"
+>>>>>>> desarrolloVistas
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignBackground}"
         TextElement.FontWeight="Medium"
         TextElement.FontSize="14"
         FontFamily="pack://application:,,,/MaterialDesignThemes.Wpf;component/Resources/Roboto/#Roboto" >
+<<<<<<< HEAD
     
     <Grid HorizontalAlignment="Left" Width="1046" Margin="0,0,0,-0.4">
 
@@ -21,12 +27,25 @@
             <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="186" Height="40" Click="btnEmpresas_Click" />
             <MenuItem x:Name="btnUsuario" Header="USUARIOS" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="185" Height="40" Click="btnUsuario_Click" />
         </Menu>
-<<<<<<< Updated upstream
-        <Grid HorizontalAlignment="Left" Height="141" Margin="6,51,0,0" VerticalAlignment="Top" Width="532" Background="#EEEEEE">
-=======
-        
         <Grid HorizontalAlignment="Left" Height="141" Margin="10,81,0,0" VerticalAlignment="Top" Width="532" Background="#EEEEEE">
->>>>>>> Stashed changes
+=======
+
+    <Grid HorizontalAlignment="Left" Width="1046" Margin="0,0,0,0">
+
+        <Menu x:Name="menu" Height="60" VerticalAlignment="Top" Background="{DynamicResource PrimaryHueMidBrush}" HorizontalAlignment="Left" Width="1046" Foreground="#DDFFFFFF" >
+            <Menu.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <DockPanel/>
+                </ItemsPanelTemplate>
+            </Menu.ItemsPanel>
+            <MenuItem x:Name="btnDeudores" Header="DEUDORES" HorizontalAlignment="Left" VerticalAlignment="center" Width="Auto" Padding="30 0 30 0" Click="btnDeudores_Click" FontSize="16" FontWeight="SemiBold"/>
+            <MenuItem x:Name="btnDeuda"   Header="DEUDA"  HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto" Padding="30 0 30 0" Click="btnDeuda_Click" FontSize="16" FontWeight="SemiBold" />
+            <MenuItem x:Name="btnEmpresas" Header="EMPRESAS"  HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Padding="30 0 30 0"  Click="btnEmpresas_Click"  FontSize="16" FontWeight="SemiBold" />
+            <MenuItem x:Name="btnUsuario" Header="USUARIOS" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Center" Width="Auto" Padding="30 0 30 0" Click="btnUsuario_Click"  FontSize="16" FontWeight="SemiBold" />
+        </Menu>
+        <TextBlock Width="105" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="13,83,0,0" Height="26" HorizontalAlignment="Left"/>
+        <Grid HorizontalAlignment="Left" Height="141" Margin="13,114,0,0" VerticalAlignment="Top" Width="532" Background="#EEEEEE">
+>>>>>>> desarrolloVistas
             <StackPanel
 				Orientation="Horizontal"
 				Margin="10,10,0,0" HorizontalAlignment="Left" Width="383" Height="47" VerticalAlignment="Top">
@@ -65,14 +84,14 @@
 				Height="60"
 				materialDesign:HintAssist.Hint="Buscar registros" Margin="10,0,0,19" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="320" TextChanged="txbBuscar_TextChanged" />
         </Grid>
-<<<<<<< Updated upstream
-        <TextBlock Width="78" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignSubheadingTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="8,196,0,0" Height="26" HorizontalAlignment="Left"/>
-        <Label x:Name="lblNoticia" HorizontalContentAlignment="Right" Content="Estado." HorizontalAlignment="Right" Margin="0,227,185,0" VerticalAlignment="Top" Width="250"/>
-=======
+<<<<<<< HEAD
         <TextBlock Width="105" VerticalAlignment="Top" Text="Registros" TextWrapping="Wrap" Style="{StaticResource MaterialDesignTitleTextBlock}" RenderTransformOrigin="0.51,-1.272" Margin="10,50,0,0" Height="26" HorizontalAlignment="Left"/>
         <Label x:Name="lblNoticia" HorizontalContentAlignment="Left" Content="Estado." HorizontalAlignment="Right" Margin="0,228,786,0" VerticalAlignment="Top" Width="250"/>
->>>>>>> Stashed changes
         <ListView HorizontalAlignment="Left" Margin="10,254,0,0" Width="851" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbRegistros">
+=======
+        <Label x:Name="lblNoticia" HorizontalContentAlignment="Left" Content="Estado." HorizontalAlignment="Right" Margin="0,261,782,0" VerticalAlignment="Top" Width="250"/>
+        <ListView HorizontalAlignment="Left" Margin="13,287,0,0" Width="851" Background="#EEEEEE" Height="411" VerticalAlignment="Top"  x:Name="lbRegistros">
+>>>>>>> desarrolloVistas
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Cuit" Width="80" DisplayMemberBinding="{Binding Deuda.Empresa.Cuit}" />
@@ -84,8 +103,15 @@
                 </GridView>
             </ListView.View>
         </ListView>
+<<<<<<< HEAD
         <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,455,0,0" Click="btnAltaRegsitro_Click"/>
         <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,515,0,0" Click="btnModRegistro_Click"/>
         <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="885,579,0,0" Click="btnBorrar_Click"/>
+=======
+        <Button x:Name="btnAltaRegsitro" Content="ALTA" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="888,301,0,0" Click="btnAltaRegsitro_Click"/>
+        <Button x:Name="btnModRegistro" Content="MODIFICAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="888,361,0,0" Click="btnModRegistro_Click"/>
+        <Button x:Name="btnBorrar" Content="BORRAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="888,425,0,0" Click="btnBorrar_Click"/>
+        <Button x:Name="btnExportar" Content="EXPORTAR" HorizontalAlignment="Left" VerticalAlignment="Top" Width="115" Height="40" RenderTransformOrigin="0.48,0.65" Margin="888,637,0,0" Click="btnExportar_Click"/>
+>>>>>>> desarrolloVistas
     </Grid>
 </Window>

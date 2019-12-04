@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <packages>
+<<<<<<< HEAD
+=======
   <package id="Microsoft.Office.Interop.Excel" version="15.0.4795.1000" targetFramework="net452" />
+>>>>>>> desarrolloVistas
   <package id="NLog" version="4.6.8" targetFramework="net452" />
 </packages>

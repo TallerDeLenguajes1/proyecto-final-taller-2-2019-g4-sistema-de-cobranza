@@ -7,7 +7,11 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="Ventana Logueo" Height="311.533" Width="313.737"
+<<<<<<< HEAD
+        
+=======
         WindowStartupLocation="CenterScreen"
+>>>>>>> desarrolloVistas
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         Background="{DynamicResource MaterialDesignBackground}"
         TextElement.FontWeight="Medium"

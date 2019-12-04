@@ -44,6 +44,7 @@ namespace WpfApp.Vistas
         {
             if (rdbCuit.IsChecked.Value)
             {
+<<<<<<< HEAD
                 if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text))
                 {
                     lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
@@ -58,16 +59,27 @@ namespace WpfApp.Vistas
             }
             if (lbEmpresas.Items.Count == 0) lblNoticia.Content = "No Match";
             else lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
+=======
+                if (VerificarCampos.Verificarnum(txbBuscarEmpresas.Text)) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit",txbBuscarEmpresas.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarEmpresas.Text) == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";  
+            }
+            if (txbBuscarEmpresas.Text == "")
+            {
+                Refresh();
+            }
+            lblNoticia.Content = "Se han encontrado " + lbEmpresas.Items.Count + " Empresas.";
+>>>>>>> desarrolloVistas
         }
         private void btnAltaEmpresa_Click(object sender, RoutedEventArgs e)
         {
             VentanaEmpresaAM AltaEmpresa = new VentanaEmpresaAM();
             AltaEmpresa.ShowDialog();
-<<<<<<< Updated upstream
             Refresh();
-=======
-            lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
->>>>>>> Stashed changes
         }
 
         private void btnModEmpresa_Click(object sender, RoutedEventArgs e)
@@ -76,31 +88,22 @@ namespace WpfApp.Vistas
             { 
                 VentanaEmpresaAM ModEmpresa = new VentanaEmpresaAM((Empresa)lbEmpresas.SelectedItem);
                 ModEmpresa.ShowDialog();
-<<<<<<< Updated upstream
                 Refresh();
-=======
-                lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
->>>>>>> Stashed changes
             }
             else MessageBox.Show("No se ha elegido una empresa.");
         }
         private void btnBorrarEmpresa_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< Updated upstream
-            EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
-            Refresh();
-=======
             if (lbEmpresas.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar el Empresa? Esta accion borrara todas las deudas asociadas a esta", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     EmpresaABM.BorrarEmpresa((Empresa)lbEmpresas.SelectedItem);
-                    lbEmpresas.ItemsSource = EmpresaABM.listaEmpresas();
+            Refresh();
                 }
             }
             else MessageBox.Show("Debe seleccionar una Empresa.");
->>>>>>> Stashed changes
         }
     }
 }

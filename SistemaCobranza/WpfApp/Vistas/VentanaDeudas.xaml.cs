@@ -42,10 +42,13 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarDeudas_Click(object sender, RoutedEventArgs e)
         {
-            var radio = rdbDni.IsChecked.Value ? "dni" : "cuit ";
-            
-            lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo(radio, txbBuscarDeudas.Text);
-            Refresh();
+            if (Helpers.VerificarCampos.Verificarnum(txbBuscarDeudas.Text) == true) { 
+                var radio = rdbDni.IsChecked.Value ? "dni" : "cuit ";
+                lbDeudas.ItemsSource = DeudaABM.deudasPorAtributo(radio, txbBuscarDeudas.Text);
+            }
+            if(txbBuscarDeudas.Text == ""){
+                Refresh();
+            }
         }
 
         private void btnAltaDeuda_Click(object sender, RoutedEventArgs e)

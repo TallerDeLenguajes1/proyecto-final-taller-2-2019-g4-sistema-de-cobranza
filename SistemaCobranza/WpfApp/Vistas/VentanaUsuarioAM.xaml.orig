@@ -6,9 +6,13 @@
         xmlns:local="clr-namespace:WpfApp.Vistas"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+<<<<<<< HEAD
+        Title="VentanaUsuarioAM" Height="335.702" Width="319.936">
+=======
         WindowStartupLocation="CenterScreen"
         Title="VentanaUsuarioAM" Height="335.702" Width="319.936">
         
+>>>>>>> desarrolloVistas
     <Grid>
         <TextBlock x:Name="tbTitulo" HorizontalAlignment="Left" Margin="104,10,0,0" TextWrapping="Wrap" Text="Alta Usuario" TextAlignment="Center" VerticalAlignment="Top" Height="25" Width="96" Style="{StaticResource MaterialDesignSubheadingTextBlock}" />
 

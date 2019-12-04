@@ -48,9 +48,33 @@ namespace WpfApp.Vistas
         }
         private void btnBuscarRegistro_Click(object sender, RoutedEventArgs e)
         {
+<<<<<<< HEAD
             RegistroABM.RegistrosPorAtributo(RadioSeleccionado(), txbBuscar.Text);
             
             lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
+=======
+            
+            if (rdbDni.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else if (rdbCuit.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            else
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";
+            }
+            lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";            
+            if (txbBuscar.Text == "")
+            {
+                Refresh();
+            }
+>>>>>>> desarrolloVistas
         }
         private void btnDeuda_Click(object sender, RoutedEventArgs e)
         {
@@ -70,43 +94,22 @@ namespace WpfApp.Vistas
         {
             VentanaRegistroAM AltaRegistro = new VentanaRegistroAM(UsuarioActual);
             AltaRegistro.ShowDialog();
-<<<<<<< Updated upstream
             Refresh();
-=======
-            lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
->>>>>>> Stashed changes
         }
 
         private void btnModRegistro_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< Updated upstream
-            VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual);
-            ModRegistro.ShowDialog();
-            Refresh();
-=======
             if (lbRegistros.SelectedItem != null)
             {
                 VentanaRegistroAM ModRegistro = new VentanaRegistroAM(UsuarioActual, (Registro) lbRegistros.SelectedItem);
                 ModRegistro.ShowDialog();   
-                lbRegistros.ItemsSource = RegistroABM.ListaRegistros();
+            Refresh();
             }
             else MessageBox.Show("Debes escoger un registro de la lista para modificarlo.");
->>>>>>> Stashed changes
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
-<<<<<<< Updated upstream
-            RegistroABM.BorrarRegistro((Registro)lbRegistros.SelectedItem);
-            Refresh();
-        }
-
-        private void btnUsuario_Click(object sender, RoutedEventArgs e)
-        {
-            VentanaUsuarios Usuarios = new VentanaUsuarios();
-            Usuarios.ShowDialog();
-            Refresh();
-=======
             if (lbRegistros.SelectedItem != null)
             {
                 MessageBoxResult messageBoxResult = MessageBox.Show("Esta seguro que desea eliminar esta Registro?", "Confirmacion Borrar", System.Windows.MessageBoxButton.YesNo);
@@ -120,10 +123,38 @@ namespace WpfApp.Vistas
 
         private void txbBuscar_TextChanged(object sender, TextChangedEventArgs e)
         {
+<<<<<<< HEAD
             lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo(RadioSeleccionado(), txbBuscar.Text);
->>>>>>> Stashed changes
+=======
+            if (rdbDni.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("dni", txbBuscar.Text);
+                else lblNoticia.Content = "Dni debe contener sólo numeros.";
+            }
+            else if (rdbCuit.IsChecked.Value == true)
+            {
+                if (Helpers.VerificarCampos.Verificarnum(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("cuit", txbBuscar.Text);
+                else lblNoticia.Content = "Cuit debe contener sólo numeros.";
+            }
+            else
+            {
+                if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscar.Text) == true) lbRegistros.ItemsSource = RegistroABM.RegistrosPorAtributo("usuario", txbBuscar.Text);
+                else lblNoticia.Content = "Usuario debe contener sólo letras.";
+            }
+            if (txbBuscar.Text == "")
+            {
+                Refresh();
+            }
+            lblNoticia.Content = "Se encontraron " + lbRegistros.Items.Count.ToString() + " Coincidencias.";
+>>>>>>> desarrolloVistas
         }
 
+        private void btnUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            VentanaUsuarios Usuarios = new VentanaUsuarios();
+            Usuarios.ShowDialog();
+            Refresh();
+        }
         private string RadioSeleccionado()
         {
             if (rdbDni.IsChecked.Value) return "dni";
@@ -131,5 +162,12 @@ namespace WpfApp.Vistas
             else return "usuario";
         }
 
+<<<<<<< HEAD
+=======
+        private void btnExportar_Click(object sender, RoutedEventArgs e)
+        {
+            Helpers.ExprotarExcel.ExportarRegistro(lbRegistros.Items.OfType<Registro>().ToList());
+        }
+>>>>>>> desarrolloVistas
     }
 }

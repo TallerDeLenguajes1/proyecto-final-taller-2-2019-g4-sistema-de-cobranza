@@ -70,7 +70,7 @@ namespace WpfApp.Vistas
         }
         private void BtnBuscarDeudores_Click(object sender, RoutedEventArgs e)
         {
-            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
+            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true || txbBuscarDeudores.Text == "")
             {
                 if (rdbDni.IsChecked == true) lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("dni", txbBuscarDeudores.Text);
                 else lbDeudores.ItemsSource = DeudorABM.DeudorPorAtributo("nombre", txbBuscarDeudores.Text);
@@ -82,8 +82,7 @@ namespace WpfApp.Vistas
 
         private void btnBuscarEmpresas_Click(object sender, RoutedEventArgs e)
         {
-
-            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarDeudores.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarDeudores.Text) == true)
+            if (Helpers.VerificarCampos.Verificarcaracteres(txbBuscarEmpresas.Text) == true || Helpers.VerificarCampos.Verificarnum(txbBuscarEmpresas.Text) == true || txbBuscarEmpresas.Text == "")
             {
                 if (rdbCuit.IsChecked == true) lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("cuit", txbBuscarEmpresas.Text);
                 else lbEmpresas.ItemsSource = EmpresaABM.EmpresasPorAtributo("nombre", txbBuscarEmpresas.Text);
